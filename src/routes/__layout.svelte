@@ -21,8 +21,16 @@
 </footer>
 
 <style>
-	:global(body) {
+	:global(html, body) {
+		height: 100%;
 		margin: 0;
+		background-color: #a6d2d5;
+	}
+
+	:global(#svelte) {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	#nav-wrapper {
@@ -40,14 +48,19 @@
 	}
 
 	main {
+		padding: 1rem 0;
+		min-width: 1200px;
 		max-width: 1200px;
 		margin: 0 auto;
+		color: whitesmoke;
+		flex: 1 0 auto;
 	}
 
 	footer {
 		padding-top: 1rem;
 		background-color: #efeb92;
 		min-height: 3rem;
+		flex-shrink: 0;
 	}
 
 	#footer-banner {

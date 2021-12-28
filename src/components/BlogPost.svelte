@@ -1,1 +1,1 @@
-<p>Dette er en blog post</p>
+<p>This is a blog post</p>
