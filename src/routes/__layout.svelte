@@ -1,7 +1,7 @@
 <header>
 	<div id="nav-wrapper">
 		<nav>
-			<a href="/"><img alt="" src="https://sykkelkjokken.no/logo.png" /></a>
+			<a href="/"><img alt="" src="logo.svg" /></a>
 			<a href="/about">About</a>
 			<a href="/blog">Blog</a>
 			<a href="/events">Events</a>
