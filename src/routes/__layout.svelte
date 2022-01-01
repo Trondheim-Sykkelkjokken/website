@@ -49,18 +49,17 @@
 
 	main {
 		padding: 1rem 0;
-		min-width: 1200px;
 		max-width: 1200px;
 		margin: 0 auto;
 		color: whitesmoke;
-		flex: 1 0 auto;
+		flex-grow: 1;
+		width: 100%;
 	}
 
 	footer {
 		padding-top: 1rem;
 		background-color: #efeb92;
 		min-height: 3rem;
-		flex-shrink: 0;
 	}
 
 	#footer-banner {
