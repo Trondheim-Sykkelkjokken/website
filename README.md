@@ -29,4 +29,5 @@ npm run build
 ## Roadmap
 * Basic look and feel
 * CMS
+    * regex for slug in collection
 * I18
