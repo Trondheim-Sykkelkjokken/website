@@ -1,6 +1,6 @@
 <script context="module">
 	// Get posts info
-	const allPosts = import.meta.globEager(`../../content/posts/*.svx`);
+	const allPosts = import.meta.globEager(`../../content/posts/*.md`);
 
 	let posts = [];
 	// Get the posts' slugs

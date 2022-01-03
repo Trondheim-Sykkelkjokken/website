@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	const posts = import.meta.glob('../../content/posts/*.svx');
+	const posts = import.meta.glob('../../content/posts/*.md');
 	let body = [];
 
 	for (const path in posts) {
@@ -25,12 +25,13 @@
 <h1>Blog</h1>
 
 <ul>
-	{#each posts as { title, slug }}
+	{#each posts as { title, slug, publication_date }}
 		<li>
 			<a rel="prefetch" href="./blog/{slug}">
 				<h2>
 					{title}
 				</h2>
+				<date>{publication_date	}</date>
 			</a>
 		</li>
 	{/each}

@@ -10,7 +10,7 @@ collections:
       - name: title
       - name: slug
         hint: "Last part of URL after 'blog/'"
-      - name: publication-date
+      - name: publication_date
         widget: datetime
       - name: body
         widget: markdown
