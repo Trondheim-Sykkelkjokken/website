@@ -31,7 +31,7 @@
 				<h2>
 					{title}
 				</h2>
-				<date>{publication_date	}</date>
+				<date>{publication_date}</date>
 			</a>
 		</li>
 	{/each}
