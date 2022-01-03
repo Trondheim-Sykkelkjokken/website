@@ -14,6 +14,6 @@ collections:
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
-# site_url: https://your-site.com
-# display_url: https://your-site.com
-# logo_url: https://your-site.com/images/logo.svg
+site_url: https://dev.sykkelkjokken.no
+display_url: https://dev.sykkelkjokken.no
+logo_url: logo.svg
