@@ -1,7 +1,7 @@
 ---
 title: 'Test'
 slug: 'test'
-published_at: '3 April 2021'
+publication-date: '3 April 2021'
 ---
 
 # Test

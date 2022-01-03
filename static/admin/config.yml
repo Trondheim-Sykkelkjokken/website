@@ -4,11 +4,14 @@ backend:
 collections:
   - name: routes
     label: routes
-    folder: src/routes
+    folder: src/content/posts
     create: true
     fields:
       - name: title
-      - name: nav_label
+      - name: slug
+        hint: "Last part of URL after 'blog/'"
+      - name: publication-date
+        widget: datetime
       - name: body
         widget: markdown
 media_folder: "static/uploads"
