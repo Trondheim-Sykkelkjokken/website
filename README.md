@@ -30,4 +30,5 @@ npm run build
 * Basic look and feel
 * CMS
     * regex for slug in collection
+    * add preamble
 * I18
