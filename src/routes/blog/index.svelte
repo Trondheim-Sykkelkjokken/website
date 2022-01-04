@@ -27,7 +27,7 @@
 <ul>
 	{#each posts as { title, slug, publication_date }}
 		<li>
-			<a rel="prefetch" href="blog/{slug}">
+			<a rel="prefetch" href="/{slug}">
 				<h2>
 					{title}
 				</h2>
