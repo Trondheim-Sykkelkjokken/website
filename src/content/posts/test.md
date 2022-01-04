@@ -1,6 +1,7 @@
 ---
 title: Test
 slug: test
+preamble: "Dette er en test"
 publication_date: 2022-01-03T23:02:39.371Z
 ---
 # Test

@@ -8,6 +8,8 @@ collections:
     create: true
     fields:
       - name: title
+      - name: preamble
+        hint: "Lead paragraph - Såkalla ingress på norsk"
       - name: slug
         hint: "Last part of URL after 'blog/'"
       - name: publication_date

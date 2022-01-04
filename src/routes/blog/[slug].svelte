@@ -8,7 +8,9 @@
 		const post = allPosts[path];
 		const slug = post.metadata.slug;
 		const date = post.metadata.publication_date;
-		const p = { post, slug, date };
+		const preamble = post.metadata.preamble;
+		const title = post.metadata.title;
+		const p = { post, slug, date, preamble, title };
 		posts.push(p);
 	}
 
@@ -24,7 +26,9 @@
 			props: {
 				// Tell page to load that post's module
 				page: filteredPost.post.default,
-				date: filteredPost.date
+				date: filteredPost.date,
+				preamble: filteredPost.preamble,
+				title: filteredPost.title
 			}
 		};
 	}
@@ -34,10 +38,14 @@
 	// Declare the page variable to use on the client
 	export let page;
 	export let date;
+	export let preamble;
+	export let title;
 </script>
 
 <!-- Here we'll load the component of the blog post page itself -->
 <div>
+	<h1>{title}</h1>
 	<date>{date}</date>
+	<p>{preamble}</p>
 	<svelte:component this={page} />
 </div>

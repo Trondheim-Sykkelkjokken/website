@@ -25,12 +25,13 @@
 <h1>Blog</h1>
 
 <ul>
-	{#each posts as { title, slug, publication_date }}
+	{#each posts as { title, slug, publication_date, preamble }}
 		<li>
 			<a rel="prefetch" href="/blog/{slug}">
 				<h2>
 					{title}
 				</h2>
+				<p>{preamble}</p>
 				<date>{publication_date}</date>
 			</a>
 		</li>
