@@ -7,12 +7,13 @@ collections:
     folder: src/content/posts
     create: true
     fields:
+      - name: slug
+        hint: "Last part of URL after 'blog/'"
       - name: title
       - name: preamble
         hint: "Lead paragraph - Såkalla ingress på norsk"
-      - name: slug
-        hint: "Last part of URL after 'blog/'"
       - name: publication_date
+        label: publication Date
         widget: datetime
       - name: body
         widget: markdown
