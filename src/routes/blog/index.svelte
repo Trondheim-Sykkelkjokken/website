@@ -26,11 +26,11 @@
 	{#each posts as { title, slug, publication_date, preamble, image }}
 		<li>
 			<a rel="prefetch" href="/blog/{slug}">
-				<h2>
+				<h1>
 					{title}
-				</h2>
+				</h1>
 				<img src={image} alt="" />
-				<p>{preamble}</p>
+				<p class="preamble">{preamble}</p>
 				<date>{publication_date}</date>
 			</a>
 		</li>
@@ -49,5 +49,10 @@
 	a:active {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	.preamble {
+		font-size: 1.2rem;
+		font-weight: bold;
 	}
 </style>

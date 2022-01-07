@@ -35,14 +35,12 @@
 </script>
 
 <script>
-	// Declare the page variable to use on the client
 	export let page;
 	export let date;
 	export let preamble;
 	export let title;
 </script>
 
-<!-- Here we'll load the component of the blog post page itself -->
 <div>
 	<h1>{title}</h1>
 	<span>Published <date>{date}</date></span>

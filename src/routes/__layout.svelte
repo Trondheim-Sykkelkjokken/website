@@ -17,7 +17,13 @@
 </main>
 
 <footer>
-	<div id="footer-banner">Trondheim Sykkelkjøkken</div>
+	<div id="footer-banner">
+		Trondheim Sykkelkjøkken
+		<svg viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+			<!-- Rounded corner rectangle -->
+			<rect width="100%" height="50%" rx="90" />
+		</svg>
+	</div>
 </footer>
 
 <style>
@@ -25,7 +31,7 @@
 		height: 100%;
 		margin: 0;
 		background-color: #a6d2d5;
-        font-family: sans-serif;
+		font-family: sans-serif;
 	}
 
 	:global(#svelte) {
@@ -34,12 +40,25 @@
 		flex-direction: column;
 	}
 
+	a,
+	a:visited,
+	a:hover,
+	a:active {
+		color: inherit;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
 	#nav-wrapper {
 		background-color: #efeb92;
 	}
 	nav {
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+
+	svg {
+		width: 10rem;
 	}
 
 	img {
