@@ -1,7 +1,8 @@
 <header>
 	<div id="nav-wrapper">
+		<div class="heading-wrapper"><img class="heading" src="/title.png" alt="" /></div>
 		<nav>
-			<a href="/"><img alt="" src="/logo.svg" /></a>
+			<a href="/"><img class="cog" alt="" src="/logo.svg" /></a>
 			<a href="/about">About</a>
 			<a href="/blog">Blog</a>
 			<a href="/events">Events</a>
@@ -10,7 +11,9 @@
 			<a href="/contact">Contact</a>
 		</nav>
 	</div>
-	<div class="info" />
+	<div class="info">
+		<p class="infotext">We're open every <time>Thursday 17:00 - 20:00!</time></p>
+	</div>
 </header>
 
 <style>
@@ -21,8 +24,8 @@
 
 	nav {
 		max-width: 1000px;
-		margin: -5rem auto 0 auto;
 		display: flex;
+		margin: -10rem auto 0 auto;
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
@@ -44,14 +47,29 @@
 		top: 5rem;
 	}
 
-	.info {
-		height: 2rem;
-		background-color: #fcf6d2;
+	.heading-wrapper {
+		background-color: white;
 	}
 
-	img {
+	.heading {
+		height: 5rem;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.info {
+		background-color: #fcf6d2;
+		padding-top: 0.5rem;
+	}
+
+	.infotext {
+		text-align: center;
+		max-width: 11rem;
+		margin: 0 auto;
+	}
+
+	.cog {
 		display: inline;
-		width: 10rem;
-		left: 5rem;
+		width: 12rem;
 	}
 </style>
