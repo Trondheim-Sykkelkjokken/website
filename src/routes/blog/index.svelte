@@ -23,12 +23,13 @@
 </script>
 
 <ul>
-	{#each posts as { title, slug, publication_date, preamble }}
+	{#each posts as { title, slug, publication_date, preamble, image }}
 		<li>
 			<a rel="prefetch" href="/blog/{slug}">
 				<h2>
 					{title}
 				</h2>
+				<img src={image} alt="" />
 				<p>{preamble}</p>
 				<date>{publication_date}</date>
 			</a>
@@ -40,5 +41,13 @@
 	ul {
 		list-style: none;
 		padding: 0;
+	}
+
+	a,
+	a:visited,
+	a:hover,
+	a:active {
+		color: inherit;
+		text-decoration: none;
 	}
 </style>

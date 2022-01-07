@@ -14,8 +14,6 @@ collections:
         hint: "Last part of URL after 'blog/'"
       - name: publication_date
         widget: datetime
-      - name: image
-        widget: image
       - name: body
         widget: markdown
 media_folder: "static/uploads"

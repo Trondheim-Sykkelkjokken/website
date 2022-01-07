@@ -10,8 +10,7 @@
 		const date = post.metadata.publication_date;
 		const preamble = post.metadata.preamble;
 		const title = post.metadata.title;
-		const image = post.metadata.image;
-		const p = { post, slug, date, preamble, title, image };
+		const p = { post, slug, date, preamble, title };
 		posts.push(p);
 	}
 
@@ -29,8 +28,7 @@
 				page: filteredPost.post.default,
 				date: filteredPost.date,
 				preamble: filteredPost.preamble,
-				title: filteredPost.title,
-				image: filteredPost.image
+				title: filteredPost.title
 			}
 		};
 	}
@@ -42,13 +40,11 @@
 	export let date;
 	export let preamble;
 	export let title;
-	export let image;
 </script>
 
 <!-- Here we'll load the component of the blog post page itself -->
 <div>
 	<h1>{title}</h1>
-	<img src={image} alt="" />
 	<span>Published <date>{date}</date></span>
 	<p class="lead">{preamble}</p>
 	<svelte:component this={page} />
@@ -57,10 +53,6 @@
 <style>
 	h1 {
 		font-size: 3rem;
-	}
-
-	img {
-		max-width: 100%;
 	}
 
 	.lead {
