@@ -28,6 +28,7 @@
 
 <style>
 	:global(html, body) {
+		padding: 0;
 		height: 100%;
 		margin: 0;
 		background-color: #a6d2d5;
@@ -40,21 +41,27 @@
 		flex-direction: column;
 	}
 
+	#nav-wrapper {
+		background-color: #efeb92;
+	}
+
+	nav {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+	}
+
 	a,
 	a:visited,
 	a:hover,
 	a:active {
-		color: inherit;
+		color: #676a3e;
 		text-decoration: none;
 		text-transform: uppercase;
-	}
-
-	#nav-wrapper {
-		background-color: #efeb92;
-	}
-	nav {
-		max-width: 1200px;
-		margin: 0 auto;
+		flex-grow: 1;
+		font-size: 1.2rem;
+		align-self: baseline;
 	}
 
 	img {
@@ -93,6 +100,10 @@
 
 	.footer-item {
 		flex-grow: 1;
+	}
+
+	.footer-item:nth-child(2) {
+		text-align: center;
 	}
 
 	.footer-item:last-child {

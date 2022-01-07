@@ -2,7 +2,7 @@
 
 This is the website of Trondheim Sykkelkjøkken
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+This is a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
 
 ## Developing
@@ -26,9 +26,9 @@ npm run build
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
 
-## Roadmap
+## TODOs
 * Basic look and feel
 * CMS
     * regex for slug in collection
-    * add preamble
+* Active link in nav
 * I18

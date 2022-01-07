@@ -29,18 +29,30 @@
 				<h1>
 					{title}
 				</h1>
-				<img src={image} alt="" />
-				<p class="preamble">{preamble}</p>
-				<date>{publication_date}</date>
 			</a>
+			<img src={image} alt="" />
+			<p class="preamble">{preamble}</p>
+			<date>{publication_date}</date>
 		</li>
 	{/each}
 </ul>
 
 <style>
+	h1 {
+		margin-bottom: 0;
+	}
+
 	ul {
 		list-style: none;
-		padding: 0;
+	}
+
+	li {
+		padding-bottom: 1rem;
+		border-bottom: whitesmoke 1px dashed;
+	}
+
+	li:last-child {
+		border-style: none;
 	}
 
 	a,
