@@ -18,11 +18,11 @@
 
 <footer>
 	<div id="footer-banner">
-		Trondheim Sykkelkjøkken
-		<svg viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
-			<!-- Rounded corner rectangle -->
-			<rect width="100%" height="50%" rx="90" />
-		</svg>
+		<div class="flex-container">
+			<div class="footer-item">Stammen kafe og bar</div>
+			<div class="footer-item">Trondheim Sykkelkjøkken</div>
+			<div class="footer-item">Social media links here</div>
+		</div>
 	</div>
 </footer>
 
@@ -57,10 +57,6 @@
 		margin: 0 auto;
 	}
 
-	svg {
-		width: 10rem;
-	}
-
 	img {
 		display: inline;
 		width: 10rem;
@@ -84,5 +80,22 @@
 
 	#footer-banner {
 		background-color: #efa170;
+		width: 100%;
+	}
+
+	.flex-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+
+	.footer-item {
+		flex-grow: 1;
+	}
+
+	.footer-item:last-child {
+		text-align: right;
 	}
 </style>
