@@ -25,6 +25,7 @@
 		height: 100%;
 		margin: 0;
 		background-color: #a6d2d5;
+        font-family: sans-serif;
 	}
 
 	:global(#svelte) {

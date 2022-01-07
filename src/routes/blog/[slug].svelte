@@ -45,7 +45,18 @@
 <!-- Here we'll load the component of the blog post page itself -->
 <div>
 	<h1>{title}</h1>
-	<date>{date}</date>
-	<p>{preamble}</p>
+	<span>Published <date>{date}</date></span>
+	<p class="lead">{preamble}</p>
 	<svelte:component this={page} />
 </div>
+
+<style>
+	h1 {
+		font-size: 3rem;
+	}
+
+	.lead {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+</style>

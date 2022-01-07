@@ -22,8 +22,6 @@
 	export let posts;
 </script>
 
-<h1>Blog</h1>
-
 <ul>
 	{#each posts as { title, slug, publication_date, preamble }}
 		<li>
@@ -41,5 +39,6 @@
 <style>
 	ul {
 		list-style: none;
+		padding: 0;
 	}
 </style>
