@@ -42,9 +42,10 @@
 		align-self: baseline;
 	}
 
+	/*cog*/
 	a:first-child {
 		position: relative;
-		top: 5rem;
+		top: 6rem;
 	}
 
 	.heading-wrapper {
@@ -55,6 +56,10 @@
 		height: 5rem;
 		margin: 0 auto;
 		display: block;
+		max-width: 100%;
+		max-height: 4rem;
+		width: auto;
+		height: auto;
 	}
 
 	.info {
