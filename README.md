@@ -31,4 +31,5 @@ npm run build
 * CMS
     * regex for slug in collection
 * Active link in nav
+* Mobile
 * I18

@@ -46,10 +46,11 @@
 	}
 
 	nav {
-		max-width: 1200px;
+		max-width: 1000px;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 	}
 
 	a,
@@ -72,7 +73,7 @@
 
 	main {
 		padding: 1rem 0;
-		max-width: 1200px;
+		max-width: 800px;
 		margin: 0 auto;
 		color: whitesmoke;
 		flex-grow: 1;
@@ -91,7 +92,7 @@
 	}
 
 	.flex-container {
-		max-width: 1200px;
+		max-width: 1000px;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: row;
