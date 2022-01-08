@@ -1,14 +1,18 @@
+<script>
+	import NavLink from './NavLink.svelte';
+</script>
+
 <header>
 	<div id="nav-wrapper">
 		<div class="heading-wrapper"><img class="heading" src="/title.png" alt="" /></div>
 		<nav>
 			<a href="/"><img class="cog" alt="" src="/logo.svg" /></a>
-			<a href="/about">About</a>
-			<a href="/blog">Blog</a>
-			<a href="/events">Events</a>
-			<a href="/resources">Resources</a>
-			<a href="/getinvolved">Get involved</a>
-			<a href="/contact">Contact</a>
+			<NavLink href="/about">About</NavLink>
+			<NavLink href="/blog">Blog</NavLink>
+			<NavLink href="/events">Events</NavLink>
+			<NavLink href="/resources">Resources</NavLink>
+			<NavLink href="/getinvolved">Get involved</NavLink>
+			<NavLink href="/contact">Contact</NavLink>
 		</nav>
 	</div>
 	<div class="info">
