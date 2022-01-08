@@ -30,6 +30,8 @@ npm run build
 * Basic look and feel
 * CMS
     * regex for slug in collection
+    * format on date
+    * event collection
 * Active link in nav
-* Mobile
+* Mobile view
 * I18

@@ -1,15 +1,20 @@
 <script context="module" lang="ts">
-	const posts = import.meta.glob('../../content/posts/*.md');
-	let body = [];
+	// Get posts info
+	const allPosts = import.meta.globEager(`../../content/posts/*.md`);
 
-	for (const path in posts) {
-		body.push(posts[path]().then(({ metadata }) => metadata));
+	let posts = [];
+	// Get the posts' metadata
+	for (let path in allPosts) {
+		const post = allPosts[path];
+		const slug = post.metadata.slug;
+		const date = post.metadata.publication_date;
+		const preamble = post.metadata.preamble;
+		const title = post.metadata.title;
+		const p = { post, slug, date, preamble, title };
+		posts.push(p);
 	}
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
+
 	export async function load() {
-		const posts = await Promise.all(body);
 		return {
 			props: {
 				posts
@@ -23,16 +28,16 @@
 </script>
 
 <ul>
-	{#each posts as { title, slug, publication_date, preamble, image }}
+	{#each posts as { title, slug, date, preamble, post }}
 		<li>
 			<a rel="prefetch" href="/blog/{slug}">
 				<h1>
 					{title}
 				</h1>
+				<date>{date}</date>
+				<p class="preamble">{preamble}</p>
+				<svelte:component this={post.default} />
 			</a>
-			<img src={image} alt="" />
-			<p class="preamble">{preamble}</p>
-			<date>{publication_date}</date>
 		</li>
 	{/each}
 </ul>
