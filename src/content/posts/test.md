@@ -1,7 +1,6 @@
 ---
 title: Test
 slug: test
-preamble: Roof party portland hexagon, church-key authentic tumeric irony retro wayfarers disrupt truffaut. Bicycle rights bushwick DIY godard, chartreuse deep v pok pok health goth kickstarter farm-to-table fashion axe disrupt iceland trust fund. Taxidermy squid disrupt, flexitarian williamsburg viral subway tile. Williamsburg organic man braid, next level pop-up flexitarian selvage disrupt roof party.
 publication_date: 2022-01-03T23:02:39.371Z
 ---
 

@@ -14,6 +14,7 @@
 <style>
 	:global(html, body) {
 		padding: 0;
+		font-size: 100%;
 		height: 100%;
 		margin: 0;
 		background-color: #a6d2d5;

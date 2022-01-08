@@ -1,8 +1,5 @@
 ---
 title: Foo
-preamble: Ham hock pig venison, rump flank capicola turkey tail pork loin jowl.
-  Strip steak boudin sausage, ham bresaola cow tenderloin. Leberkas pastrami
-  ground round meatloaf short ribs picanha salami chicken sirloin.
 slug: bar
 publication_date: 2022-01-03T22:43:48.463Z
 ---

@@ -10,8 +10,6 @@ collections:
       - name: slug
         hint: "Last part of URL after 'blog/'"
       - name: title
-      - name: preamble
-        hint: "Lead paragraph - Såkalla ingress på norsk"
       - name: publication_date
         label: publication Date
         widget: datetime

@@ -8,9 +8,8 @@
 		const post = allPosts[path];
 		const slug = post.metadata.slug;
 		const date = post.metadata.publication_date;
-		const preamble = post.metadata.preamble;
 		const title = post.metadata.title;
-		const p = { post, slug, date, preamble, title };
+		const p = { post, slug, date, title };
 		posts.push(p);
 	}
 
@@ -28,14 +27,13 @@
 </script>
 
 <ul>
-	{#each posts as { title, slug, date, preamble, post }}
+	{#each posts as { title, slug, date, post }}
 		<li>
 			<a rel="prefetch" href="/blog/{slug}">
 				<h1>
 					{title}
 				</h1>
-				<date>{date}</date>
-				<p class="preamble">{preamble}</p>
+				<span>Published: <date>{date}</date></span>
 				<svelte:component this={post.default} />
 			</a>
 		</li>
@@ -67,10 +65,5 @@
 	a:active {
 		color: inherit;
 		text-decoration: none;
-	}
-
-	.preamble {
-		font-size: 1.2rem;
-		font-weight: bold;
 	}
 </style>
