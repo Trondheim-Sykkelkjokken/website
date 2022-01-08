@@ -1,9 +1,7 @@
 <script context="module" lang="ts">
-	// Get posts info
 	const allPosts = import.meta.globEager(`../../content/posts/*.md`);
 
 	let posts = [];
-	// Get the posts' metadata
 	for (let path in allPosts) {
 		const post = allPosts[path];
 		const slug = post.metadata.slug;
@@ -23,28 +21,22 @@
 </script>
 
 <script lang="ts">
+	import BlogPost from '../../components/BlogPost.svelte';
+
 	export let posts;
 </script>
 
 <ul>
-	{#each posts as { title, slug, date, post }}
+	{#each posts as post}
 		<li>
-			<a rel="prefetch" href="/blog/{slug}">
-				<h1>
-					{title}
-				</h1>
-				<span>Published: <date>{date}</date></span>
-				<svelte:component this={post.default} />
+			<a href="/blog/{post.slug}">
+				<BlogPost {post} />
 			</a>
 		</li>
 	{/each}
 </ul>
 
 <style>
-	h1 {
-		margin-bottom: 0;
-	}
-
 	ul {
 		list-style: none;
 		padding: 0;

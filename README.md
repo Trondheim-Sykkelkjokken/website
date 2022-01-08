@@ -32,6 +32,7 @@ npm run build
     * regex for slug in collection
     * format on date
     * event collection
+* Order posts by date
 * Active link in nav
 * Mobile view
 * I18

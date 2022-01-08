@@ -24,28 +24,15 @@
 		return {
 			props: {
 				// Tell page to load that post's module
-				page: filteredPost.post.default,
-				date: filteredPost.date,
-				title: filteredPost.title
+				post: filteredPost
 			}
 		};
 	}
 </script>
 
 <script>
-	export let page;
-	export let date;
-	export let title;
+	import BlogPost from '../../components/BlogPost.svelte';
+	export let post;
 </script>
 
-<div>
-	<h1>{title}</h1>
-	<span>Published <date>{date}</date></span>
-	<svelte:component this={page} />
-</div>
-
-<style>
-	h1 {
-		font-size: 3rem;
-	}
-</style>
+<BlogPost {post} />
