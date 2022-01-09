@@ -17,14 +17,15 @@
 		font-size: 105%;
 		height: 100%;
 		margin: 0;
-		background-color: #a6d2d5;
+		background-color: white;
 		font-family: sans-serif;
 	}
 
 	:global(#svelte) {
-		height: 100%;
+		min-height: 100%;
 		display: flex;
 		flex-direction: column;
+		background-color: #a6d2d5;
 	}
 
 	main {

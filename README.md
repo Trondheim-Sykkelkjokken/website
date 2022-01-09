@@ -33,6 +33,6 @@ npm run build
     * format on date
     * event collection
 * Order posts by date
-* Fix layout shift on nav
+* Fix stupid scrollpast bug
 * Mobile view
 * I18
