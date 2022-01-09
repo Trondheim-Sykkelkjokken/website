@@ -7,12 +7,12 @@
 		<div class="heading-wrapper"><img class="heading" src="/title.png" alt="" /></div>
 		<nav>
 			<a href="/"><img class="cog" alt="" src="/logo.svg" /></a>
-			<NavLink href="/about">About</NavLink>
-			<NavLink href="/blog">Blog</NavLink>
-			<NavLink href="/events">Events</NavLink>
-			<NavLink href="/resources">Resources</NavLink>
-			<NavLink href="/getinvolved">Get involved</NavLink>
-			<NavLink href="/contact">Contact</NavLink>
+			<NavLink title="About" href="/about">About</NavLink>
+			<NavLink title="Blog" href="/blog">Blog</NavLink>
+			<NavLink title="Events" href="/events">Events</NavLink>
+			<NavLink title="Resources" href="/resources">Resources</NavLink>
+			<NavLink title="Get involved" href="/getinvolved">Get involved</NavLink>
+			<NavLink title="Contact" href="/contact">Contact</NavLink>
 		</nav>
 	</div>
 	<div class="info">

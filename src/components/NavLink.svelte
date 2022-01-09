@@ -3,9 +3,10 @@
 	$: isActive = $page.path.startsWith($$props.href);
 
 	export let href;
+	export let title;
 </script>
 
-<a {href} {...$$props} class:active={isActive}>
+<a {href} {title} class:active={isActive}>
 	<slot />
 </a>
 
@@ -23,5 +24,16 @@
 
 	a.active {
 		font-weight: bolder;
+	}
+
+	/*Horrible hack */
+	a::after {
+		display: block;
+		content: attr(title);
+		font-weight: bolder;
+		height: 1px;
+		color: transparent;
+		overflow: hidden;
+		visibility: hidden;
 	}
 </style>
