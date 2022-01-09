@@ -17,7 +17,6 @@
 		font-size: 105%;
 		height: 100%;
 		margin: 0;
-		background-color: white;
 		font-family: sans-serif;
 	}
 

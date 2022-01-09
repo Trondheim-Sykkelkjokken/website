@@ -7,6 +7,19 @@
 	<link rel="icon" href="/favicon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	<script>
+		var scrollPos = 0;
+		window.addEventListener('scroll', function () {
+			if ((document.body.getBoundingClientRect()).top > scrollPos) {
+				document.body.style.backgroundColor = "white";
+			}
+			else {
+				document.body.style.backgroundColor = "#efeb92";
+			}
+			scrollPos = (document.body.getBoundingClientRect()).top;
+		});
+	</script>
+
 	%svelte.head%
 </head>
 
