@@ -21,37 +21,6 @@
 </header>
 
 <style>
-	#nav-wrapper {
-		background-color: #efeb92;
-		padding-bottom: 1rem;
-	}
-
-	nav {
-		max-width: 1000px;
-		display: flex;
-		margin: -10rem auto 0 auto;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-
-	a,
-	a:visited,
-	a:hover,
-	a:active {
-		color: #676a3e;
-		text-decoration: none;
-		text-transform: uppercase;
-		flex-grow: 1;
-		font-size: 1.2rem;
-		align-self: baseline;
-	}
-
-	/*cog*/
-	a:first-child {
-		position: relative;
-		top: 6rem;
-	}
-
 	.heading-wrapper {
 		background-color: white;
 	}
@@ -66,6 +35,30 @@
 		height: auto;
 	}
 
+	#nav-wrapper {
+		background-color: #efeb92;
+		padding-bottom: 1rem;
+	}
+
+	nav {
+		max-width: 1000px;
+		display: flex;
+		margin: -10rem auto 0 auto;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	a {
+		align-self: baseline;
+	}
+
+	.cog {
+		display: inline;
+		width: 12rem;
+		position: relative;
+		top: 6rem;
+	}
+
 	.info {
 		background-color: #fcf6d2;
 		padding-top: 0.5rem;
@@ -73,12 +66,7 @@
 
 	.infotext {
 		text-align: center;
-		max-width: 11rem;
+		max-width: 12rem;
 		margin: 0 auto;
-	}
-
-	.cog {
-		display: inline;
-		width: 12rem;
 	}
 </style>
