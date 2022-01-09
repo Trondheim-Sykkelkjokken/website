@@ -1,12 +1,16 @@
 <script>
+	import MobileNav from './MobileNav.svelte';
 	import NavLink from './NavLink.svelte';
 </script>
 
 <header>
+	<MobileNav />
 	<div id="nav-wrapper">
-		<div class="heading-wrapper"><img class="heading" src="/title.png" alt="" /></div>
+		<div class="heading-wrapper">
+			<img class="heading" src="/title.png" alt="" />
+		</div>
 		<nav>
-			<a href="/"><img class="cog" alt="" src="/logo.svg" /></a>
+			<a href="/" class="cog"><img alt="" src="/logo.svg" /></a>
 			<NavLink title="About" href="/about">About</NavLink>
 			<NavLink title="Blog" href="/blog">Blog</NavLink>
 			<NavLink title="Events" href="/events">Events</NavLink>
@@ -23,21 +27,21 @@
 <style>
 	.heading-wrapper {
 		background-color: white;
+		width: 100%;
 	}
 
 	.heading {
 		height: 5rem;
-		margin: 0 auto;
 		display: block;
-		max-width: 100%;
+		max-width: 80%;
 		max-height: 4rem;
 		width: auto;
 		height: auto;
+		margin: 0 auto;
 	}
 
 	#nav-wrapper {
 		background-color: #efeb92;
-		padding-bottom: 1rem;
 	}
 
 	nav {
@@ -46,6 +50,7 @@
 		margin: -10rem auto 0 auto;
 		flex-direction: row;
 		flex-wrap: wrap;
+		padding-bottom: 1rem;
 	}
 
 	a {
@@ -59,9 +64,19 @@
 		top: 6rem;
 	}
 
+	@media (max-width: 480px) {
+		.cog {
+			display: none;
+		}
+
+		nav {
+			display: none;
+		}
+	}
+
 	.info {
 		background-color: #fcf6d2;
-		padding-top: 0.5rem;
+		padding: 0.5rem;
 	}
 
 	.infotext {

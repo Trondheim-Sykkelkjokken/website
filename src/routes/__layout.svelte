@@ -20,6 +20,10 @@
 		font-family: sans-serif;
 	}
 
+	:global(img) {
+		max-width: 100%;
+	}
+
 	:global(#svelte) {
 		min-height: 100%;
 		display: flex;
@@ -28,11 +32,11 @@
 	}
 
 	main {
-		padding: 1rem 0;
+		padding: 1rem 1rem;
 		max-width: 800px;
 		margin: 0 auto;
 		color: whitesmoke;
 		flex-grow: 1;
-		width: 100%;
+		width: calc(100% - 2rem);
 	}
 </style>

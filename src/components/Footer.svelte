@@ -49,8 +49,8 @@
 
 	#footer-banner {
 		background-color: #efa170;
-		width: 100%;
-		padding: 1rem 0;
+		width: calc(100% - 2rem);
+		padding: 1rem 1rem;
 	}
 
 	.flex-container {
