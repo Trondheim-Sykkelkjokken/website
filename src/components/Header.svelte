@@ -1,16 +1,14 @@
 <script>
-	import MobileNav from './MobileNav.svelte';
 	import NavLink from './NavLink.svelte';
 </script>
 
 <header>
-	<MobileNav />
+	<div class="cog-wrapper"><a href="/"><img class="cog" alt="" src="/logo.svg" /></a></div>
+	<div class="heading-wrapper">
+		<img class="heading" src="/title.png" alt="" />
+	</div>
 	<div id="nav-wrapper">
-		<div class="heading-wrapper">
-			<img class="heading" src="/title.png" alt="" />
-		</div>
 		<nav>
-			<a href="/" class="cog"><img alt="" src="/logo.svg" /></a>
 			<NavLink title="About" href="/about">About</NavLink>
 			<NavLink title="Blog" href="/blog">Blog</NavLink>
 			<NavLink title="Events" href="/events">Events</NavLink>
@@ -33,7 +31,7 @@
 	.heading {
 		height: 5rem;
 		display: block;
-		max-width: 80%;
+		max-width: 100%;
 		max-height: 4rem;
 		width: auto;
 		height: auto;
@@ -45,33 +43,37 @@
 	}
 
 	nav {
-		max-width: 1000px;
+		padding: 0.5rem 0 0.5rem 15rem;
+		min-height: 3rem;
+		margin: auto;
+		max-width: 800px;
 		display: flex;
-		margin: -10rem auto 0 auto;
 		flex-direction: row;
 		flex-wrap: wrap;
-		padding-bottom: 1rem;
+		align-content: center;
 	}
 
-	a {
-		align-self: baseline;
+	@media (max-width: 720px) {
+		nav {
+			flex-direction: column;
+			padding-left: 0;
+			align-content: baseline;
+			padding-left: 1rem;
+		}
+
+		.cog-wrapper {
+			display: none;
+		}
+	}
+
+	.cog-wrapper {
+		height: 0;
+		max-width: 1000px;
+		margin: auto;
 	}
 
 	.cog {
-		display: inline;
 		width: 12rem;
-		position: relative;
-		top: 6rem;
-	}
-
-	@media (max-width: 480px) {
-		.cog {
-			display: none;
-		}
-
-		nav {
-			display: none;
-		}
 	}
 
 	.info {
