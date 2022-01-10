@@ -1,14 +1,20 @@
 <script>
+	import AiOutlineMenu from 'svelte-icons-pack/ai/AiOutlineMenu';
+	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import NavLink from './NavLink.svelte';
+	let navOpen = false;
 </script>
 
 <header>
 	<div class="cog-wrapper"><a href="/"><img class="cog" alt="" src="/logo.svg" /></a></div>
-	<div class="heading-wrapper">
+	<div class="heading-banner">
 		<img class="heading" src="/title.png" alt="" />
+		<button on:click={() => (navOpen = !navOpen)}>
+			<Icon color="black" src={AiOutlineMenu} />
+		</button>
 	</div>
 	<div id="nav-wrapper">
-		<nav>
+		<nav on:click={() => (navOpen = false)} class:hidden={!navOpen}>
 			<NavLink title="About" href="/about">About</NavLink>
 			<NavLink title="Blog" href="/blog">Blog</NavLink>
 			<NavLink title="Events" href="/events">Events</NavLink>
@@ -23,15 +29,17 @@
 </header>
 
 <style>
-	.heading-wrapper {
+	.heading-banner {
 		background-color: white;
 		width: 100%;
+		display: flex;
+		flex-direction: row;
 	}
 
 	.heading {
 		height: 5rem;
-		display: block;
-		max-width: 100%;
+		display: inline-block;
+		max-width: 80%;
 		max-height: 4rem;
 		width: auto;
 		height: auto;
@@ -53,12 +61,29 @@
 		align-content: center;
 	}
 
+	button {
+		font-size: 1.5rem;
+		margin-bottom: -1rem;
+		border: 0;
+		background-color: transparent;
+		display: none;
+		cursor: pointer;
+	}
+
 	@media (max-width: 720px) {
 		nav {
 			flex-direction: column;
 			padding-left: 0;
 			align-content: baseline;
 			padding-left: 1rem;
+		}
+
+		button {
+			display: inline-block;
+		}
+
+		nav.hidden {
+			display: none;
 		}
 
 		.cog-wrapper {

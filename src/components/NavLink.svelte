@@ -6,7 +6,7 @@
 	export let title;
 </script>
 
-<a {href} {title} class:active={isActive}>
+<a {href} {title} {...$$props} class:active={isActive}>
 	<slot />
 </a>
 
