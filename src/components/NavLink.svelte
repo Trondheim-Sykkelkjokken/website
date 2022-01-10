@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	$: isActive = $page.path.startsWith($$props.href);
 
-	export let href;
-	export let title;
+	export let onClick: () => void;
+	export let href: string;
+	export let title: string;
 </script>
 
-<a {href} {title} {...$$props} class:active={isActive}>
+<a {href} {title} on:click={onClick} class:active={isActive}>
 	<slot />
 </a>
 

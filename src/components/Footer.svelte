@@ -63,6 +63,7 @@
 
 	.footer-item {
 		flex-grow: 1;
+		flex-basis: 50%;
 		color: whitesmoke;
 		align-self: center;
 	}
@@ -73,5 +74,11 @@
 
 	.footer-item:last-child {
 		text-align: right;
+	}
+
+	@media (max-width: 720px) {
+		footer {
+			font-size: 0.7rem;
+		}
 	}
 </style>
