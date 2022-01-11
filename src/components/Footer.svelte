@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineMail from 'svelte-icons-pack/ai/AiOutlineMail';
 	import AiOutlineFacebook from 'svelte-icons-pack/ai/AiOutlineFacebook';
@@ -16,20 +16,24 @@
 					>Stammen Café og Bar, <br /> Kongens gate 55, <br /> Trondheim, Norway</a
 				>
 			</div>
-			<div class="footer-item">Trondheim Sykkelkjøkken</div>
+			<div class="footer-item">SLOGAN?</div>
 			<div class="footer-item">
-				<a href="mailto:trondheimsykkelkjokken@gmail.com"
-					><Icon {...iconProps} src={AiOutlineMail} /></a
-				>
-				<a href="https://www.facebook.com/trondheimsykkelkjokken"
-					><Icon {...iconProps} src={AiOutlineFacebook} /></a
-				>
-				<a href="https://www.instagram.com/trondheimsykkelkjokken/"
-					><Icon {...iconProps} src={AiOutlineInstagram} /></a
-				>
-				<a href="https://github.com/Trondheim-Sykkelkjokken"
-					><Icon {...iconProps} src={AiOutlineGithub} /></a
-				>
+				<div class="icons">
+					<a href="mailto:trondheimsykkelkjokken@gmail.com"
+						><Icon {...iconProps} src={AiOutlineMail} /></a
+					>
+					<a href="https://www.facebook.com/trondheimsykkelkjokken"
+						><Icon {...iconProps} src={AiOutlineFacebook} /></a
+					>
+				</div>
+				<div class="icons">
+					<a href="https://www.instagram.com/trondheimsykkelkjokken/"
+						><Icon {...iconProps} src={AiOutlineInstagram} /></a
+					>
+					<a href="https://github.com/Trondheim-Sykkelkjokken"
+						><Icon {...iconProps} src={AiOutlineGithub} /></a
+					>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -58,14 +62,14 @@
 		margin: 0 auto;
 		display: flex;
 		flex-direction: row;
-		justify-content: space-evenly;
+		justify-content: space-between;
 	}
 
 	.footer-item {
-		flex-grow: 1;
-		flex-basis: 50%;
 		color: whitesmoke;
 		align-self: center;
+		flex-shrink: 1;
+		width: 33.3%;
 	}
 
 	.footer-item:nth-child(2) {
@@ -73,12 +77,21 @@
 	}
 
 	.footer-item:last-child {
+		flex-shrink: 2;
 		text-align: right;
+	}
+
+	.icons {
+		display: inline-block;
 	}
 
 	@media (max-width: 720px) {
 		footer {
-			font-size: 0.7rem;
+			font-size: 0.9rem;
+		}
+
+		.icons {
+			display: block;
 		}
 	}
 </style>
