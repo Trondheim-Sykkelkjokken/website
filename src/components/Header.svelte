@@ -3,6 +3,7 @@
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import NavLink from './NavLink.svelte';
 	let navOpen = false;
+	let closeNav = () => (navOpen = false);
 </script>
 
 <header>
@@ -15,16 +16,12 @@
 	</div>
 	<div id="nav-wrapper">
 		<nav class:hidden={!navOpen}>
-			<NavLink title="About" onClick={() => (navOpen = false)} href="/about">About</NavLink>
-			<NavLink title="Blog" onClick={() => (navOpen = false)} href="/blog">Blog</NavLink>
-			<NavLink title="Events" onClick={() => (navOpen = false)} href="/events">Events</NavLink>
-			<NavLink title="Resources" onClick={() => (navOpen = false)} href="/resources"
-				>Resources</NavLink
-			>
-			<NavLink title="Get involved" onClick={() => (navOpen = false)} href="/getinvolved"
-				>Get involved</NavLink
-			>
-			<NavLink title="Contact" onClick={() => (navOpen = false)} href="/contact">Contact</NavLink>
+			<NavLink title="About" onClick={closeNav} href="/about">About</NavLink>
+			<NavLink title="Blog" onClick={closeNav} href="/blog">Blog</NavLink>
+			<NavLink title="Events" onClick={closeNav} href="/events">Events</NavLink>
+			<NavLink title="Resources" onClick={closeNav} href="/resources">Resources</NavLink>
+			<NavLink title="Get involved" onClick={closeNav} href="/getinvolved">Get involved</NavLink>
+			<NavLink title="Contact" onClick={closeNav} href="/contact">Contact</NavLink>
 		</nav>
 	</div>
 	<div class="info">
