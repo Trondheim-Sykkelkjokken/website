@@ -78,6 +78,11 @@
 	}
 
 	@media (max-width: 720px) {
+		#nav-wrapper {
+			position: absolute;
+			width: 100%;
+		}
+
 		nav {
 			flex-direction: column;
 			padding-left: 0;
