@@ -1,13 +1,20 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	$: isActive = $page.path.startsWith($$props.href);
-
 	export let onClick: () => void;
 	export let href: string;
 	export let title: string;
+
+	import { page } from '$app/stores';
+
+	//TODO: refactor this maybe?
+	$: isActive = () => {
+		if ($page.path === '/' && $$props.href === '/') {
+			return true;
+		}
+		return $page.path.startsWith($$props.href) && $$props.href.length > 1;
+	};
 </script>
 
-<a {href} {title} on:click={onClick} class:active={isActive}>
+<a {href} {title} on:click={onClick} class:active={isActive()} class:hidden={$$props.href === '/'}>
 	<slot />
 </a>
 
@@ -25,6 +32,16 @@
 
 	a.active {
 		font-weight: bolder;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	@media (max-width: 720px) {
+		.hidden {
+			display: inline;
+		}
 	}
 
 	/*Horrible hack */

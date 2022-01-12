@@ -5,7 +5,7 @@
 	import AiOutlineInstagram from 'svelte-icons-pack/ai/AiOutlineInstagram';
 	import AiOutlineGithub from 'svelte-icons-pack/ai/AiOutlineGithub';
 
-	const iconProps = { size: '2.5rem', color: 'whitesmoke' };
+	const iconProps = { size: '35px', color: 'whitesmoke' };
 </script>
 
 <footer>

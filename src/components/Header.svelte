@@ -16,6 +16,7 @@
 	</div>
 	<div id="nav-wrapper">
 		<nav class:hidden={!navOpen}>
+			<NavLink title="Home" onClick={closeNav} href="/">Home</NavLink>
 			<NavLink title="About" onClick={closeNav} href="/about">About</NavLink>
 			<NavLink title="Blog" onClick={closeNav} href="/blog">Blog</NavLink>
 			<NavLink title="Events" onClick={closeNav} href="/events">Events</NavLink>
