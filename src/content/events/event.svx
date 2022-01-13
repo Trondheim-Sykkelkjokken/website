@@ -1,8 +1,0 @@
----
-title: 'Test event'
-slug: 'test-event'
-published_at: '3 April 2021'
----
-
-# Test
-Test event

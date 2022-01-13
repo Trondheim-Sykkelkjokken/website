@@ -1,6 +1,6 @@
 ---
-slug: bar
-title: Foo
+slug: lorem
+title: Lorem Ipsum
 publication_date: 2022-01-13T12:00:00.195Z
 ---
 

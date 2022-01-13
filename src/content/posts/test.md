@@ -1,6 +1,6 @@
 ---
-title: Test
-slug: test
+slug: dolor
+title: Dolor sit amet
 publication_date: 2022-01-03T23:02:39.371Z
 ---
 
