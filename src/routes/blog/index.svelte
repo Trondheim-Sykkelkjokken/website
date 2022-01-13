@@ -11,7 +11,7 @@
 		posts.push(p);
 	}
 
-	posts = posts.sort((a, b) => b.date - a.date);
+	posts = posts.sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
 	export async function load() {
 		return {

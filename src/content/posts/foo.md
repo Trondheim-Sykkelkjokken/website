@@ -1,7 +1,7 @@
 ---
 slug: bar
 title: Foo
-publication_date: 2022-01-13T12:58:26.195Z
+publication_date: 2022-01-13T12:00:00.195Z
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elit neque, consectetur ac eleifend at, tristique at velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis faucibus volutpat augue, quis porttitor nibh congue at. Fusce eget dapibus erat. Sed vel condimentum odio. Donec consectetur nisi vel turpis aliquet luctus. Suspendisse potenti. Aliquam luctus, nulla ac egestas rhoncus, orci libero facilisis felis, quis congue massa odio at ante. Quisque suscipit tincidunt arcu, at pellentesque leo feugiat non. Praesent varius aliquam odio, vitae mollis dolor viverra sed.
