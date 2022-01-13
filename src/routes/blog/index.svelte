@@ -11,6 +11,8 @@
 		posts.push(p);
 	}
 
+	posts = posts.sort((a, b) => b.date - a.date);
+
 	export async function load() {
 		return {
 			props: {
