@@ -11,8 +11,10 @@ collections:
         hint: "Last part of URL after 'blog/'"
       - name: title
       - name: publication_date
-        label: publication Date
+        label: Publication Date
         widget: datetime
+        date_format: "DD.MM.YYYY" # e.g. 24.12.2021
+        time_format: "HH:mm" # e.g. 21:07 
       - name: body
         widget: markdown
 media_folder: "static/uploads"
