@@ -120,7 +120,7 @@
 
 	.infotext {
 		text-align: center;
-		max-width: 12rem;
+		max-width: 13rem;
 		margin: 0 auto;
 	}
 </style>
