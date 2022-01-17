@@ -26,7 +26,7 @@
 		</nav>
 	</div>
 	<div class="info">
-		<p class="infotext">We're open every <time>Thursday 17:00 - 20:00!</time></p>
+		<p class="infotext">We're open every <time>Wednesday 17:00 - 20:00!</time></p>
 	</div>
 </header>
 
