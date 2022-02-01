@@ -44,7 +44,8 @@
 		}
 	}
 
-	/*Horrible hack */
+	/*Horrible hacky fix on spacing when font is bolded
+	https://stackoverflow.com/questions/556153/inline-elements-shifting-when-made-bold-on-hover */
 	a::after {
 		display: block;
 		content: attr(title);
