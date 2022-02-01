@@ -26,7 +26,7 @@
 		</nav>
 	</div>
 	<div class="info">
-		<p class="infotext">We're open every <time>Wednesday 17:00 - 20:00!</time></p>
+		<p class="infotext">We're open every <br /><time>Wednesday 17:00 - 20:00!</time></p>
 	</div>
 </header>
 
@@ -120,7 +120,6 @@
 
 	.infotext {
 		text-align: center;
-		max-width: 13rem;
 		margin: 0 auto;
 	}
 </style>
