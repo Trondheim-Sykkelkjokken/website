@@ -17,12 +17,12 @@
 	<div id="nav-wrapper">
 		<nav class:hidden={!navOpen}>
 			<NavLink title="Home" onClick={closeNav} href="/">Home</NavLink>
-			<NavLink title="About" onClick={closeNav} href="/about">About</NavLink>
-			<NavLink title="Blog" onClick={closeNav} href="/blog">Blog</NavLink>
 			<NavLink title="Events" onClick={closeNav} href="/events">Events</NavLink>
-			<NavLink title="Resources" onClick={closeNav} href="/resources">Resources</NavLink>
+			<NavLink title="Membership" onClick={closeNav} href="/membership">Membership</NavLink>
+			<NavLink title="Blog" onClick={closeNav} href="/blog">Blog</NavLink>
 			<NavLink title="Get involved" onClick={closeNav} href="/getinvolved">Get involved</NavLink>
-			<NavLink title="Contact" onClick={closeNav} href="/contact">Contact</NavLink>
+			<NavLink title="About" onClick={closeNav} href="/about">About</NavLink>
+			<NavLink title="Resources" onClick={closeNav} href="/resources">Resources</NavLink>
 		</nav>
 	</div>
 	<div class="info">

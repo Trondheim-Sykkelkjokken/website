@@ -17,6 +17,25 @@ collections:
         time_format: "HH:mm" # e.g. 21:07 
       - name: body
         widget: markdown
+  - name: events
+    label: events
+    folder: src/content/events
+    create: true
+    fields:
+      - name: slug
+        hint: "Last part of URL after 'blog/'"
+      - name: title
+      - name: publication_date
+        label: Publication Date
+        widget: datetime
+        date_format: "DD.MM.YYYY" # e.g. 24.12.2021
+        time_format: "HH:mm" # e.g. 21:07 
+      - name: body
+        widget: markdown
+      - name: facebook_link
+        hint: Url to Facebook-event
+      - name: image
+        widget: image
 media_folder: "static/uploads"
 public_folder: "/uploads"
 

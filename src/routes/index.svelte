@@ -1,2 +1,10 @@
-<h1>Trondheim Sykkelkjøkken</h1>
-<p>Frontpage? What goes here?</p>
+<script>
+	import { setContext } from 'svelte';
+</script>
+
+<section>Next event</section>
+<section>Latest blog post</section>
+<section>Instagram? Pictures?</section>
+
+<style>
+</style>
