@@ -1,11 +1,13 @@
-<script context="module">
+<script context="module" lang="ts">
+	import type { Post } from 'src/types/post.type';
+
 	// Get posts info
-	const allPosts = import.meta.globEager(`../../content/posts/*.md`);
+	const allPosts = import.meta.glob(`../../content/posts/*.md`, { eager: true });
 
 	let posts = [];
 	// Get the posts' metadata
 	for (let path in allPosts) {
-		const post = allPosts[path];
+		const post = allPosts[path] as Post;
 		const slug = post.metadata.slug;
 		const date = post.metadata.publication_date;
 		const title = post.metadata.title;

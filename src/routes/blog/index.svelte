@@ -1,9 +1,11 @@
 <script context="module" lang="ts">
-	const allPosts = import.meta.globEager(`../../content/posts/*.md`);
+	import type { Post } from 'src/types/post.type';
+
+	const allPosts = import.meta.glob(`../../content/posts/*.md`, { eager: true });
 
 	let posts = [];
 	for (let path in allPosts) {
-		const post = allPosts[path];
+		const post = allPosts[path] as Post;
 		const slug = post.metadata.slug;
 		const date = post.metadata.publication_date;
 		const title = post.metadata.title;
