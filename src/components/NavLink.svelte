@@ -7,10 +7,10 @@
 
 	//TODO: refactor this maybe?
 	$: isActive = () => {
-		if ($page.path === '/' && $$props.href === '/') {
+		if ($page.url.pathname === '/' && $$props.href === '/') {
 			return true;
 		}
-		return $page.path.startsWith($$props.href) && $$props.href.length > 1;
+		return $page.url.pathname.startsWith($$props.href) && $$props.href.length > 1;
 	};
 </script>
 
