@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import type { Post } from 'src/types/post.type';
+import type { Post } from '$lib/types/post.type';
 
 
 const allPosts = import.meta.glob(`../../content/posts/*.md`, { eager: true });
