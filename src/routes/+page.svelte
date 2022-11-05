@@ -47,6 +47,12 @@
 		margin: 2.5rem 0;
 	}
 
+	@media (max-width: 720px) {
+		section {
+			width: 100%;
+		}
+	}
+
 	.right {
 		align-self: end;
 	}
@@ -55,9 +61,7 @@
 		width: 100%;
 		height: 37.5vmin;
 		min-height: 15em;
-		background: linear-gradient(#000, transparent, #000), var(--img) 50%;
-		background-size: cover;
-		background-repeat: no-repeat;
+		background: linear-gradient(#000, transparent, #000), var(--img) 50% / cover;
 		background-attachment: fixed;
 		background-blend-mode: multiply;
 	}
