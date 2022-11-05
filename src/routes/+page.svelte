@@ -59,8 +59,7 @@
 
 	.banner {
 		width: 100%;
-		height: 37.5vmin;
-		min-height: 15em;
+		min-height: 20rem;
 		background: linear-gradient(#000, transparent, #000), var(--img) 50% / cover;
 		background-attachment: fixed;
 		background-blend-mode: multiply;
