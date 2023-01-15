@@ -39,6 +39,6 @@ collections:
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
-site_url: https://dev.sykkelkjokken.no
-display_url: https://dev.sykkelkjokken.no
+site_url: https://sykkelkjokken.no
+display_url: https://sykkelkjokken.no
 logo_url: ../title.png
