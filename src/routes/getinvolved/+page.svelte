@@ -9,4 +9,11 @@
 	<li>Want to make Trondheim a better place for biking</li>
 	<li>Want to make new friends and learn something</li>
 </ul>
-<span>then please contact us!</span>
+<span>please contact us!</span>
+<img src="/images/4.JPG" alt="Our amazing volunteers" />
+
+<style>
+	img {
+		padding-top: 1rem;
+	}
+</style>
