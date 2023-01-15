@@ -17,7 +17,13 @@
 	<li>Or send us an email at <b>trondheimsykkelkjokken@gmail.com</b></li>
 </ul>
 
+<img src="/images/5.JPG" alt="" />
+
 <style>
+	img {
+		padding-top: 1rem;
+	}
+
 	h2 {
 		margin-top: 2rem;
 	}

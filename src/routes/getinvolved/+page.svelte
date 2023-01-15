@@ -10,7 +10,7 @@
 	<li>Want to make new friends and learn something</li>
 </ul>
 <span>please contact us!</span>
-<img src="/images/4.JPG" alt="Our amazing volunteers" />
+<img src="/images/4.JPG" alt="" />
 
 <style>
 	img {
