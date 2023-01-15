@@ -11,6 +11,10 @@
 <h2>Contact us:</h2>
 <ul>
 	<li>
+		We are located in Bøker & Bylab next to Teknobyen. The address is Professor Brochs gate 2, with
+		entrance on the northern side of the building.
+	</li>
+	<li>
 		You can find us on <a href="https://www.facebook.com/trondheimsykkelkjokken">Facebook.</a>
 	</li>
 	<li>We are also on <a href="https://www.instagram.com/trondheimsykkelkjokken/">Instagram.</a></li>
