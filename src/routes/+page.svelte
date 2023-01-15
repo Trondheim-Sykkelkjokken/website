@@ -15,8 +15,8 @@
 		<h1>What we do</h1>
 		<p>
 			At the bike kitchen you can learn more about repairing bikes and meet other people who are
-			interested in cycling, repairing and green mobility etc. Our workshop is open on Wednesdays
-			from 17-20h, and occasionally we also host other bike related events.
+			interested in cycling, repairing and green mobility. Our workshop is open on Wednesdays from
+			17-20h, and occasionally we also host other bike related events.
 		</p>
 	</section>
 	<div class="banner" />
