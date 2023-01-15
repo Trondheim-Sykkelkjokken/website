@@ -31,4 +31,7 @@ npm run build
     * regex for slug in collection
     * event collection
 * Tailwind?
+* Refactor navlinks to use global state for open menu
+* Static adapter? Yay/nay
 * I18
+* Proper membership form
