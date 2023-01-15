@@ -13,10 +13,10 @@
 		<div class="flex-container">
 			<div class="footer-item">
 				<a href="https://g.page/stammencafe?share"
-					>Stammen Café og Bar, <br /> Kongens gate 55, <br /> Trondheim, Norway</a
+					>Bøker & Bylab, <br />Professor Brochs gate 2, <br /> 7030 Trondheim, Norway</a
 				>
 			</div>
-			<div class="footer-item">SLOGAN?</div>
+			<div class="footer-item">Community - Knowledge sharing - Recycling</div>
 			<div class="footer-item">
 				<div class="icons">
 					<a href="mailto:trondheimsykkelkjokken@gmail.com"
@@ -69,7 +69,6 @@
 		color: whitesmoke;
 		align-self: center;
 		flex-shrink: 1;
-		width: 33.3%;
 	}
 
 	.footer-item:nth-child(2) {
