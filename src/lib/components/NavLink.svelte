@@ -1,7 +1,6 @@
 <script lang="ts">
 	export let href: string;
 	export let title: string;
-	import { onMount } from 'svelte';
 	import { navOpen, setNavOpen } from '../../stores';
 	import { page } from '$app/stores';
 
