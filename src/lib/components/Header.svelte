@@ -1,28 +1,32 @@
-<script>
+<script lang="ts">
+	import { navOpen, setNavOpen } from '../../stores';
+	let open: boolean;
+	navOpen.subscribe((value) => {
+		open = value;
+	});
+
 	import AiOutlineMenu from 'svelte-icons-pack/ai/AiOutlineMenu';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import NavLink from './NavLink.svelte';
-	let navOpen = false;
-	let closeNav = () => (navOpen = false);
 </script>
 
 <header>
 	<div class="cog-wrapper"><a href="/"><img class="cog" alt="" src="/logo.svg" /></a></div>
 	<div class="heading-banner">
 		<a href="/" class="heading-link"><img class="heading" src="/title.png" alt="" /></a>
-		<button on:click={() => (navOpen = !navOpen)}>
+		<button on:click={() => setNavOpen(!open)}>
 			<Icon color="black" src={AiOutlineMenu} />
 		</button>
 	</div>
 	<div id="nav-wrapper">
-		<nav class:hidden={!navOpen}>
-			<NavLink title="Home" onClick={closeNav} href="/">Home</NavLink>
-			<NavLink title="Events" onClick={closeNav} href="/events">Events</NavLink>
-			<NavLink title="Membership" onClick={closeNav} href="/membership">Membership</NavLink>
-			<NavLink title="Blog" onClick={closeNav} href="/blog">Blog</NavLink>
-			<NavLink title="Get involved" onClick={closeNav} href="/getinvolved">Get involved</NavLink>
-			<NavLink title="About" onClick={closeNav} href="/about">About</NavLink>
-			<NavLink title="Resources" onClick={closeNav} href="/resources">Resources</NavLink>
+		<nav class:hidden={!open}>
+			<NavLink title="Home" href="/">Home</NavLink>
+			<NavLink title="Events" href="/events">Events</NavLink>
+			<NavLink title="Membership" href="/membership">Membership</NavLink>
+			<NavLink title="Blog" href="/blog">Blog</NavLink>
+			<NavLink title="Get involved" href="/getinvolved">Get involved</NavLink>
+			<NavLink title="About" href="/about">About</NavLink>
+			<NavLink title="Resources" href="/resources">Resources</NavLink>
 		</nav>
 	</div>
 	<div class="info">

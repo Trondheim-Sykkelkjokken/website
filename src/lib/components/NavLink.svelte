@@ -1,20 +1,28 @@
 <script lang="ts">
-	export let onClick: () => void;
 	export let href: string;
 	export let title: string;
-
+	import { onMount } from 'svelte';
+	import { navOpen, setNavOpen } from '../../stores';
 	import { page } from '$app/stores';
 
-	//TODO: refactor this maybe?
-	$: isActive = () => {
-		if ($page.url.pathname === '/' && $$props.href === '/') {
-			return true;
-		}
-		return $page.url.pathname.startsWith($$props.href) && $$props.href.length > 1;
-	};
+	let open: boolean;
+	navOpen.subscribe((value) => {
+		open = value;
+	});
+
+	let currentPath;
+	onMount(() => {
+		currentPath = window.location.pathname;
+	});
 </script>
 
-<a {href} {title} on:click={onClick} class:active={isActive()} class:hidden={$$props.href === '/'}>
+<a
+	{href}
+	{title}
+	on:click={() => setNavOpen(false)}
+	class:active={$page.url.pathname.includes(href)}
+	class:hidden={$$props.href === '/'}
+>
 	<slot />
 </a>
 
