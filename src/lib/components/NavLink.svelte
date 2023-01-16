@@ -9,11 +9,6 @@
 	navOpen.subscribe((value) => {
 		open = value;
 	});
-
-	let currentPath;
-	onMount(() => {
-		currentPath = window.location.pathname;
-	});
 </script>
 
 <a
