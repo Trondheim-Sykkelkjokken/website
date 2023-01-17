@@ -14,7 +14,7 @@
 	{href}
 	{title}
 	on:click={() => setNavOpen(false)}
-	class:active={$page.url.pathname.includes(href)}
+	class:active={$page.url.pathname.includes(href) && href !== '/'}
 	class:hidden={$$props.href === '/'}
 >
 	<slot />
