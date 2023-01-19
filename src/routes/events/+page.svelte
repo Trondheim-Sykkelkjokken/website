@@ -4,7 +4,7 @@
 	class="fb-page"
 	data-href="https://www.facebook.com/trondheimsykkelkjokken"
 	data-tabs="events"
-	data-width="50"
+	data-width="500"
 	data-height="600"
 	data-small-header="true"
 	data-adapt-container-width="true"
