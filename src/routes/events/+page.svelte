@@ -4,11 +4,11 @@
 	class="fb-page"
 	data-href="https://www.facebook.com/trondheimsykkelkjokken"
 	data-tabs="events"
-	data-width="500"
-	data-height="6000"
-	data-small-header="false"
+	data-width="50"
+	data-height="600"
+	data-small-header="true"
 	data-adapt-container-width="true"
-	data-hide-cover="false"
+	data-hide-cover="true"
 	data-show-facepile="true"
 >
 	<blockquote cite="https://www.facebook.com/trondheimsykkelkjokken" class="fb-xfbml-parse-ignore">
