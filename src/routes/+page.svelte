@@ -1,8 +1,8 @@
 <script>
-	import img2 from '$lib/assets/2.jpg';
-	import img3 from '$lib/assets/3.jpg';
-	import img4 from '$lib/assets/4.jpg';
-	import img6 from '$lib/assets/6.jpg';
+	import img2 from '$lib/assets/2.jpg?w=900&format=webp&srcset';
+	import img3 from '$lib/assets/3.jpg?w=900&format=webp&srcset';
+	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset';
+	import img6 from '$lib/assets/6.jpg?w=900&format=webp&srcset';
 </script>
 
 <div class="flex-container">
@@ -17,7 +17,7 @@
 			bikes a longer life through repairs and good maintenance.
 		</p>
 	</section>
-	<img src={img6} alt="" class="banner" />
+	<img srcset={img6} type="image/webp" alt="" class="banner" />
 	<section class="right">
 		<h1>What we do</h1>
 		<p>
@@ -26,7 +26,7 @@
 			17-20h, and occasionally we also host other bike related events.
 		</p>
 	</section>
-	<img src={img2} alt="" class="banner" />
+	<img srcset={img2} type="image/webp" alt="" class="banner" />
 	<section>
 		<h1>Membership</h1>
 		<p>
@@ -42,7 +42,8 @@
 		</ul>
 		<a href="/membership"> Buy your membership here! </a>
 	</section>
-	<img src={img4} alt="" class="banner" />
+	<img srcset={img4} type="image/webp" alt="" class="banner" />
+
 	<section class="right">
 		<h1>Tools</h1>
 		<p>
@@ -53,7 +54,7 @@
 			supplies.
 		</p>
 	</section>
-	<img src={img3} alt="" class="banner" />
+	<img srcset={img3} type="image/webp" alt="" class="banner" />
 </div>
 
 <style>

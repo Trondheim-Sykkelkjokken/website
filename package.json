@@ -35,6 +35,7 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.48",
-    "mdsvex": "^0.10.6"
+    "mdsvex": "^0.10.6",
+    "vite-imagetools": "^4.0.17"
   }
 }
