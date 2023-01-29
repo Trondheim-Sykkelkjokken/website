@@ -1,3 +1,7 @@
+<script>
+	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset';
+</script>
+
 <h1>Get involved!</h1>
 
 <p>We are always looking for people to contribute to the bike kitchen! If you:</p>
@@ -10,7 +14,7 @@
 	<li>Want to make new friends and learn something</li>
 </ul>
 <span>please contact us!</span>
-<img src="/images/4.JPG" alt="" />
+<img srcset={img4} alt="" />
 
 <style>
 	img {
