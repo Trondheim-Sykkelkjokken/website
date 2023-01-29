@@ -1,3 +1,10 @@
+<script>
+	import img2 from '$lib/assets/2.jpg';
+	import img3 from '$lib/assets/3.jpg';
+	import img4 from '$lib/assets/4.jpg';
+	import img6 from '$lib/assets/6.jpg';
+</script>
+
 <div class="flex-container">
 	<section>
 		<h1>Trondheim Bike Kitchen</h1>
@@ -10,7 +17,7 @@
 			bikes a longer life through repairs and good maintenance.
 		</p>
 	</section>
-	<div class="banner" />
+	<img src={img6} alt="" class="banner" />
 	<section class="right">
 		<h1>What we do</h1>
 		<p>
@@ -19,7 +26,7 @@
 			17-20h, and occasionally we also host other bike related events.
 		</p>
 	</section>
-	<div class="banner" />
+	<img src={img2} alt="" class="banner" />
 	<section>
 		<h1>Membership</h1>
 		<p>
@@ -35,7 +42,7 @@
 		</ul>
 		<a href="/membership"> Buy your membership here! </a>
 	</section>
-	<div class="banner" />
+	<img src={img4} alt="" class="banner" />
 	<section class="right">
 		<h1>Tools</h1>
 		<p>
@@ -46,7 +53,7 @@
 			supplies.
 		</p>
 	</section>
-	<div class="banner" />
+	<img src={img3} alt="" class="banner" />
 </div>
 
 <style>
@@ -68,12 +75,6 @@
 
 	.banner {
 		width: 100%;
-		min-height: 20rem;
-		background-image: var(--img);
-		background-size: cover;
-	}
-	.banner:nth-of-type(1) {
-		--img: url(/images/6.JPG);
 	}
 	.banner:nth-of-type(2) {
 		--img: url(/images/2.JPG);
@@ -86,8 +87,5 @@
 	}
 	.banner:nth-of-type(5) {
 		--img: url(/images/5.JPG);
-	}
-	.banner:nth-of-type(6) {
-		--img: url(/images/6.JPG);
 	}
 </style>
