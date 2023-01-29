@@ -76,6 +76,7 @@
 	.banner {
 		width: 100%;
 		max-height: 20rem;
+		object-fit: cover;
 	}
 	.banner:nth-of-type(2) {
 		--img: url(/images/2.JPG);
