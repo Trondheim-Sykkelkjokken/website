@@ -1,4 +1,5 @@
 <script>
+	// @ts-nocheck
 	import img2 from '$lib/assets/2.jpg?w=900&format=webp&srcset';
 	import img3 from '$lib/assets/3.jpg?w=900&format=webp&srcset';
 	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset';
@@ -78,17 +79,5 @@
 		width: 100%;
 		max-height: 20rem;
 		object-fit: cover;
-	}
-	.banner:nth-of-type(2) {
-		--img: url(/images/2.JPG);
-	}
-	.banner:nth-of-type(3) {
-		--img: url(/images/4.JPG);
-	}
-	.banner:nth-of-type(4) {
-		--img: url(/images/3.JPG);
-	}
-	.banner:nth-of-type(5) {
-		--img: url(/images/5.JPG);
 	}
 </style>
