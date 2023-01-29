@@ -36,6 +36,10 @@ collections:
         hint: Url to Facebook-event
       - name: image
         widget: image
+  - name: tools
+    label: tools
+    file: src/content/tools.md
+
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
