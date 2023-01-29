@@ -2,6 +2,15 @@ backend:
   name: git-gateway
   branch: main
 collections:
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Tools page"
+        name: "tools"
+        file: "src/routes/tools/+page.md"
+        fields:
+          - name: body
+            widget: markdown
   - name: blog
     label: blog
     folder: src/content/posts
@@ -36,15 +45,6 @@ collections:
         hint: Url to Facebook-event
       - name: image
         widget: image
-  - label: "Pages"
-    name: "pages"
-    files:
-      - label: "Tools page"
-        name: "tools"
-        file: "src/routes/tools/+page.md"
-        fields:
-          - name: body
-            widget: markdown
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
