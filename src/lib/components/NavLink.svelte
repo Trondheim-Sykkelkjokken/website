@@ -30,6 +30,7 @@
 		flex-grow: 1;
 		font-size: 1.2rem;
 		align-self: baseline;
+		margin-inline: 0.25rem;
 	}
 
 	a.active {
