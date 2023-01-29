@@ -11,6 +11,12 @@ collections:
         fields:
           - name: body
             widget: markdown
+      - label: "Resources page"
+        name: "resources"
+        file: "src/routes/resources/+page.md"
+        fields:
+          - name: body
+            widget: markdown
   - name: blog
     label: blog
     folder: src/content/posts
