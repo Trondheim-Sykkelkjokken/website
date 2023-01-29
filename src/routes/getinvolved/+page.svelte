@@ -1,5 +1,5 @@
 <script>
-	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset';
+	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset&imagetools';
 </script>
 
 <h1>Get involved!</h1>

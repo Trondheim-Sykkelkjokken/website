@@ -1,9 +1,8 @@
 <script>
-	// @ts-nocheck
-	import img2 from '$lib/assets/2.jpg?w=900&format=webp&srcset';
-	import img3 from '$lib/assets/3.jpg?w=900&format=webp&srcset';
-	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset';
-	import img6 from '$lib/assets/6.jpg?w=900&format=webp&srcset';
+	import img2 from '$lib/assets/2.jpg?w=900&format=webp&srcset&imagetools';
+	import img3 from '$lib/assets/3.jpg?w=900&format=webp&srcset&imagetools';
+	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset&imagetools';
+	import img6 from '$lib/assets/6.jpg?w=900&format=webp&srcset&imagetools';
 </script>
 
 <div class="flex-container">
