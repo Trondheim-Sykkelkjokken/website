@@ -17,7 +17,7 @@
 	class:active={$page.url.pathname.includes(href) && href !== '/'}
 	class:hidden={$$props.href === '/'}
 >
-	<slot />
+	{title}
 </a>
 
 <style>

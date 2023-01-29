@@ -20,13 +20,13 @@
 	</div>
 	<div id="nav-wrapper">
 		<nav class:hidden={!open}>
-			<NavLink title="Home" href="/">Home</NavLink>
-			<NavLink title="Events" href="/events">Events</NavLink>
-			<NavLink title="Membership" href="/membership">Membership</NavLink>
-			<NavLink title="Blog" href="/blog">Blog</NavLink>
-			<NavLink title="Get involved" href="/getinvolved">Get involved</NavLink>
-			<NavLink title="Our tools" href="/tools">Our tools</NavLink>
-			<NavLink title="Resources" href="/resources">Resources</NavLink>
+			<NavLink title="Home" href="/" />
+			<NavLink title="Events" href="/events" />
+			<NavLink title="Membership" href="/membership" />
+			<NavLink title="Blog" href="/blog" />
+			<NavLink title="Get involved" href="/getinvolved" />
+			<NavLink title="Our tools" href="/tools" />
+			<NavLink title="Resources" href="/resources" />
 		</nav>
 	</div>
 	<div class="info">

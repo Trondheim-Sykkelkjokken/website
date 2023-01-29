@@ -28,8 +28,5 @@ npm run build
 
 ## TODOs
 * Tailwind?
-* Refactor navlinks to use global state for open menu
-* Static adapter? Yay/nay
-* I18
+* I18? Supported in CMS. Sveltekit native when?
 * Proper membership form
-* Refactor navlinks to use data field, reduce redundancy
