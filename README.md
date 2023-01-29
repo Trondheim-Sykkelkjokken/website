@@ -27,11 +27,9 @@ npm run build
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
 
 ## TODOs
-* CMS
-    * regex for slug in collection
-    * event collection
 * Tailwind?
 * Refactor navlinks to use global state for open menu
 * Static adapter? Yay/nay
 * I18
 * Proper membership form
+* Refactor navlinks to use data field, reduce redundancy

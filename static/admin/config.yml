@@ -41,7 +41,7 @@ collections:
     files:
       - label: "Tools page"
         name: "tools"
-        file: "src/content/tools.md"
+        file: "src/routes/tools/+page.md"
         fields:
           - name: body
             widget: markdown
