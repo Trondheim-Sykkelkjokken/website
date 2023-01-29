@@ -17,7 +17,7 @@
 			bikes a longer life through repairs and good maintenance.
 		</p>
 	</section>
-	<img srcset={img6} type="image/webp" alt="" class="banner" />
+	<img srcset={img6} alt="" class="banner" />
 	<section class="right">
 		<h1>What we do</h1>
 		<p>
@@ -26,7 +26,7 @@
 			17-20h, and occasionally we also host other bike related events.
 		</p>
 	</section>
-	<img srcset={img2} type="image/webp" alt="" class="banner" />
+	<img srcset={img2} alt="" class="banner" />
 	<section>
 		<h1>Membership</h1>
 		<p>
@@ -42,7 +42,7 @@
 		</ul>
 		<a href="/membership"> Buy your membership here! </a>
 	</section>
-	<img srcset={img4} type="image/webp" alt="" class="banner" />
+	<img srcset={img4} alt="" class="banner" />
 
 	<section class="right">
 		<h1>Tools</h1>
@@ -54,7 +54,7 @@
 			supplies.
 		</p>
 	</section>
-	<img srcset={img3} type="image/webp" alt="" class="banner" />
+	<img srcset={img3} alt="" class="banner" />
 </div>
 
 <style>
