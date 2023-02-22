@@ -1,49 +1,49 @@
 # Tools
 
-As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access to our many tools. 
+As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access to our many tools:
 
-* Park Tool Repair stands
-* Wheel truing stand
-* Bike pumps
-* Tire levers
-* Pedal wrench
-* Headset wrench
-* Crank and bottom bracket wrench HCW-4
 * Adjustable pin spanner SPA-6C
+* Adjustable torque driver
+* Adjustable wrench
+* Allen keys
+* Bike pumps
+* Bleeding kit Shimano, Avid, Magura
 * Bottom bracket tool BBT-32
 * Bottom bracket tool TL-FC33
-* Crank puller CWP-7C
-* Cassette lockring tool FR-5.2
-* Cassette lockring tool FR-1.3
-* Chain link pliers
-* Puncture repair kits
-* Spoke gauge
-* Cassette wrench
-* Truing stand
-* Chain checker
-* Cone wrenches 13, 14, 15, 17mm 
 * Cassett remover tool Shimano/Sram
-* Spoke wrench
-* Flat pliers
-* Cutting pliers
-* Spanners
-* Polygrip pliers
-* Ratchet screwdriver
-* Allen keys
-* Files
-* Torx keys
-* Adjustable wrench
-* Socket set 
-* Bleeding kit Shimano, Avid, Magura
-* Hanger genie
+* Cassette lockring tool FR-1.3
+* Cassette lockring tool FR-5.2
+* Cassette wrench
+* Chain checker
 * Chain cutter
-* Metal saw
-* Joint handle
+* Chain link pliers
 * Combination pliers
-* Knife
-* Adjustable torque driver
-* Spoke tension meter
+* Cone wrenches 13, 14, 15, 17mm 
+* Crank and bottom bracket wrench HCW-4
+* Crank puller CWP-7C
+* Cutting pliers
 * Digital Calliper
-* Steel brushes
+* Files
+* Flat pliers
+* Hanger genie
+* Headset wrench
+* Joint handle
+* Knife
+* Metal saw
+* Park Tool Repair stands
+* Pedal wrench
+* Polygrip pliers
+* Puncture repair kits
+* Ratchet screwdriver
 * Scissors
 * Screw drivers in all kinds of sizes
+* Socket set 
+* Spanners
+* Spoke gauge
+* Spoke tension meter
+* Spoke wrench
+* Steel brushes
+* Tire levers
+* Torx keys
+* Truing stand
+* Wheel truing stand
