@@ -25,7 +25,7 @@
 			<NavLink title="Membership" href="/membership" />
 			<NavLink title="Blog" href="/blog" />
 			<NavLink title="Get involved" href="/getinvolved" />
-			<NavLink title="Our tools" href="/tools" />
+			<NavLink title="Tools/parts" href="/tools" />
 			<NavLink title="Resources" href="/resources" />
 		</nav>
 	</div>
