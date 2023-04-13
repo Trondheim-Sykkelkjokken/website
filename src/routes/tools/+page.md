@@ -45,5 +45,12 @@ As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access 
 * Steel brushes
 * Tire levers
 * Torx keys
-* Truing stand
 * Wheel truing stand
+
+# Parts
+
+We also have some parts for sale:
+
+* Inner tubes
+* Brake pads for disc and rim brakes
+* Gear and brake wires and housing
