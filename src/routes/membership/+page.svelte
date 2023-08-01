@@ -13,10 +13,9 @@
 </script>
 
 <h1>Become a member!</h1>
-
-<Tnc />
-
 {#if !form?.success}
+	<Tnc />
+
 	<form method="POST">
 		<h2>Membership form</h2>
 		<label>
