@@ -1,4 +1,7 @@
 <script>
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
+
 	/** @type {import('./$types').ActionData} */
 	export let form;
 	export let data;
@@ -111,7 +114,9 @@
 			<button class="vipps_button" formaction="?/payWithVipps"
 				><img alt="" src="/vipps_english.svg" />
 			</button><span> or </span>
-			<button class="card_button" formaction="?/payWithCard">Pay with card</button>
+			<button class="card_button" formaction="?/payWithCard"
+				>Pay with card&nbsp<Icon className="foo" src={AiOutlineCreditCard} /></button
+			>
 		</div>
 	</form>
 {/if}
@@ -162,7 +167,14 @@
 		border: none;
 	}
 
+	fieldset {
+		margin-top: 3rem;
+	}
+
 	.card_button {
+		display: flex;
+		align-items: center;
+		align-content: space-between;
 		font-size: 1.1rem;
 		background-color: #ddd;
 		border: none;
