@@ -16,6 +16,7 @@ export const actions = {
         return { success: true, error: false };
     },
     payWithCard: async (event) => {
+        return { success: true, error: false };
         console.log("paying with card")
     }
 };

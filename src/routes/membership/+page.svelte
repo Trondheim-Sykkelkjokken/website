@@ -98,6 +98,7 @@
 	button {
 		display: block;
 		margin: 1rem 0;
+		cursor: pointer;
 	}
 
 	.vipps_button {
@@ -106,7 +107,7 @@
 	}
 
 	.card_button {
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		background-color: #ddd;
 		border: none;
 		color: black;
@@ -115,7 +116,6 @@
 		text-decoration: none;
 		display: inline-block;
 		margin: 4px 2px;
-		cursor: pointer;
 		border-radius: 25px;
 	}
 </style>
