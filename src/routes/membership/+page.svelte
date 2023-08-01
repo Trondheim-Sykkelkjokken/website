@@ -18,6 +18,7 @@
 
 {#if !form?.success}
 	<form method="POST">
+		<h2>Membership form</h2>
 		<label>
 			Name:
 			<input required name="name" type="text" />
