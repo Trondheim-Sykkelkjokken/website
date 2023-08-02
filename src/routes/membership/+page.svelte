@@ -104,14 +104,6 @@
 		border-top: 3px solid white;
 	}
 
-	.tandc {
-		background-color: whitesmoke;
-		color: black;
-		font-family: monospace;
-		padding: 1rem;
-		margin-bottom: 3rem;
-	}
-
 	.total {
 		font-size: 2.5rem;
 	}
