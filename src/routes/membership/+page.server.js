@@ -1,5 +1,7 @@
 /** @type {import('./$types').Actions} */
 
+import { foo } from "../../utils/googleSheets";
+
 // @ts-ignore
 const prices = { year: 330, year_reduced: 220, semester: 215, semester_reduced: 150 };
 
@@ -10,6 +12,8 @@ export const actions = {
         const formData = await event.request.formData();
         const name = formData.get("name");
         const email = formData.get("email");
+
+        foo();
 
         console.log(formData);
 
