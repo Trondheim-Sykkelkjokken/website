@@ -2,19 +2,19 @@ import { google } from "googleapis";
 import { GOOGLE_SHEETS_KEY, GOOGLE_SHEETS_EMAIL, GOOGLE_SHEETS_ID } from '$env/static/private';
 
 export async function saveMemberToGoogleSheet(name: string, email: string, membershipType: string) {
-    const jwtClient = new google.auth.JWT(
+    let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         null,
-        GOOGLE_SHEETS_KEY
+        GOOGLE_SHEETS_KEY,
         ['https://www.googleapis.com/auth/spreadsheets']);
 
 
-
-    //authenticate request
+    // authenticate request
     try {
         await jwtClient.authorize();
     } catch (e) {
         console.error("Unable to authorize against google API")
+        console.error(e.message);
         throw e.message;
     }
 

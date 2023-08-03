@@ -21,7 +21,7 @@ export const actions = {
             return { success: true, error: false };
 
         } catch (e) {
-            console.error(e)
+            console.error("Unable to save membership to Google Sheet")
             return { success: false, error: true };
         }
 
