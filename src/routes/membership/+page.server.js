@@ -1,4 +1,5 @@
 /** @type {import('./$types').Actions} */
+import { redirect } from '@sveltejs/kit';
 
 import { saveMemberToGoogleSheet } from "$lib/utils/googleSheets";
 
@@ -15,15 +16,17 @@ export const actions = {
         const membershipType = formData.get("membershipType").toString();
 
 
+        throw redirect(303, 'https://cruel-week.surge.sh/?url=http://localhost:5173/membership/paymentSuccessful');
 
-        try {
-            await saveMemberToGoogleSheet(name, email, membershipType);
-            return { success: true, error: false };
+        //TODO: move this to redirect endpoint
+        // try {
+        //     await saveMemberToGoogleSheet(name, email, membershipType);
+        //     return { success: true, error: false };
 
-        } catch (e) {
-            console.error("Unable to save membership to Google Sheet")
-            return { success: false, error: true };
-        }
+        // } catch (e) {
+        //     console.error("Unable to save membership to Google Sheet")
+        //     return { success: false, error: true };
+        // }
 
 
 
