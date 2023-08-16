@@ -34,9 +34,9 @@
 			two price categories:
 		</p>
 		<ul>
-			<li>Ordinary price: 320 NOK per year, or 215 NOK per semester</li>
+			<li>Ordinary price: 330 NOK per year, or 220 NOK per semester</li>
 			<li>
-				Reduced price (students, unemployed, pensioners, children): 215 NOK per year, or 145 NOK per
+				Reduced price (students, unemployed, pensioners, children): 215 NOK per year, or 150 NOK per
 				semester
 			</li>
 		</ul>
