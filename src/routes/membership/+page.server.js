@@ -1,5 +1,7 @@
 /** @type {import('./$types').Actions} */
 import { redirect } from '@sveltejs/kit';
+import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
+
 
 import { saveMemberToGoogleSheet } from "$lib/utils/googleSheets";
 
@@ -18,25 +20,14 @@ async function encryptFormData(formData) {
 
     const json = JSON.stringify({ name, email, membershipType });
 
-    const keyString = '/Deg/lw7Kx5S5qSGY7pZXgeJG74qFMGLYPaGiq45JfzFh9xauOZCOTZENFpUfkJ2ZQUy2oP9tw8/xFfxrGwTBUx+Mhh7PFTYY9EHnxdbOoaTiKFHt39hHMA02fgYGY6YVY7uM7Ai6swdasI96ZzBrFjB0MeHX4zERjpV5YGmQgLWOOgAM+p+VrDX191T9unqX3RLebJPVaW9uDA1ZXeJ4cul/1Mp5pnhXSXy5EgzgiKdSfzSnlHPbQm+CvuIWtYA4RYYg1IP+PamzePl4feakgG+Zi/QOHOywULHqstyVgQzEXgZJMUPif3T78k00bht3jdaKphxH4iGL9Ud+9+L2OMHq4clsLQo0vIK5+rpSTA=';
     const encoder = new TextEncoder();
-    const encryptionKey = encoder.encode(keyString);
+    const encryptionKey = encoder.encode(ENCRYPTION_KEY);
+    const iv = encoder.encode(INITIALIZATION_VECTOR);
+    const key = await crypto.subtle.importKey('raw', encryptionKey, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt']);
 
-    const ivString = 'initialization vector';
-    const iv = encoder.encode(ivString);
-
-
-    // Generate a random encryption key
-
-
-    // Convert the string to be encrypted into a Uint8Array
     const plainText = json;
     const encodedText = new TextEncoder().encode(plainText);
 
-    const key = await crypto.subtle.importKey('raw', encryptionKey, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt']);
-
-
-    // Encrypt the string using the encryption key
     let encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, encodedText);
 
     let encryptedArray = new Uint8Array(encrypted);
