@@ -29,13 +29,7 @@ async function encryptFormData(formData) {
     const encodedText = new TextEncoder().encode(plainText);
 
     let encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, encodedText);
-
     let encryptedArray = new Uint8Array(encrypted);
-
-    const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, encryptedArray);
-    const decryptedString = new TextDecoder().decode(new Uint8Array(decrypted));
-
-    console.log("Decrypted: " + decryptedString);
 
     return encryptedArray
 }
