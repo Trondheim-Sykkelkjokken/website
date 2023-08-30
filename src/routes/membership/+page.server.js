@@ -18,7 +18,7 @@ async function encryptFormData(formData) {
 
     const json = JSON.stringify({ name, email, membershipType });
 
-    const keyString = 'KVCQmXAVJ+9HMahKlkTSfvZjbp2jTxicOgsm78stidH76PjAtMewQnVmAR4r2abD';
+    const keyString = '/Deg/lw7Kx5S5qSGY7pZXgeJG74qFMGLYPaGiq45JfzFh9xauOZCOTZENFpUfkJ2ZQUy2oP9tw8/xFfxrGwTBUx+Mhh7PFTYY9EHnxdbOoaTiKFHt39hHMA02fgYGY6YVY7uM7Ai6swdasI96ZzBrFjB0MeHX4zERjpV5YGmQgLWOOgAM+p+VrDX191T9unqX3RLebJPVaW9uDA1ZXeJ4cul/1Mp5pnhXSXy5EgzgiKdSfzSnlHPbQm+CvuIWtYA4RYYg1IP+PamzePl4feakgG+Zi/QOHOywULHqstyVgQzEXgZJMUPif3T78k00bht3jdaKphxH4iGL9Ud+9+L2OMHq4clsLQo0vIK5+rpSTA=';
     const encoder = new TextEncoder();
     const encryptionKey = encoder.encode(keyString);
 
