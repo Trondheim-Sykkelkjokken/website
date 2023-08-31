@@ -1,24 +1,20 @@
 /** @type {import('./$types').Actions} */
 import { redirect } from '@sveltejs/kit';
+
+// @ts-ignore
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
-
-
-import { saveMemberToGoogleSheet } from "$lib/utils/googleSheets";
 
 // @ts-ignore
 const prices = { year: 330, year_reduced: 220, semester: 215, semester_reduced: 150 };
-
-
-
-
 
 
 async function encryptFormData(formData) {
     const name = formData.get("name").toString();
     const email = formData.get("email").toString();
     const membershipType = formData.get("membershipType").toString();
+    const id = formData.get("id").toString();
 
-    const json = JSON.stringify({ name, email, membershipType });
+    const json = JSON.stringify({ id, name, email, membershipType });
 
     const encoder = new TextEncoder();
     const encryptionKey = encoder.encode(ENCRYPTION_KEY);
@@ -39,6 +35,7 @@ export const actions = {
     payWithVipps: async (event) => {
         console.log("paying with vipps");
         const formData = await event.request.formData();
+        formData.append("id", crypto.randomUUID());
         const encryptedFormData = await encryptFormData(formData);
 
 

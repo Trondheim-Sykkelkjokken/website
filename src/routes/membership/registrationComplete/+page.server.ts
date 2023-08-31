@@ -1,5 +1,6 @@
 /** @type {import('./$types').PageLoad} */
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
+import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
 
 async function decryptFormData(data) {
     const encoder = new TextEncoder();
@@ -15,8 +16,9 @@ async function decryptFormData(data) {
 
 export async function load({ url }) {
     const data: string = url.searchParams.get('data');
-
     const decryptedJson = await decryptFormData(data);
 
-    console.log(decryptedJson)
+    const { id, name, email, membershipType } = decryptedJson;
+
+    await saveMemberToGoogleSheet(id, name, email, membershipType);
 }
