@@ -1,6 +1,4 @@
 <script>
-	import tnc from './tnc.svelte';
-
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
 	import Tnc from './tnc.svelte';

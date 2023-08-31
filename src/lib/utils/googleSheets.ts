@@ -61,7 +61,7 @@ export async function saveMemberToGoogleSheet(id: string, name: string, email: s
         resource: body
     }, function (err, response) {
         if (err) {
-            console.log('The API returned an error: ' + err);
+            console.log('The Google Sheets API returned an error: ' + err);
         } else {
             console.log('Data saved to google sheet: ' + data);
         }
