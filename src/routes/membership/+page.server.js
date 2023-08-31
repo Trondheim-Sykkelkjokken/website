@@ -1,7 +1,6 @@
 /** @type {import('./$types').Actions} */
 import { redirect } from '@sveltejs/kit';
 
-// @ts-ignore
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
 
 // @ts-ignore

@@ -56,7 +56,7 @@ export async function saveMemberToGoogleSheet(id: string, name: string, email: s
     sheets.spreadsheets.values.append({
         auth: jwtClient,
         spreadsheetId: GOOGLE_SHEETS_ID,
-        range: "raw_data!A2:E2",
+        range,
         valueInputOption: "RAW",
         resource: body
     }, function (err, response) {
