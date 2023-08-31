@@ -1,6 +1,7 @@
 /** @type {import('./$types').PageLoad} */
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
 import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
+import { redirect } from '@sveltejs/kit';
 
 async function decryptFormData(data) {
     const encoder = new TextEncoder();
@@ -15,10 +16,18 @@ async function decryptFormData(data) {
 }
 
 export async function load({ url }) {
-    const data: string = url.searchParams.get('data');
-    const decryptedJson = await decryptFormData(data);
+    const encryptedData: string = url.searchParams.get('data');
+    if (!encryptedData) {
+        throw redirect(303, "/");
+    }
 
-    const { id, name, email, membershipType } = decryptedJson;
-
-    await saveMemberToGoogleSheet(id, name, email, membershipType);
+    try {
+        const decryptedJson = await decryptFormData(encryptedData);
+        const { id, name, email, membershipType } = decryptedJson;
+        await saveMemberToGoogleSheet(id, name, email, membershipType);
+    }
+    catch (error) {
+        console.error(error.message)
+        return { error: true }
+    }
 }
