@@ -1,5 +1,6 @@
 /** @type {import('./$types').Actions} */
 import { redirect } from '@sveltejs/kit';
+import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
 
 import { encryptFormData } from '$lib/utils/crypto';
 
@@ -11,6 +12,8 @@ export const actions = {
     payWithVipps: async (event) => {
         const formData = await event.request.formData();
         formData.append("id", crypto.randomUUID());
+        const { id, name, email, membershipType } = formData;
+        saveMemberToGoogleSheet(id, name, email, membershipType);
         const encryptedFormData = await encryptFormData(formData);
 
 

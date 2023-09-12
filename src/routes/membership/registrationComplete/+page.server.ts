@@ -1,6 +1,6 @@
 /** @type {import('./$types').PageLoad} */
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
-import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
+import { addPaymentDetailsToRegistration } from '$lib/utils/googleSheets';
 import { decryptFormData } from '$lib/utils/crypto.js';
 
 import { redirect } from '@sveltejs/kit';
@@ -15,10 +15,11 @@ export async function load({ url }) {
     try {
         const decryptedJson = await decryptFormData(encryptedData);
         const { id, name, email, membershipType } = decryptedJson;
-        await saveMemberToGoogleSheet(id, name, email, membershipType);
+        await addPaymentDetailsToRegistration(id, name, email, membershipType);
     }
     catch (error) {
         console.error(error.message)
         return { error: true }
     }
 }
+
