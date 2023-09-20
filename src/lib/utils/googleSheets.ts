@@ -1,7 +1,12 @@
 import { google } from "googleapis";
 import { GOOGLE_SHEETS_KEY, GOOGLE_SHEETS_EMAIL, GOOGLE_SHEETS_ID } from '$env/static/private';
 
-export async function saveMemberToGoogleSheet(id: string, name: string, email: string, membershipType: string) {
+export async function saveMemberToGoogleSheet(formData: FormData) {
+    const name = formData.get("name").toString();
+    const email = formData.get("email").toString();
+    const membershipType = formData.get("membershipType").toString();
+    const id = formData.get("id").toString();
+
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         null,
@@ -25,33 +30,35 @@ export async function saveMemberToGoogleSheet(id: string, name: string, email: s
         [id, name, email, membershipType, new Date()]
     ];
 
+    console.log(data)
+
     const body = {
         values: data,
     };
 
-    // Check if data already exists
     const range = "raw_data!A:E";
-    const existingData = await sheets.spreadsheets.values.get({
-        auth: jwtClient,
-        spreadsheetId: GOOGLE_SHEETS_ID,
-        range,
-    });
+    // // Check if data already exists
+    // const existingData = await sheets.spreadsheets.values.get({
+    //     auth: jwtClient,
+    //     spreadsheetId: GOOGLE_SHEETS_ID,
+    //     range,
+    // });
 
-    if (existingData) {
-        const existingValues = existingData.data.values;
+    // if (existingData) {
+    //     const existingValues = existingData.data.values;
 
-        // Check if data already exists in the spreadsheet based on the ID field
-        const exists = existingValues.some((row) => {
-            const [existingId] = row;
-            return existingId === id;
-        });
+    //     // Check if data already exists in the spreadsheet based on the ID field
+    //     const exists = existingValues.some((row) => {
+    //         const [existingId] = row;
+    //         return existingId === id;
+    //     });
 
-        // Skip append if data already exists
-        if (exists) {
-            console.log("Data already exists in spreadsheet");
-            return;
-        }
-    }
+    //     // Skip append if data already exists
+    //     if (exists) {
+    //         console.log("Data already exists in spreadsheet");
+    //         return;
+    //     }
+    // }
 
     sheets.spreadsheets.values.append({
         auth: jwtClient,
@@ -70,7 +77,7 @@ export async function saveMemberToGoogleSheet(id: string, name: string, email: s
 }
 
 
-export async function addPaymentDetailsToRegistration(id: number) {
+export async function addPaymentDetailsToRegistration(id: number, name: string, email: string, membershipType: string) {
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         null,
@@ -92,11 +99,11 @@ export async function addPaymentDetailsToRegistration(id: number) {
 
     // Check if data already exists
     const range = "raw_data!A:E";
-    
+
     const response = await sheets.spreadsheets.values.get({
-      auth: jwtClient,
-      spreadsheetId: GOOGLE_SHEETS_ID,
-      range
+        auth: jwtClient,
+        spreadsheetId: GOOGLE_SHEETS_ID,
+        range
     });
 
     const rows = response.data.values;
@@ -105,23 +112,23 @@ export async function addPaymentDetailsToRegistration(id: number) {
     const row = rows.find((row) => row[0] === id.toString());
 
     if (row) {
-      // Append payment details to the end of the row
-      row.push('payment details'); // Replace 'payment details' with the actual payment details
+        // Append payment details to the end of the row
+        row.push('payment details'); // Replace 'payment details' with the actual payment details
 
-      // Update the sheet
-      await sheets.spreadsheets.values.update({
-        auth: jwtClient,
-        spreadsheetId,
-        range: `${sheetName}!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`, // Replace with the range of the row you want to update
-        valueInputOption: 'RAW',
-        resource: {
-          values: [row],
-        },
-      });
+        // Update the sheet
+        await sheets.spreadsheets.values.update({
+            auth: jwtClient,
+            spreadsheetId: GOOGLE_SHEETS_ID,
+            range: `raw_data!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`, // Replace with the range of the row you want to update
+            valueInputOption: 'RAW',
+            resource: {
+                values: [row],
+            },
+        });
 
-      console.log('Payment details added to row:', row);
+        console.log('Payment details added to row:', row);
 
     } else {
-      console.log('No row found with the given ID');
+        console.log('No row found with the given ID');
     }
 }
