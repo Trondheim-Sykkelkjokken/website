@@ -30,7 +30,7 @@
 		</nav>
 	</div>
 	<div class="info">
-		<p class="infotext">We're open every <br /><time>Wednesday 17:00 - 20:00!</time></p>
+		<p class="infotext">We're open <time>Wednesdays 17:00–20:00!</time></p>
 	</div>
 </header>
 
