@@ -23,7 +23,7 @@
 			<NavLink title="Home" href="/" />
 			<NavLink title="Events" href="/events" />
 			<NavLink title="Membership" href="/membership" />
-			<NavLink title="Blog" href="/blog" />
+			<!-- <NavLink title="Blog" href="/blog" /> -->
 			<NavLink title="Volunteer" href="/volunteer" />
 			<NavLink title="Tools/parts" href="/tools" />
 			<NavLink title="Resources" href="/resources" />
