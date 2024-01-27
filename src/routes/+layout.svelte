@@ -36,7 +36,7 @@
 		padding: 1rem 1rem;
 		max-width: 800px;
 		margin: 0 auto;
-		color: #000000;
+		color: #333333;
 		flex-grow: 1;
 		width: calc(100% - 2rem);
 	}
