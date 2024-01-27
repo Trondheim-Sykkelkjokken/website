@@ -18,7 +18,7 @@
 		You can find us on <a href="https://www.facebook.com/trondheimsykkelkjokken">Facebook.</a>
 	</li>
 	<li>We are also on <a href="https://www.instagram.com/trondheimsykkelkjokken/">Instagram.</a></li>
-	<li>Or send us an email at <b>trondheimsykkelkjokken@gmail.com</b></li>
+	<li>Or send us an email at <b>kontakt@sykkelkjokken.no</b></li>
 </ul>
 
 <img src="/images/5.JPG" alt="" />

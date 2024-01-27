@@ -23,7 +23,7 @@
 			<div class="footer-item">Community - Knowledge sharing - Recycling</div>
 			<div class="footer-item">
 				<div class="icons">
-					<a href="mailto:trondheimsykkelkjokken@gmail.com"
+					<a href="mailto:kontakt@sykkelkjokken.no"
 						><Icon {...iconProps} src={AiOutlineMail} /></a
 					>
 					<a href="https://www.facebook.com/trondheimsykkelkjokken"
