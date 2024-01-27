@@ -15,7 +15,7 @@
 	<li>Join us in organizing events, such as bike trips, community events, film screenings, etc.</li>
 </ul>
 <p>No previous bicycle repair experience is required!</p>
-<p>Does this sound interesting? Contact us on kontakt@trondheimsykkelkjokken.no, or in person at the bike kitchen!</p>
+<p>Does this sound interesting? Contact us on kontakt@sykkelkjokken.no, or in person at the bike kitchen!</p>
 <img srcset={img4} alt="" />
 
 <style>
