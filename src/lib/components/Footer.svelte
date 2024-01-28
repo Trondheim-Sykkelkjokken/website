@@ -20,7 +20,7 @@
 					></span
 				>
 			</div>
-			<div class="footer-item">Community - Knowledge sharing - Recycling</div>
+			<div class="footer-item">Community — Skill sharing — Reusing</div>
 			<div class="footer-item">
 				<div class="icons">
 					<a href="mailto:kontakt@sykkelkjokken.no"
