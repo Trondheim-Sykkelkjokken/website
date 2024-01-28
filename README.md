@@ -1,6 +1,6 @@
-# Trondheim Sykkelkjøkken
+# Trondheim sykkelkjøkken
 
-This is the website of Trondheim Sykkelkjøkken
+This is the website of Trondheim sykkelkjøkken
 
 This is a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
