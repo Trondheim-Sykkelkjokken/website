@@ -11,7 +11,7 @@
 <h2>Contact us:</h2>
 <ul>
 	<li>
-		We are located in Bøker & Bylab next to Teknobyen. The address is Professor Brochs gate 2, with
+		We are located in Bøker & bylab next to Teknobyen. The address is Professor Brochs gate 2, with
 		entrance on the northern side of the building.
 	</li>
 	<li>

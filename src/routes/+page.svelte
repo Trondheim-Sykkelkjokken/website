@@ -49,7 +49,7 @@
 		<p>
 			Bike tools can be expensive, and often you'll only need them once. By becoming a member, for
 			the price of a tool, you get access to all our tools, and our knowledgable members. Our
-			workshop located at Bøker & Bylab is well stocked with most tools needed for both maintenance
+			workshop located at Bøker & bylab is well stocked with most tools needed for both maintenance
 			and repair, as well as consumeables susch as inner tubes, brake pads, grease and cleaning
 			supplies.
 		</p>
