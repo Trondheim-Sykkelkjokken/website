@@ -1,22 +1,31 @@
-# Trondheim sykkelkjøkken
+# The website of Trondheim Bike Kitchen
 
-This is the website of Trondheim sykkelkjøkken
+This is the website of Trondheim Bike Kitchen / Trondheim sykkelkjøkken.
 
-This is a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+You can find it here: **https://sykkelkjokken.no**
 
+This is a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Developing
+## Setup
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Install a recent version of [Node.js](https://nodejs.org/en)
+1. Install dependencies: `npm install`
 
-```bash
+## Develop
+
+Start a development server:
+
+```sh
 npm run dev
+```
 
-# or start the server and open the app in a new browser tab
+Or start the server and open the app in a new browser tab:
+
+```sh
 npm run dev -- --open
 ```
 
-## Building
+## Build
 
 Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
 
@@ -25,8 +34,3 @@ npm run build
 ```
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
-
-## TODOs
-* Tailwind?
-* I18? Supported in CMS. Sveltekit native when?
-* Proper membership form
