@@ -4,6 +4,8 @@ import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
 
 import { encryptFormData } from '$lib/utils/crypto';
 
+export const prerender = false;
+
 // @ts-ignore
 const prices = { year: 330, year_reduced: 220, semester: 215, semester_reduced: 150 };
 
