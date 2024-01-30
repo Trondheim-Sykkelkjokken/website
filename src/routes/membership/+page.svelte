@@ -19,6 +19,14 @@
 	};
 </script>
 
+<h1>Become a member!</h1>
+
+<p>By becoming a member, you get access to the bike kitchen, all our tools, and to the community. We all help each other out, and share the knowledge we have. If you need help figuring out how to fix something, we're there for you. If you just need tools, the tools are also there for you.</p>
+
+<p>You can get a membership for a full school year, or for one semester. We also have a reduced price for students, unemployed, retirees, and children.</p>
+
+<p>To sign up, use this form:</p>
+
 <iframe
 	bind:this={frame}
 	on:load={resize}

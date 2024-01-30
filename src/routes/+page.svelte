@@ -9,7 +9,7 @@
 	<section>
 		<h1>Trondheim Bike Kitchen</h1>
 		<p>
-			Trondheim Bike Kitchen is a non-profit bike workshop. Here members get access to tools and
+			Trondheim Bike Kitchen is a non-profit community bicycle workshop. Here members get access to tools and
 			guidance in how to repair their own bikes. "Bike kitchen" is an established concept for
 			sharing knowledge and resources on bike repair and similar initiatives exist in countries all
 			over the world. Our goal is to be a community for sharing knowledge about repairing and
@@ -27,23 +27,6 @@
 		</p>
 	</section>
 	<img srcset={img2} alt="" class="banner" />
-	<section>
-		<h1>Membership</h1>
-		<p>
-			You can buy a membership either for one semester of for the whole school year, and there are
-			two price categories:
-		</p>
-		<ul>
-			<li>Ordinary price: 330 NOK per year, or 220 NOK per semester</li>
-			<li>
-				Reduced price (students, unemployed, pensioners, children): 215 NOK per year, or 150 NOK per
-				semester
-			</li>
-		</ul>
-		<a href="/membership"> Buy your membership here! </a>
-	</section>
-	<img srcset={img4} alt="" class="banner" />
-
 	<section class="right">
 		<h1>Tools</h1>
 		<p>
