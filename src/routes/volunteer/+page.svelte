@@ -2,7 +2,7 @@
 	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset&imagetools';
 </script>
 
-<h1>Volunteer at the Trondheim Bike Kitchen!</h1>
+<h1>Become a volunteer!</h1>
 
 <p>Volunteering at our Trondheim Bike Kitchen is all about community and getting hands-on with bikes. It's a relaxed space where we help each other fix up our rides, sharing skills and stories. Whether you're a complete beginner or a seasoned mechanic, there's a place for you here. By helping folks get their bikes back on the road; we're boosting the cycling vibe across Trondheim. Join us, tinker with some bikes, and be part of a movement that keeps our city pedaling!</p>
 
