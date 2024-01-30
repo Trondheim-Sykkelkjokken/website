@@ -1,5 +1,7 @@
 [build]
-  command = "npm run build"
-  publish = "build"
+command = "npm run build"
+publish = "build"
+[build.environment]
+NODE_VERSION = "18.13"
 [functions]
-  node_bundler = "esbuild"
+node_bundler = "esbuild"
