@@ -22,12 +22,6 @@
 		the seeking of injunctive relief and the recovery of damages incurred as a direct result of the
 		breach.
 	</p>
-	<p>
-		Paragraph 3: Notwithstanding any provision to the contrary contained herein, all disputes
-		arising out of or relating to this agreement shall be subject to binding arbitration in
-		accordance with the rules and regulations set forth by the American Arbitration Association. The
-		selected arbitrator shall have the authority to
-	</p>
 
 	<p>
 		By becoming a member of Trondheim Bike Kitchen, you commit to the following code of conduct:
