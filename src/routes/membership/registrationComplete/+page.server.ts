@@ -5,6 +5,7 @@ import { decryptFormData } from '$lib/utils/crypto.js';
 
 import { redirect } from '@sveltejs/kit';
 
+export const prerender = false;
 
 export async function load({ url }) {
     const encryptedData: string = url.searchParams.get('data');
