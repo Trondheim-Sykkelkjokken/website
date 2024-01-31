@@ -10,5 +10,9 @@
 
 {#if data.error}
 	<h1>Something went wrong!</h1>
-	<p>Please try again, or contact support if the problem persists.</p>
+	<p>
+		Please try again, or contact us at <a href="mailto:kontakt@sykkelkjokken.no"
+			>kontakt@sykkelkjokken.no</a
+		> if the problem persists.
+	</p>
 {/if}
