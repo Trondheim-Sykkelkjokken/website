@@ -7,7 +7,7 @@ collections:
     files:
       - label: "Header message"
         name: header_message
-        file: "src/routes/header_message.txt"
+        file: "src/routes/header_message.json"
         fields:
           - name: message
             widget: text

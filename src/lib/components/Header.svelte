@@ -5,6 +5,8 @@
 		open = value;
 	});
 
+	export let message: string;
+
 	import AiOutlineMenu from 'svelte-icons-pack/ai/AiOutlineMenu';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import NavLink from './NavLink.svelte';
@@ -30,7 +32,7 @@
 		</nav>
 	</div>
 	<div class="info">
-		<p class="infotext">We're open <time>Wednesdays 17:00–20:00!</time></p>
+		<p class="infotext">{message}</p>
 	</div>
 </header>
 
