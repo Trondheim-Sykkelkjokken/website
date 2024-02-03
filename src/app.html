@@ -1,43 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-	<meta charset="utf-8" />
-	<meta name="description" content="" />
-	<link rel="icon" href="/favicon.png" />
-	<title>Trondheim sykkelkjøkken</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-	<script>
-		// set background color when overscrolling
-		var scrollPos = 0;
-		window.addEventListener('scroll', function () {
-			if ((document.body.getBoundingClientRect()).top > scrollPos) {
-				document.body.style.backgroundColor = "white";
-			}
-			else {
-				document.body.style.backgroundColor = "#efeb92";
-			}
-			scrollPos = (document.body.getBoundingClientRect()).top;
-		});
-	</script>
-
-	%sveltekit.head%
-</head>
-
-<body>
-	<div id="svelte">%sveltekit.body%</div>
-	<script>
-		if (window.netlifyIdentity) {
-			window.netlifyIdentity.on("init", user => {
-				if (!user) {
-					window.netlifyIdentity.on("login", () => {
-						document.location.href = "/admin/";
-					});
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<link rel="icon" href="/favicon.png" />
+		<title>Trondheim sykkelkjøkken</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		<script>
+			// set background color when overscrolling
+			var scrollPos = 0;
+			window.addEventListener('scroll', function () {
+				if (document.body.getBoundingClientRect().top > scrollPos) {
+					document.body.style.backgroundColor = 'white';
+				} else {
+					document.body.style.backgroundColor = '#efeb92';
 				}
+				scrollPos = document.body.getBoundingClientRect().top;
 			});
-		}
-	</script>
-</body>
+		</script>
 
+		%sveltekit.head%
+	</head>
+
+	<body>
+		<div id="svelte">%sveltekit.body%</div>
+		<script>
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on('init', (user) => {
+					if (!user) {
+						window.netlifyIdentity.on('login', () => {
+							document.location.href = '/admin/';
+						});
+					}
+				});
+			}
+		</script>
+	</body>
 </html>
