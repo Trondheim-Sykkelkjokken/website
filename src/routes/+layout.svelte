@@ -1,7 +1,7 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import messageData from './header_message.json';
+	import messageData from '../config/header_message.json';
 	let message = messageData.message;
 </script>
 

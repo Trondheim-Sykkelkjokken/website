@@ -13,7 +13,7 @@
 		<div class="flex-container">
 			<div class="footer-item">
 				<a href="https://goo.gl/maps/VbdKy1BcST1hjtLK9"
-					>Bøker & bylab<br />Professor Brochs gate 2<br />7030 Trondheim, Norway</a
+					>Bøker & Bylab<br />Professor Brochs gate 2<br />7030 Trondheim, Norway</a
 				><br />
 				<span
 					>Orgnr: <a href="https://w2.brreg.no/enhet/sok/detalj.jsp?orgnr=923049274">923049274</a
@@ -23,9 +23,7 @@
 			<div class="footer-item">Community — Skill sharing — Reusing</div>
 			<div class="footer-item">
 				<div class="icons">
-					<a href="mailto:kontakt@sykkelkjokken.no"
-						><Icon {...iconProps} src={AiOutlineMail} /></a
-					>
+					<a href="mailto:kontakt@sykkelkjokken.no"><Icon {...iconProps} src={AiOutlineMail} /></a>
 					<a href="https://www.facebook.com/trondheimsykkelkjokken"
 						><Icon {...iconProps} src={AiOutlineFacebook} /></a
 					>

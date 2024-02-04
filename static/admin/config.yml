@@ -2,15 +2,50 @@ backend:
   name: git-gateway
   branch: main
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "settings"
+    label: "Settings"
     files:
       - label: "Header message"
         name: header_message
-        file: "src/routes/header_message.json"
+        file: "src/config/header_message.json"
         fields:
           - name: message
             widget: text
+      - label: "Memberships"
+        name: memberships
+        file: "src/config/memberships.json"
+        fields:
+          - name: memberships
+            widget: list
+            collapsed: false
+            fields:
+              - { label: "Name", name: "name", widget: string }
+              - {
+                  label: "Reduced",
+                  name: "reduced",
+                  widget: boolean,
+                  default: false,
+                  required: false,
+                  hint: "This is a reduced price membership for students etc.",
+                }
+              - { label: "Price", name: "price", widget: number }
+              - {
+                  label: "Start Date",
+                  name: "start_date",
+                  widget: datetime,
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                }
+              - {
+                  label: "End Date",
+                  name: "end_date",
+                  widget: datetime,
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                }
+  - name: "pages"
+    label: "Pages"
+    files:
       - label: "Tools page"
         name: "tools"
         file: "src/routes/tools/+page.md"
@@ -34,8 +69,8 @@ collections:
       - name: publication_date
         label: Publication Date
         widget: datetime
-        date_format: "DD.MM.YYYY" # e.g. 24.12.2021
-        time_format: "HH:mm" # e.g. 21:07
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
       - name: body
         widget: markdown
 
