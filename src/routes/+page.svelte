@@ -26,23 +26,6 @@
 		</p>
 	</section>
 	<img srcset={img2} alt="" class="banner" />
-	<section>
-		<h1>Membership</h1>
-		<p>
-			You can buy a membership either for one semester of for the whole school year, and there are
-			two price categories:
-		</p>
-		<ul>
-			<li>Ordinary price: 330 NOK per year, or 220 NOK per semester</li>
-			<li>
-				Reduced price (students, unemployed, pensioners, children): 215 NOK per year, or 150 NOK per
-				semester
-			</li>
-		</ul>
-		<a href="/membership"> Become a member today! </a>
-	</section>
-	<img srcset={img4} alt="" class="banner" />
-
 	<section class="right">
 		<h1>Tools</h1>
 		<p>
