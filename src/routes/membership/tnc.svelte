@@ -5,24 +5,51 @@
 
 <div class="tandc">
 	<h2>Terms and conditions</h2>
+	<h3>Parties</h3>
 	<p>
-		Paragraph 1: In accordance with the provisions set forth in the aforementioned agreement, the
-		undersigned party shall hereby indemnify and hold harmless all parties involved from any and all
-		claims, damages, or liabilities arising out of or in connection with the execution of this
-		contract. Furthermore, it is hereby acknowledged that any breach of the terms and conditions
-		outlined herein shall result in the immediate termination of this agreement, without prejudice
-		to any other rights or remedies available to the aggrieved party.
-	</p>
-	<p>
-		Paragraph 2: This document serves as an addendum to the existing legal agreement between the
-		parties hereto. The parties agree to promptly and diligently perform all obligations set forth
-		in said agreement, and furthermore, shall refrain from engaging in any action or conduct that
-		may be deemed in violation of the terms and conditions stipulated herein. Any failure to comply
-		with the provisions contained herein may result in legal action, including but not limited to,
-		the seeking of injunctive relief and the recovery of damages incurred as a direct result of the
-		breach.
+		The seller is Trondheim sykkelkjokken, Professor Brochs gate 2, 7030 Trondheim,
+		kontakt@sykkelkjokken.no, organization number 923049274, and is hereinafter referred to as the
+		seller. The member is the consumer who enters into membership and is hereinafter referred to as
+		the member.
 	</p>
 
+	<h3>Payment</h3>
+	<p>
+		The stated price for the membership is the total price the member shall pay. This price includes
+		all fees and additional costs. There shall be no additional costs for the member.
+	</p>
+
+	<h3>Delivery</h3>
+	<p>Membership takes effect when the member or a representative has paid.</p>
+
+	<h3>Right of Withdrawal</h3>
+	<p>
+		Membership is entered into for a specified period and cannot be withdrawn beyond the provisions
+		of the Consumer Right of Withdrawal Act.
+	</p>
+
+	<h3>Returns</h3>
+	<p>Membership cannot be returned.</p>
+
+	<h3>Complaint Handling</h3>
+	<p>
+		Membership cannot be complained about but is automatically terminated at the end of the period.
+	</p>
+
+	<h3>Conflict Resolution</h3>
+	<p>
+		Complaints should be addressed to the seller within a reasonable time. The parties shall attempt
+		to resolve any disputes amicably. If this is not successful, the buyer may contact the Consumer
+		Authority for mediation. The Consumer Authority can be reached by phone at 23 400 600 or
+		www.forbrukertilsynet.no. The European Commission's online dispute resolution platform can also
+		be used if you wish to file a complaint. This is particularly relevant if you are a consumer
+		residing in another EU country. The complaint can be filed here: http://ec.europa.eu/odr.
+	</p>
+
+	<h3>Membership</h3>
+	<p>Membership runs until it expires and cannot be terminated or modified.</p>
+
+	<h3>Your acceptance of this agreement</h3>
 	<p>
 		By becoming a member of Trondheim Bike Kitchen, you commit to the following code of conduct:
 	</p>
