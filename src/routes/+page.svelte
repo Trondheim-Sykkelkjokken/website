@@ -9,7 +9,11 @@
 	<section>
 		<h1>Trondheim Bike Kitchen</h1>
 		<p>
-			Trondheim Bike Kitchen is a membership-based community bicycle workshop run by a group of volunteers. We help each other learn how to repair our own bicycles, and we provide access to a wide range of tools. Everyone is welcome to become a member or a volunteer, regardless of bicycle repair skill. Our goal is to make cycling available to all of Trondheim, to spread cycling knowledge and joy, and to encourage enivironmentally friendly transport.
+			Trondheim Bike Kitchen is a membership-based community bicycle workshop run by a group of
+			volunteers. We help each other learn how to repair our own bicycles, and we provide access to
+			a wide range of tools. Everyone is welcome to become a member or a volunteer, regardless of
+			bicycle repair skill. Our goal is to make cycling available to all of Trondheim, to spread
+			cycling knowledge and joy, and to encourage enivironmentally friendly transport.
 		</p>
 	</section>
 	<img srcset={img6} alt="" class="banner" />
@@ -27,8 +31,8 @@
 		<p>
 			Bike tools can be expensive, and often you'll only need them once. By becoming a member, for
 			the price of a tool, you get access to all our tools, and our knowledgable members. Our
-			workshop located at Bøker & bylab is well stocked with most tools needed for both maintenance
-			and repair, as well as consumeables susch as inner tubes, brake pads, grease and cleaning
+			workshop located at Bøker & Bylab is well stocked with most tools needed for both maintenance
+			and repair, as well as consumeables such as inner tubes, brake pads, grease and cleaning
 			supplies.
 		</p>
 	</section>
