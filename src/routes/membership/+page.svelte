@@ -18,11 +18,11 @@
 		<h2>Membership form</h2>
 		<label>
 			Name:
-			<input required name="name" type="text" value="placeholder" />
+			<input required name="name" type="text" />
 		</label>
 		<label>
 			Email:
-			<input required name="email" type="email" value="place@holder" />
+			<input required name="email" type="email" />
 		</label>
 
 		<fieldset>
