@@ -2,6 +2,6 @@
 command = "npm run build"
 publish = "build"
 [build.environment]
-NODE_VERSION = "20.11"
+NODE_VERSION = "21.6.2"
 [functions]
 node_bundler = "esbuild"
