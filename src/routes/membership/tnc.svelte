@@ -9,8 +9,8 @@
 	<p>
 		The seller is Trondheim sykkelkjokken, Professor Brochs gate 2, 7030 Trondheim,
 		kontakt@sykkelkjokken.no, organization number 923049274, and is hereinafter referred to as the
-		seller. The member is the consumer who enters into membership and is hereinafter referred to as
-		the member.
+		organization. The member is the consumer who enters into membership and is hereinafter referred
+		to as the member.
 	</p>
 
 	<h3>Payment</h3>
@@ -39,7 +39,7 @@
 	<h3>Conflict Resolution</h3>
 	<p>
 		Complaints should be addressed to the seller within a reasonable time. The parties shall attempt
-		to resolve any disputes amicably. If this is not successful, the buyer may contact the Consumer
+		to resolve any disputes amicably. If this is not successful, the member may contact the Consumer
 		Authority for mediation. The Consumer Authority can be reached by phone at 23 400 600 or
 		www.forbrukertilsynet.no. The European Commission's online dispute resolution platform can also
 		be used if you wish to file a complaint. This is particularly relevant if you are a consumer
