@@ -9,8 +9,8 @@
 	<section>
 		<h1>Trondheim Bike Kitchen</h1>
 		<p>
-			Trondheim Bike Kitchen is a membership-based community bicycle workshop run by a group of
-			volunteers. We help each other learn how to repair our own bicycles, and we provide access to
+			Trondheim Bike Kitchen is a community bicycle workshop run by volunteers. Our members
+			help each other learn how to repair our own bicycles, and we provide access to
 			a wide range of tools. Everyone is welcome to become a member or a volunteer, regardless of
 			bicycle repair skill. Our goal is to make cycling available to all of Trondheim, to spread
 			cycling knowledge and joy, and to encourage enivironmentally friendly transport.
