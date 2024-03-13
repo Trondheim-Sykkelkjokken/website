@@ -16,7 +16,7 @@
 	<li>Get a t-shirt with a Trondheim Bike Kitchen design!</li>
 </ul>
 <p>No previous bicycle repair experience is required!</p>
-<p>Does this sound interesting? Reach out to kontakt@sykkelkjokken.no, or in person at the bike kitchen!</p>
+<p>Does this sound interesting? Reach out to <a href="mailto:kontakt@sykkelkjokken.no">kontakt@sykkelkjokken.no</a>, or in person at the bike kitchen!</p>
 <img srcset={img4} alt="" />
 
 <style>
