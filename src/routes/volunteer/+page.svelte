@@ -12,7 +12,7 @@
 	<li>Assist us in opening the space for our weekly Repair Wednesdays</li>
 	<li>Help others with their bicycle repairs</li>
 	<li>Get to know a bunch of friendly cyclists</li>
-	<li>Join us in organizing events, such as bike trips, community events, film screenings, etc</li>
+	<li>Help organize events, such bike trips, community events, and film screenings</li>
 	<li>Get a t-shirt with a Trondheim Bike Kitchen design!</li>
 </ul>
 <p>No previous bicycle repair experience is required!</p>
