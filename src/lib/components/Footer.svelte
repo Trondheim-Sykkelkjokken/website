@@ -12,7 +12,7 @@
 	<div id="footer-banner">
 		<div class="flex-container">
 			<div class="footer-item">
-				<a href="https://goo.gl/maps/VbdKy1BcST1hjtLK9"
+				<a href="https://maps.app.goo.gl/hdDM7xn28vsrV7Vv7"
 					>Bøker & Bylab<br />Professor Brochs gate 2<br />7030 Trondheim, Norway</a
 				><br />
 				<span
