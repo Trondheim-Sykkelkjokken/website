@@ -12,7 +12,8 @@
 	<li>Assist us in opening the space for our weekly Repair Wednesdays</li>
 	<li>Help others with their bicycle repairs</li>
 	<li>Get to know a bunch of friendly cyclists</li>
-	<li>Join us in organizing events, such as bike trips, community events, film screenings, etc.</li>
+	<li>Join us in organizing events, such as bike trips, community events, film screenings, etc</li>
+	<li>Get a t-shirt with a Trondheim Bike Kitchen design!</li>
 </ul>
 <p>No previous bicycle repair experience is required!</p>
 <p>Does this sound interesting? Contact us on kontakt@sykkelkjokken.no, or in person at the bike kitchen!</p>
