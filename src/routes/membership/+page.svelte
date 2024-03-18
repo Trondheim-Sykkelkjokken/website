@@ -42,7 +42,7 @@
 					name="membershipType"
 					bind:group={selectedMembership}
 					type="radio"
-					value="year_reduced"
+					value="year-reduced"
 					required
 				/>Full-year membership (1stJuly 2023 - 30th June 2024) - Reduced price<sup>*</sup>
 			</label>
@@ -59,7 +59,7 @@
 					name="membershipType"
 					bind:group={selectedMembership}
 					type="radio"
-					value="semester_reduced"
+					value="semester-reduced"
 				/>Semester membership (1st July2023 - 31th December 2023) - Reduced Price<sup>*</sup>
 			</label>
 

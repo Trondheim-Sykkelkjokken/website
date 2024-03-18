@@ -4,12 +4,12 @@ import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
 
 
 import { encryptFormData } from '$lib/utils/crypto';
-import { getVippsAccessToken } from '$lib/utils/vipps';
+import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/utils/vipps';
 
 export const prerender = false;
 
 // @ts-ignore
-const prices = { year: 330, year_reduced: 220, semester: 215, semester_reduced: 150 };
+const prices = { "year": 330, "year-reduced": 220, "semester": 215, "semester-reduced": 150 };
 
 
 
@@ -24,22 +24,30 @@ export const actions = {
         let accessTokenResponse = await getVippsAccessToken();
         let accessToken = accessTokenResponse.access_token;
 
+        let returnUrl = `${event.url.origin}/membership/registrationComplete?data=` + encryptedFormData;
         //Initiate payment
-        let payment = await initiateVippsPayment(accessToken, formData);
-
+        let payment = await initiateVippsPayment(accessToken, formData, returnUrl, PaymentType.Vipps);
 
         //TODO: Create payment at Vipps and redirect to URL
-        throw redirect(303, `https://cruel-week.surge.sh/?url=http://localhost:5173/membership/registrationComplete?data=${encryptedFormData}`);
+        throw redirect(303, payment.redirectUrl);
 
     },
     payWithCard: async (event) => {
         const formData = await event.request.formData();
         formData.append("id", crypto.randomUUID());
+        saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
+        //TODO: Error handle this mess. God damn I miss Rust.
+        let accessTokenResponse = await getVippsAccessToken();
+        let accessToken = accessTokenResponse.access_token;
+
+        let returnUrl = `${event.url.origin}/membership/registrationComplete?data=` + encryptedFormData;
+        //Initiate payment
+        let payment = await initiateVippsPayment(accessToken, formData, returnUrl, PaymentType.Card)
 
         //TODO: Create payment at Vipps and redirect to URL
-        throw redirect(303, `https://cruel-week.surge.sh/?url=http://localhost:5173/membership/registrationComplete?data=${encryptedFormData}`);
+        throw redirect(303, payment.redirectUrl);
     }
 };
 
