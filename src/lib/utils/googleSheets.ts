@@ -77,7 +77,7 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
 }
 
 
-export async function addPaymentDetailsToRegistration(id: number, name: string, email: string, membershipType: string) {
+export async function addPaymentDetailsToRegistration(id: number, pspReference: string) {
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         null,
@@ -88,7 +88,7 @@ export async function addPaymentDetailsToRegistration(id: number, name: string, 
     // authenticate request
     try {
         await jwtClient.authorize();
-    } catch (e) {
+    } catch (e: any) {
         console.error("Unable to authorize against google API")
         console.error(e.message);
         throw e.message;
@@ -113,7 +113,7 @@ export async function addPaymentDetailsToRegistration(id: number, name: string, 
 
     if (row) {
         // Append payment details to the end of the row
-        row.push('payment details'); // Replace 'payment details' with the actual payment details
+        row.push(pspReference); // Replace 'payment details' with the actual payment details
 
         // Update the sheet
         await sheets.spreadsheets.values.update({

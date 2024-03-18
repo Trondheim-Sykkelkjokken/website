@@ -23,8 +23,6 @@ export async function load({ url }) {
         const pspReference = paymentStatus.pspReference;
         const amount = paymentStatus.amount.value;
 
-        console.log(paymentStatus);
-        console.log(pspReference);
 
         if (paymentStatus.state !== 'AUTHORIZED') {
             return { error: true }
@@ -34,7 +32,7 @@ export async function load({ url }) {
             await capturePayment(id, amount, vippsToken.access_token);
         }
 
-        await addPaymentDetailsToRegistration(id, name, email, membershipType);
+        await addPaymentDetailsToRegistration(id, pspReference);
     }
     catch (error: any) {
         console.error(error.message)

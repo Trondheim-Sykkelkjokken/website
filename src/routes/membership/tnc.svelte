@@ -80,4 +80,7 @@
 	h2 {
 		display: inline;
 	}
+	summary {
+		cursor: pointer;
+	}
 </style>
