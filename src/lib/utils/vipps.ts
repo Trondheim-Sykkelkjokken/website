@@ -5,7 +5,6 @@ const prices: { [key: string]: number } = { "year": 330, "year-reduced": 220, "s
 export enum PaymentType {
     Vipps = "WALLET",
     Card = "CARD"
-
 }
 
 export async function getVippsAccessToken() {

@@ -1,15 +1,17 @@
 /** @type {import('./$types').Actions} */
-import { redirect } from '@sveltejs/kit';
+import { redirect, type RequestEvent } from '@sveltejs/kit';
 import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
 
 
 import { encryptFormData } from '$lib/utils/crypto';
 import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/utils/vipps';
+import type { RouteParams } from '../$types';
 
 export const prerender = false;
 
 // @ts-ignore
 const prices = { "year": 330, "year-reduced": 220, "semester": 215, "semester-reduced": 150 };
+
 
 
 
@@ -20,15 +22,12 @@ export const actions = {
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
-        //TODO: Error handle this mess. God damn I miss Rust.
         let accessTokenResponse = await getVippsAccessToken();
         let accessToken = accessTokenResponse.access_token;
 
         let returnUrl = `${event.url.origin}/membership/registrationComplete?data=` + encryptedFormData;
-        //Initiate payment
         let payment = await initiateVippsPayment(accessToken, formData, returnUrl, PaymentType.Vipps);
 
-        //TODO: Create payment at Vipps and redirect to URL
         throw redirect(303, payment.redirectUrl);
 
     },
@@ -38,15 +37,12 @@ export const actions = {
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
-        //TODO: Error handle this mess. God damn I miss Rust.
         let accessTokenResponse = await getVippsAccessToken();
         let accessToken = accessTokenResponse.access_token;
 
         let returnUrl = `${event.url.origin}/membership/registrationComplete?data=` + encryptedFormData;
-        //Initiate payment
         let payment = await initiateVippsPayment(accessToken, formData, returnUrl, PaymentType.Card)
 
-        //TODO: Create payment at Vipps and redirect to URL
         throw redirect(303, payment.redirectUrl);
     }
 };
@@ -58,3 +54,6 @@ export function load({ params }) {
     };
 }
 
+async function pay(event: RequestEvent<RouteParams, "/membership">, paymentType: PaymentType) {
+
+}
