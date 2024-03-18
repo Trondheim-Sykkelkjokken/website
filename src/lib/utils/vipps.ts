@@ -1,4 +1,4 @@
-import { VIPPS_CLIENT_ID, VIPPS_CLIENT_SECRET, VIPPS_OCP_APIM_SUBSCRIPTION_KEY, VIPPS_MSN } from '$env/static/private';
+import { VIPPS_CLIENT_ID, VIPPS_CLIENT_SECRET, VIPPS_OCP_APIM_SUBSCRIPTION_KEY, VIPPS_MSN, VIPPS_BASE_URL } from '$env/static/private';
 //TODO: Read this from config
 const prices: { [key: string]: number } = { "year": 330, "year-reduced": 220, "semester": 215, "semester-reduced": 150 };
 
@@ -9,7 +9,7 @@ export enum PaymentType {
 }
 
 export async function getVippsAccessToken() {
-    const url = 'https://apitest.vipps.no/accesstoken/get';
+    const url = `${VIPPS_BASE_URL}/accesstoken/get`;
     const headers = {
         "Content-Type": "application/json",
         "client_id": VIPPS_CLIENT_ID,
@@ -32,7 +32,7 @@ export async function getVippsAccessToken() {
 }
 
 export async function initiateVippsPayment(accessToken: string, formData: FormData, returnUrl: string, paymentType: PaymentType) {
-    const url = 'https://apitest.vipps.no/epayment/v1/payments';
+    const url = `${VIPPS_BASE_URL}/epayment/v1/payments`;
 
     const idempotencyKey = formData.get("id") as string;
     const membershipType = formData.get("membershipType") as string;
@@ -89,8 +89,8 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
     return responseData;
 }
 
-async function getStatusOfPayment(paymentReference: string, accessToken: string) {
-    const url = `https://apitest.vipps.no/epayment/v1/payments/${paymentReference}`;
+export async function getPaymentStatus(paymentReference: string, accessToken: string) {
+    const url = `${VIPPS_BASE_URL}/epayment/v1/payments/${paymentReference}`;
 
     const headers = {
         "Content-Type": "application/json",
@@ -110,4 +110,42 @@ async function getStatusOfPayment(paymentReference: string, accessToken: string)
     }
 
     return await response.json();
+}
+
+export async function capturePayment(paymentReference: string, amount: number, accessToken: string) {
+    const url = `${VIPPS_BASE_URL}/epayment/v1/payments/${paymentReference}/capture`;
+
+    const headers = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${accessToken}`,
+        "Ocp-Apim-Subscription-Key": VIPPS_OCP_APIM_SUBSCRIPTION_KEY,
+        "Merchant-Serial-Number": VIPPS_MSN,
+        "Idempotency-Key": paymentReference,
+    };
+
+    const body = {
+        "modificationAmount": {
+            "currency": "NOK",
+            "value": amount
+        }
+    };
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(body)
+    });
+
+    if (!response.ok) {
+        const responseData = await response.json();
+
+        console.log(responseData);
+
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const responseData = await response.json();
+
+    console.log(responseData);
+
+    return responseData;
 }

@@ -1,14 +1,15 @@
 /** @type {import('./$types').PageLoad} */
-import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
 import { addPaymentDetailsToRegistration } from '$lib/utils/googleSheets';
 import { decryptFormData } from '$lib/utils/crypto.js';
 
 import { redirect } from '@sveltejs/kit';
+import { getVippsAccessToken, getPaymentStatus, capturePayment } from '$lib/utils/vipps';
 
 export const prerender = false;
 
 export async function load({ url }) {
-    const encryptedData: string = url.searchParams.get('data');
+    const encryptedData: string | null = url.searchParams.get('data');
+
     if (!encryptedData) {
         throw redirect(303, "/");
     }
@@ -16,9 +17,26 @@ export async function load({ url }) {
     try {
         const decryptedJson = await decryptFormData(encryptedData);
         const { id, name, email, membershipType } = decryptedJson;
+
+        const vippsToken = await getVippsAccessToken();
+        const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
+        const pspReference = paymentStatus.pspReference;
+        const amount = paymentStatus.amount.value;
+
+        console.log(paymentStatus);
+        console.log(pspReference);
+
+        if (paymentStatus.state !== 'AUTHORIZED') {
+            return { error: true }
+        }
+
+        if (paymentStatus.state === 'AUTHORIZED') {
+            await capturePayment(id, amount, vippsToken.access_token);
+        }
+
         await addPaymentDetailsToRegistration(id, name, email, membershipType);
     }
-    catch (error) {
+    catch (error: any) {
         console.error(error.message)
         return { error: true }
     }
