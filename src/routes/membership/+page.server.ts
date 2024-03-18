@@ -53,7 +53,3 @@ export function load({ params }) {
         prices
     };
 }
-
-async function pay(event: RequestEvent<RouteParams, "/membership">, paymentType: PaymentType) {
-
-}
