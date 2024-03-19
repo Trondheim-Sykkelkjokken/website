@@ -3,7 +3,7 @@
 </script>
 
 {#if !data.error}
-	<h1>Welcome!</h1>
+	<h1>Welcome, {data.name}!</h1>
 	<p>We have registred your membership.</p>
 	<img src="/hjerte.png" alt="" />
 {/if}

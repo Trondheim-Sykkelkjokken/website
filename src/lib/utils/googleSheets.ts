@@ -37,28 +37,6 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
     };
 
     const range = "raw_data!A:E";
-    // // Check if data already exists
-    // const existingData = await sheets.spreadsheets.values.get({
-    //     auth: jwtClient,
-    //     spreadsheetId: GOOGLE_SHEETS_ID,
-    //     range,
-    // });
-
-    // if (existingData) {
-    //     const existingValues = existingData.data.values;
-
-    //     // Check if data already exists in the spreadsheet based on the ID field
-    //     const exists = existingValues.some((row) => {
-    //         const [existingId] = row;
-    //         return existingId === id;
-    //     });
-
-    //     // Skip append if data already exists
-    //     if (exists) {
-    //         console.log("Data already exists in spreadsheet");
-    //         return;
-    //     }
-    // }
 
     sheets.spreadsheets.values.append({
         auth: jwtClient,
@@ -112,9 +90,8 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
     const row = rows.find((row) => row[0] === id.toString());
 
     if (row) {
-        // Append payment details to the end of the row
-        row.push(pspReference); // Replace 'payment details' with the actual payment details
-
+        row.push(pspReference);
+        row.push(new Date());
         // Update the sheet
         await sheets.spreadsheets.values.update({
             auth: jwtClient,

@@ -18,6 +18,8 @@ export async function load({ url }) {
         const decryptedJson = await decryptFormData(encryptedData);
         const { id, name, email, membershipType } = decryptedJson;
 
+        console.log(name);
+
         const vippsToken = await getVippsAccessToken();
         const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
         const pspReference = paymentStatus.pspReference;
@@ -33,6 +35,9 @@ export async function load({ url }) {
         }
 
         await addPaymentDetailsToRegistration(id, pspReference);
+
+        return { name };
+
     }
     catch (error: any) {
         console.error(error.message)

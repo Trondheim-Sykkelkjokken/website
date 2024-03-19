@@ -1,18 +1,21 @@
 /** @type {import('./$types').Actions} */
 import { redirect, type RequestEvent } from '@sveltejs/kit';
 import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
-
-
 import { encryptFormData } from '$lib/utils/crypto';
 import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/utils/vipps';
-import type { RouteParams } from '../$types';
 
 export const prerender = false;
 
+
+/*
+* Read prices and membership types from config
+* Add graphics to error page
+* 
+*/
+
+
 // @ts-ignore
 const prices = { "year": 330, "year-reduced": 220, "semester": 215, "semester-reduced": 150 };
-
-
 
 
 export const actions = {
