@@ -44,4 +44,5 @@ npm run build
 * Proper logging
 * Database?
 * TS-ify things
+* Use direct charge with vipps
 
