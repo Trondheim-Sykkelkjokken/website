@@ -1,7 +1,7 @@
 <script>
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
-	import Tnc from './tnc.svelte';
+	import Terms from './terms.svelte';
 	import memberships_data from '../../config/memberships.json';
 	let memberships = memberships_data.memberships;
 
@@ -9,12 +9,24 @@
 
 	// @ts-ignore
 	function formatMembershipName(membership) {
-		return `${membership.name} ${membership.reduced ? '(reduced price)' : ''} - ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(membership.start_date))} - ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(membership.end_date))} ${membership.reduced ? '<sup>*</sup>' : ''} `;
+		let reduced = membership.reduced ? '(reduced price)' : '';
+		let startDate = new Intl.DateTimeFormat('en-GB', {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric'
+		}).format(new Date(membership.start_date));
+		let endDate = new Intl.DateTimeFormat('en-GB', {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric'
+		}).format(new Date(membership.end_date));
+		let asterisk = membership.reduced ? '<sup>*</sup>' : '';
+		return `${membership.name} ${reduced} - ${startDate} - ${endDate} ${asterisk}`;
 	}
 </script>
 
 <h1>Become a member!</h1>
-<Tnc />
+<Terms />
 
 <form method="POST">
 	<h2>Membership form</h2>

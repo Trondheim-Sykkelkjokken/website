@@ -6,16 +6,6 @@ import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/uti
 
 export const prerender = false;
 
-
-/*
-* Read prices and membership types from config
-* Add graphics to error page
-* Integrate registeration to Fiken
-* Proper logging
-* Database?
-*/
-
-
 export const actions = {
     payWithVipps: async (event) => {
         const formData = await event.request.formData();
