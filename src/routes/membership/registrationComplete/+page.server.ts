@@ -11,30 +11,28 @@ export async function load({ url }) {
     const encryptedData: string | null = url.searchParams.get('data');
 
     if (!encryptedData) {
-        throw redirect(303, "/");
+        redirect(303, "/");
     }
 
     try {
         const decryptedJson = await decryptFormData(encryptedData);
         const { id, name, email, membershipType } = decryptedJson;
-
-        console.log(name);
-
         const vippsToken = await getVippsAccessToken();
         const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
         const pspReference = paymentStatus.pspReference;
         const amount = paymentStatus.amount.value;
 
-
         if (paymentStatus.state !== 'AUTHORIZED') {
+            await addPaymentDetailsToRegistration(id, "payment cancelled or failed");
             return { error: true }
         }
 
-        if (paymentStatus.state === 'AUTHORIZED') {
-            await capturePayment(id, amount, vippsToken.access_token);
-        }
+        const alreadyCaptured = paymentStatus.aggregate.capturedAmount.value !== 0;
 
-        await addPaymentDetailsToRegistration(id, pspReference);
+        if (paymentStatus.state === 'AUTHORIZED' && !alreadyCaptured) {
+            await capturePayment(id, amount, vippsToken.access_token);
+            await addPaymentDetailsToRegistration(id, pspReference);
+        }
 
         return { name };
 

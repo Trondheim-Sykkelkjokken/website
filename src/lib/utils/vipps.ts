@@ -62,7 +62,7 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
         reference: idempotencyKey,
         returnUrl: returnUrl,
         userFlow: "WEB_REDIRECT",
-        paymentDescription: "Medlemsskap Trondheim sykkelkjøkken"
+        paymentDescription: "Membership Trondheim sykkelkjøkken"
     };
 
     const response = await fetch(url, {

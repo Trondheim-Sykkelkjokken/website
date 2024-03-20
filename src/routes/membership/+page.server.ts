@@ -10,7 +10,9 @@ export const prerender = false;
 /*
 * Read prices and membership types from config
 * Add graphics to error page
-* 
+* Integrate registeration to Fiken
+* Proper logging
+* Database?
 */
 
 
