@@ -1,13 +1,17 @@
 <script>
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
+	import memberships_data from '../../config/memberships.json';
 	import Tnc from './tnc.svelte';
 
-	/** @type {import('./$types').ActionData} */
-	export let form;
-	export let data;
+	let memberships = memberships_data.memberships;
 
-	let selectedMembership = 'year';
+	let selectedMembership = 'full-regular';
+
+	// @ts-ignore
+	function formatMembershipName(membership) {
+		return `${membership.name} ${membership.reduced ? '(reduced price)' : ''} - ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(membership.start_date))} - ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(membership.end_date))} ${membership.reduced ? '<sup>*</sup>' : ''} `;
+	}
 </script>
 
 <h1>Become a member!</h1>
@@ -27,40 +31,18 @@
 	<fieldset>
 		<legend>Choose membership type</legend>
 
-		<label
-			><input
-				name="membershipType"
-				bind:group={selectedMembership}
-				type="radio"
-				value="year"
-				required
-			/>Full-year membership (1stJuly 2023 - 30th June 2024)
-		</label>
-		<label
-			><input
-				name="membershipType"
-				bind:group={selectedMembership}
-				type="radio"
-				value="year-reduced"
-				required
-			/>Full-year membership (1stJuly 2023 - 30th June 2024) - Reduced price<sup>*</sup>
-		</label>
-		<label
-			><input
-				name="membershipType"
-				bind:group={selectedMembership}
-				type="radio"
-				value="semester"
-			/>Semester membership (1st July2023 - 31th December 2023)
-		</label>
-		<label
-			><input
-				name="membershipType"
-				bind:group={selectedMembership}
-				type="radio"
-				value="semester-reduced"
-			/>Semester membership (1st July2023 - 31th December 2023) - Reduced Price<sup>*</sup>
-		</label>
+		{#each memberships as membership}
+			<label
+				><input
+					name="membershipType"
+					bind:group={selectedMembership}
+					type="radio"
+					value={membership.id}
+					required
+				/>
+				{@html formatMembershipName(membership)}
+			</label>
+		{/each}
 
 		<p>
 			<sup>*</sup> Reduced price is only available for students, children, pensioners and unemployed
@@ -69,7 +51,7 @@
 	</fieldset>
 
 	<div class="line" />
-	<p class="total">Price: NOK {data.prices[selectedMembership]}</p>
+	<p class="total">Price: NOK {memberships.find((m) => m.id === selectedMembership)?.price}</p>
 	<div class="buttons">
 		<button class="vipps_button" formaction="?/payWithVipps"
 			><img alt="" src="/vipps_english.svg" />

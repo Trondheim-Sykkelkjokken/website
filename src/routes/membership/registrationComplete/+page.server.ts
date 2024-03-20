@@ -23,6 +23,7 @@ export async function load({ url }) {
         const amount = paymentStatus.amount.value;
 
         if (paymentStatus.state !== 'AUTHORIZED') {
+            console.error(`Payment ${id} for ${name} cancelled or failed.`)
             await addPaymentDetailsToRegistration(id, "payment cancelled or failed");
             return { error: true }
         }
@@ -30,6 +31,7 @@ export async function load({ url }) {
         const alreadyCaptured = paymentStatus.aggregate.capturedAmount.value !== 0;
 
         if (paymentStatus.state === 'AUTHORIZED' && !alreadyCaptured) {
+            console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
             await addPaymentDetailsToRegistration(id, pspReference);
         }

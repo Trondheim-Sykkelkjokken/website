@@ -16,10 +16,6 @@ export const prerender = false;
 */
 
 
-// @ts-ignore
-const prices = { "year": 330, "year-reduced": 220, "semester": 215, "semester-reduced": 150 };
-
-
 export const actions = {
     payWithVipps: async (event) => {
         const formData = await event.request.formData();
@@ -51,10 +47,3 @@ export const actions = {
         throw redirect(303, payment.redirectUrl);
     }
 };
-
-export function load({ params }) {
-
-    return {
-        prices
-    };
-}
