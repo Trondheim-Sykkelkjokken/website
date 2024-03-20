@@ -1,10 +1,19 @@
 import { VIPPS_CLIENT_ID, VIPPS_CLIENT_SECRET, VIPPS_OCP_APIM_SUBSCRIPTION_KEY, VIPPS_MSN, VIPPS_BASE_URL } from '$env/static/private';
-//TODO: Read this from config
-const prices: { [key: string]: number } = { "year": 330, "year-reduced": 220, "semester": 215, "semester-reduced": 150 };
+import memberships_data from '../../config/memberships.json';
+let memberships = memberships_data.memberships;
 
 export enum PaymentType {
     Vipps = "WALLET",
     Card = "CARD"
+}
+
+function membershipPrice(membershipType: string): number {
+    const membership = memberships.find(m => m.id === membershipType);
+    if (membership) {
+        //we multiply by 100 to convert from nok to øre
+        return membership.price * 100;
+    }
+    throw new Error(`Membership type ${membershipType} not found`);
 }
 
 export async function getVippsAccessToken() {
@@ -35,8 +44,7 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
 
     const idempotencyKey = formData.get("id") as string;
     const membershipType = formData.get("membershipType") as string;
-    //we multiply by 100 to convert from nok to øre
-    const price = prices[membershipType] * 100;
+    const price = membershipPrice(membershipType);
     console.log(formData);
 
 

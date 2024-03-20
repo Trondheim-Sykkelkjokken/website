@@ -1,9 +1,8 @@
 <script>
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
-	import memberships_data from '../../config/memberships.json';
 	import Tnc from './tnc.svelte';
-
+	import memberships_data from '../../config/memberships.json';
 	let memberships = memberships_data.memberships;
 
 	let selectedMembership = 'full-regular';
