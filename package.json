@@ -34,6 +34,7 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
+    "googleapis": "^123.0.0",
     "mdsvex": "^0.11.0",
     "vite-imagetools": "^6.2.9"
   }
