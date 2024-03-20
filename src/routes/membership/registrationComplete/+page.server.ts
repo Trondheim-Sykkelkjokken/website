@@ -28,9 +28,12 @@ export async function load({ url }) {
             return { error: true }
         }
 
+        //if the user reloads the landing page after the payment is captured, we don't want to capture the payment again
         const alreadyCaptured = paymentStatus.aggregate.capturedAmount.value !== 0;
 
         if (paymentStatus.state === 'AUTHORIZED' && !alreadyCaptured) {
+            // We give Vipps a few seconds to process the payment
+            await new Promise(resolve => setTimeout(resolve, 3000));
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
             await addPaymentDetailsToRegistration(id, pspReference);
