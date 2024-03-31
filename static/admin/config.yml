@@ -21,12 +21,6 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: string }
               - {
-                  label: "Id",
-                  name: "id",
-                  widget: string,
-                  hint: "For internal use",
-                }
-              - {
                   label: "Reduced",
                   name: "reduced",
                   widget: boolean,

@@ -37,7 +37,7 @@ npm run build
 
 
 # Todo:
-
+* Register payment type on payment
 * Add graphics to error page
 * Make dato ranges automatic
 * Integrate sales to Fiken
