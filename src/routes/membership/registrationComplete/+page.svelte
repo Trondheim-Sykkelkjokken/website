@@ -15,4 +15,5 @@
 			>kontakt@sykkelkjokken.no</a
 		> if the problem persists.
 	</p>
+	<img src="/crash.png" alt="" width="500" />
 {/if}
