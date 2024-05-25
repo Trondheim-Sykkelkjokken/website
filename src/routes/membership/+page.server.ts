@@ -10,6 +10,7 @@ export const actions = {
     payWithVipps: async (event) => {
         const formData = await event.request.formData();
         formData.append("id", crypto.randomUUID());
+        formData.append("paymentType", PaymentType.Vipps);
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
@@ -25,6 +26,7 @@ export const actions = {
     payWithCard: async (event) => {
         const formData = await event.request.formData();
         formData.append("id", crypto.randomUUID());
+        formData.append("paymentType", PaymentType.Card);
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
