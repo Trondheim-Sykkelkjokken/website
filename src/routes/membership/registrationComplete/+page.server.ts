@@ -16,7 +16,7 @@ export async function load({ url }) {
 
     try {
         const decryptedJson = await decryptFormData(encryptedData);
-        const { id, name, email, membershipType } = decryptedJson;
+        const { id, name, paymentType } = decryptedJson;
         const vippsToken = await getVippsAccessToken();
         const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
         const pspReference = paymentStatus.pspReference;
@@ -36,7 +36,7 @@ export async function load({ url }) {
             await new Promise(resolve => setTimeout(resolve, 3000));
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
-            await addPaymentDetailsToRegistration(id, pspReference);
+            await addPaymentDetailsToRegistration(id, pspReference, paymentType);
         }
 
         return { name };

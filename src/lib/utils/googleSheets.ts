@@ -1,5 +1,6 @@
 import { google } from "googleapis";
 import { GOOGLE_SHEETS_KEY, GOOGLE_SHEETS_EMAIL, GOOGLE_SHEETS_ID } from '$env/static/private';
+import type { PaymentType } from "./vipps";
 
 export async function saveMemberToGoogleSheet(formData: FormData) {
     const name = formData.get("name").toString();
@@ -55,7 +56,7 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
 }
 
 
-export async function addPaymentDetailsToRegistration(id: number, pspReference: string) {
+export async function addPaymentDetailsToRegistration(id: number, pspReference: string, paymentType: PaymentType) {
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         null,
@@ -92,6 +93,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
     if (row) {
         row.push(pspReference);
         row.push(new Date());
+        row.push(paymentType);
         // Update the sheet
         await sheets.spreadsheets.values.update({
             auth: jwtClient,
