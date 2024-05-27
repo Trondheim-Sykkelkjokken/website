@@ -2,12 +2,12 @@
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
 
 
-export async function encryptFormData(formData) {
-    const name = formData.get("name").toString();
-    const email = formData.get("email").toString();
-    const membershipType = formData.get("membershipType").toString();
-    const id = formData.get("id").toString();
-    const paymentType = formData.get("paymentType").toString();
+export async function encryptFormData(formData: FormData) {
+    const name = formData.get("name")?.toString();
+    const email = formData.get("email")?.toString();
+    const membershipType = formData.get("membershipType")?.toString();
+    const id = formData.get("id")?.toString();
+    const paymentType = formData.get("paymentType")?.toString();
 
     const json = JSON.stringify({ id, name, email, membershipType, paymentType });
 
@@ -25,7 +25,7 @@ export async function encryptFormData(formData) {
     return encryptedArray
 }
 
-export async function decryptFormData(data) {
+export async function decryptFormData(data: string) {
     const encoder = new TextEncoder();
     const encryptionKey = encoder.encode(ENCRYPTION_KEY);
     const iv = encoder.encode(INITIALIZATION_VECTOR);

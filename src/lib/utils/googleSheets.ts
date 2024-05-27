@@ -59,7 +59,7 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
 export async function addPaymentDetailsToRegistration(id: number, pspReference: string, paymentType: PaymentType) {
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
-        null,
+        undefined,
         GOOGLE_SHEETS_KEY,
         ['https://www.googleapis.com/auth/spreadsheets']);
 

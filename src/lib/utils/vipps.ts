@@ -4,7 +4,8 @@ let memberships = memberships_data.memberships;
 
 export enum PaymentType {
     Vipps = "WALLET",
-    Card = "CARD"
+    Card = "CARD",
+    CancelledOrFailed = "CANCELLED_OR_FAILED"
 }
 
 function membershipPrice(membershipType: string): number {

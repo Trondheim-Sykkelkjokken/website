@@ -3,7 +3,7 @@ import { addPaymentDetailsToRegistration } from '$lib/utils/googleSheets';
 import { decryptFormData } from '$lib/utils/crypto.js';
 
 import { redirect } from '@sveltejs/kit';
-import { getVippsAccessToken, getPaymentStatus, capturePayment } from '$lib/utils/vipps';
+import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
 
 export const prerender = false;
 
@@ -24,7 +24,7 @@ export async function load({ url }) {
 
         if (paymentStatus.state !== 'AUTHORIZED') {
             console.error(`Payment ${id} for ${name} cancelled or failed.`)
-            await addPaymentDetailsToRegistration(id, "payment cancelled or failed");
+            await addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed);
             return { error: true }
         }
 
