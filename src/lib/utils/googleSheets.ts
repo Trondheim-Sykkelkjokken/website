@@ -87,6 +87,11 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
 
     const rows = response.data.values;
 
+    if (!rows) {
+        console.error('No rows returned from the Google Sheets API');
+        return;
+    }
+
     // Find the row with the given ID
     const row = rows.find((row) => row[0] === id.toString());
 
