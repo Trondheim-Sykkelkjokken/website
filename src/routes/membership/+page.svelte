@@ -1,4 +1,5 @@
 <script>
+	// @ts-ignore, as there is no type definition for svelte-icons-pack
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
 	import Terms from './terms.svelte';
