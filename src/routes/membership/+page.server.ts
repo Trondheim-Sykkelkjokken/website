@@ -3,14 +3,22 @@ import { redirect, type RequestEvent } from '@sveltejs/kit';
 import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
 import { encryptFormData } from '$lib/utils/crypto';
 import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/utils/vipps';
+import { calculateExpiryDate } from '$lib/utils/memberships.js';
 
 export const prerender = false;
 
 export const actions = {
     payWithVipps: async (event) => {
         const formData = await event.request.formData();
+        console.log(formData);
         formData.append("id", crypto.randomUUID());
         formData.append("paymentType", PaymentType.Vipps);
+
+        let expiryDate = calculateExpiryDate(formData.get("membershipType") as string);
+
+        console.log(expiryDate)
+
+        formData.append("expiryDate", expiryDate.toISOString());
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 

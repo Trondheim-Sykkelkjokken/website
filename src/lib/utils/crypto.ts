@@ -8,8 +8,9 @@ export async function encryptFormData(formData: FormData) {
     const membershipType = formData.get("membershipType")?.toString();
     const id = formData.get("id")?.toString();
     const paymentType = formData.get("paymentType")?.toString();
+    const expiryDate = formData.get("expiryDate")?.toString();
 
-    const json = JSON.stringify({ id, name, email, membershipType, paymentType });
+    const json = JSON.stringify({ id, name, email, membershipType, paymentType, expiryDate });
 
     const encoder = new TextEncoder();
     const encryptionKey = encoder.encode(ENCRYPTION_KEY);

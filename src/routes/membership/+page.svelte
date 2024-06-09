@@ -3,6 +3,7 @@
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
 	import Terms from './terms.svelte';
 	import memberships_data from '../../config/memberships.json';
+	import { calculateStartDate, calculateExpiryDate } from '$lib/utils/memberships';
 	let memberships = memberships_data.memberships;
 
 	let selectedMembership = 'full-regular';
@@ -14,12 +15,12 @@
 			day: 'numeric',
 			month: 'long',
 			year: 'numeric'
-		}).format(new Date(membership.start_date));
+		}).format(calculateStartDate(membership.id));
 		let endDate = new Intl.DateTimeFormat('en-GB', {
 			day: 'numeric',
 			month: 'long',
 			year: 'numeric'
-		}).format(new Date(membership.end_date));
+		}).format(calculateExpiryDate(membership.id));
 		let asterisk = membership.reduced ? '<sup>*</sup>' : '';
 		return `${membership.name} ${reduced} - ${startDate} - ${endDate} ${asterisk}`;
 	}

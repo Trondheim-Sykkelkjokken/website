@@ -56,7 +56,7 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
 }
 
 
-export async function addPaymentDetailsToRegistration(id: number, pspReference: string, paymentType: PaymentType) {
+export async function addPaymentDetailsToRegistration(id: number, pspReference: string, paymentType: PaymentType, expiry_date?: Date) {
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         undefined,
@@ -99,8 +99,9 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
         row.push(pspReference);
         row.push(new Date());
         row.push(paymentType);
+        row.push(expiry_date);
         // Update the sheet
-        await sheets.spreadsheets.values.update({
+        sheets.spreadsheets.values.update({
             auth: jwtClient,
             spreadsheetId: GOOGLE_SHEETS_ID,
             range: `raw_data!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`, // Replace with the range of the row you want to update
@@ -113,6 +114,6 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
         console.log('Payment details added to row:', row);
 
     } else {
-        console.log('No row found with the given ID');
+        console.error('No row found with the given ID');
     }
 }
