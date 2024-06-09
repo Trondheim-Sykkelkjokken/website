@@ -21,6 +21,7 @@ export async function load({ url }) {
         const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
         const pspReference = paymentStatus.pspReference;
         const amount = paymentStatus.amount.value;
+        let expiryDateDate = new Date(expiryDate);
 
         if (paymentStatus.state !== 'AUTHORIZED') {
             console.error(`Payment ${id} for ${name} cancelled or failed.`)
@@ -36,7 +37,7 @@ export async function load({ url }) {
             await new Promise(resolve => setTimeout(resolve, 3000));
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
-            await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDate);
+            await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
         }
 
         return { name };

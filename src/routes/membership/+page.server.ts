@@ -16,8 +16,6 @@ export const actions = {
 
         let expiryDate = calculateExpiryDate(formData.get("membershipType") as string);
 
-        console.log(expiryDate)
-
         formData.append("expiryDate", expiryDate.toISOString());
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);

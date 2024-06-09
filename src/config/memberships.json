@@ -2,32 +2,24 @@
   "memberships": [
     {
       "reduced": false,
-      "start_date": "2023-07-01T18:57:46.102Z",
-      "end_date": "2024-06-30T18:51:06.593Z",
       "name": "Full-year membership",
       "price": 330,
       "id": "full-regular"
     },
     {
       "reduced": true,
-      "start_date": "2023-07-01T18:57:28.312Z",
-      "end_date": "2024-06-30T18:59:30.433Z",
       "name": "Full-year membership",
       "price": 220,
       "id": "full-reduced"
     },
     {
       "reduced": false,
-      "start_date": "2024-01-01T20:00:30.940Z",
-      "end_date": "2024-06-30T18:59:43.078Z",
       "name": "Semester membership",
       "price": 220,
       "id": "semester-regular"
     },
     {
       "reduced": true,
-      "start_date": "2024-01-01T20:00:42.893Z",
-      "end_date": "2024-06-30T19:00:42.899Z",
       "name": "Semester membership",
       "price": 150,
       "id": "semester-reduced"

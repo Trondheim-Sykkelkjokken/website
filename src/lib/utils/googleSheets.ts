@@ -56,7 +56,7 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
 }
 
 
-export async function addPaymentDetailsToRegistration(id: number, pspReference: string, paymentType: PaymentType, expiry_date?: Date) {
+export async function addPaymentDetailsToRegistration(id: number, pspReference: string, paymentType: PaymentType, expiryDate?: Date) {
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
         undefined,
@@ -97,9 +97,11 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
 
     if (row) {
         row.push(pspReference);
-        row.push(new Date());
+        row.push(new Date().toLocaleDateString('nb-NO'));
         row.push(paymentType);
-        row.push(expiry_date);
+        if (expiryDate) {
+            row.push(expiryDate.toLocaleDateString('nb-NO'));
+        }
         // Update the sheet
         sheets.spreadsheets.values.update({
             auth: jwtClient,
