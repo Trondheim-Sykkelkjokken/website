@@ -15,8 +15,8 @@ export const actions = {
         formData.append("paymentType", PaymentType.Vipps);
 
         let expiryDate = calculateExpiryDate(formData.get("membershipType") as string);
-
         formData.append("expiryDate", expiryDate.toISOString());
+
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
@@ -33,6 +33,10 @@ export const actions = {
         const formData = await event.request.formData();
         formData.append("id", crypto.randomUUID());
         formData.append("paymentType", PaymentType.Card);
+
+        let expiryDate = calculateExpiryDate(formData.get("membershipType") as string);
+        formData.append("expiryDate", expiryDate.toISOString());
+
         saveMemberToGoogleSheet(formData);
         const encryptedFormData = await encryptFormData(formData);
 
