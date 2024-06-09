@@ -69,7 +69,7 @@
 			><img alt="" src="/vipps_english.svg" />
 		</button><span> or </span>
 		<button class="card_button" formaction="?/payWithCard"
-			>Pay with card&nbsp<Icon className="foo" src={AiOutlineCreditCard} /></button
+			>Pay with card&nbsp<Icon src={AiOutlineCreditCard} /></button
 		>
 	</div>
 </form>
@@ -115,12 +115,13 @@
 		font-size: 1.1rem;
 		background-color: #46d919;
 		border: none;
-		color: black;
+		color: #393939;
 		padding: 10px 20px;
 		text-align: center;
 		text-decoration: none;
 		border-radius: 25px;
 		height: 44px;
 		margin-left: 0.5rem;
+		font-weight: 500;
 	}
 </style>
