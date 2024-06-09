@@ -29,20 +29,6 @@ collections:
                   hint: "This is a reduced price membership for students etc.",
                 }
               - { label: "Price", name: "price", widget: number }
-              - {
-                  label: "Start Date",
-                  name: "start_date",
-                  widget: datetime,
-                  date_format: "DD.MM.YYYY",
-                  time_format: false,
-                }
-              - {
-                  label: "End Date",
-                  name: "end_date",
-                  widget: datetime,
-                  date_format: "DD.MM.YYYY",
-                  time_format: false,
-                }
   - name: "pages"
     label: "Pages"
     files:
