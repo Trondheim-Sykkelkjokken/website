@@ -1,4 +1,5 @@
 # The website of Trondheim Bike Kitchen
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ae31624e-c928-4f86-83db-15728b188e15/deploy-status)](https://app.netlify.com/sites/hardcore-panini-a7e5bc/deploys)
 
 This is the website of Trondheim Bike Kitchen / Trondheim sykkelkjøkken.
 
