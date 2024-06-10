@@ -27,31 +27,30 @@ export function calculateStartDate(membershipType: string): Date {
 
     return startDate;
 }
-
+//TODO: Fix throwing error, should not be neccecary with type narrowing in the future
 export function calculateExpiryDate(membershipType: string): Date {
-    let expiryDate = new Date();
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
 
     if (membershipType.includes("full")) {
         if (currentMonth >= 0 && currentMonth <= 5) {
             // If todays date is in january-june, set the membership to last until end of june this year.
-            expiryDate = new Date(currentYear, 5, 30);
+            return new Date(currentYear, 5, 30);
         } else {
             // If todays date is in july-december, set the membership to last until end of june next year.
-            expiryDate = new Date(currentYear + 1, 5, 30);
+            return new Date(currentYear + 1, 5, 30);
         }
     }
 
     if (membershipType.includes("semester")) {
         if (currentMonth >= 0 && currentMonth <= 5) {
             // If todays date is in january-june, set the membership to last until end of june this year.
-            expiryDate = new Date(currentYear, 5, 30);
+            return new Date(currentYear, 5, 30);
         } else {
             // If todays date is in july-december, set the membership to last until end of december this year.
-            expiryDate = new Date(currentYear, 11, 31);
+            return new Date(currentYear, 11, 31);
         }
     }
 
-    return expiryDate;
+    throw new Error("Invalid membership type");
 }
