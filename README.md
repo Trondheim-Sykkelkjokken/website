@@ -38,7 +38,6 @@ npm run build
 
 
 # Todo:
-* Register payment type on payment
 * Integrate sales to Fiken
 * Use direct charge with vipps
 
