@@ -1,0 +1,83 @@
+[
+    {
+        "name": {
+            "text": "Test-event fixture 1",
+            "html": "Test-event fixture 1"
+        },
+        "description": {
+            "text": "Lær deg bytte til vinterdekk på sykkelen sammen med Trondheim Sykkelkjøkken! ",
+            "html": "Lær deg bytte til vinterdekk på sykkelen sammen med Trondheim Sykkelkjøkken! "
+        },
+        "url": "https://www.eventbrite.com/e/krasjkurs-bytte-til-vinterdekk-pa-sykkelen-tickets-126276457283",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-10-28T18:30:00",
+            "utc": "2025-10-28T17:30:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-10-28T20:00:00",
+            "utc": "2025-10-28T19:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2020-10-21T15:40:45Z",
+        "changed": "2020-10-28T23:39:53Z",
+        "published": "2020-10-21T17:14:11Z",
+        "capacity": 30,
+        "capacity_is_custom": true,
+        "status": "completed",
+        "currency": "USD",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Lær deg bytte til vinterdekk på sykkelen sammen med Trondheim Sykkelkjøkken! ",
+        "facebook_event_id": null,
+        "logo_id": "115416865",
+        "organizer_id": "31570234453",
+        "venue_id": "54132619",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "9",
+        "id": "126276457283",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/126276457283/",
+        "is_externally_ticketed": false,
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 72,
+                    "y": 0
+                },
+                "width": 1500,
+                "height": 750
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F115416865%2F486297933577%2F1%2Foriginal.20201021-171230?auto=format%2Ccompress&q=75&sharp=10&s=1d87d475768f79219d373d16e0011c37",
+                "width": 1708,
+                "height": 750
+            },
+            "id": "115416865",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F115416865%2F486297933577%2F1%2Foriginal.20201021-171230?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=72%2C0%2C1500%2C750&s=01de891abca0bb036274aae3f967055a",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    }
+]
