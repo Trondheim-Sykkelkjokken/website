@@ -710,18 +710,6 @@
         "id": "1013399193267",
         "resource_uri": "https://www.eventbriteapi.com/v3/events/1013399193267/",
         "is_externally_ticketed": false,
-        "logo": {
-            "crop_mask": null,
-            "original": {
-                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F846224499%2F486297933577%2F1%2Foriginal.20240910-071342?auto=format%2Ccompress&q=75&sharp=10&s=a17a19c7d79ab7b17b8655f05c243f2e",
-                "width": 2170,
-                "height": 953
-            },
-            "id": "846224499",
-            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F846224499%2F486297933577%2F1%2Foriginal.20240910-071342?crop=focalpoint&fit=crop&h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.005&fp-y=0.005&s=5fa86db46c764ef91dbc9b9a1dc1d2e8",
-            "aspect_ratio": "2.284263959390862944162436548",
-            "edge_color": "#fcffff",
-            "edge_color_set": true
-        }
+        "logo": null
     }
 ]

@@ -57,7 +57,7 @@ export interface BikeKitchenEvent {
     id: string
     resource_uri: string
     is_externally_ticketed: boolean
-    logo: Logo
+    logo?: Logo
     series_id?: string
 }
 

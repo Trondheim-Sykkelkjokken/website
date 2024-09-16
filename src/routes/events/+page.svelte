@@ -24,9 +24,9 @@
 	<ul>
 		{#each upcomingEvents as event}
 			<li>
-				<div>
-					<img alt="" src={event.logo.original.url} />
-					<div class="event-block">
+				<div class="event-block">
+					<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} />
+					<div>
 						<div class="event-header">
 							<h2>{event.name.text}</h2>
 							<div class="info-block">
@@ -73,7 +73,8 @@
 	}
 
 	.event-block {
-		display: inline;
+		background-color: #fcf6d2;
+		padding: 1rem;
 	}
 
 	.event-header {
@@ -92,5 +93,9 @@
 	.info-block {
 		display: flex;
 		flex-direction: column;
+	}
+
+	img {
+		filter: drop-shadow(4px 4px 4px #c1c1c1);
 	}
 </style>
