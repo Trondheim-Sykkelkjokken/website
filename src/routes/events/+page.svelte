@@ -23,7 +23,7 @@
 			<li>
 				<div class="event-block">
 					<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} />
-					<div>
+					<div class="info-block">
 						<time>
 							<Icon src={AiOutlineCalendar} />
 							{new Date(event.start.local).toLocaleDateString([], {
@@ -35,11 +35,19 @@
 								minute: '2-digit'
 							})}
 						</time>
+						<span title={event.venue?.address.localized_address_display}
+							><Icon src={LocationPin} /><a
+								class="maps-link"
+								href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue?.address.localized_address_display)}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{event.venue?.name ?? 'Event venue unknown'}</a
+							></span
+						>
 					</div>
 					<h2>{event.name.text}</h2>
-					<div class="info-block">
-						<!-- <span><Icon src={LocationPin} />location goes here</span> -->
-					</div>
+
 					<p>{event.description.text}</p>
 				</div>
 				<hr />
@@ -67,15 +75,6 @@
 		margin-bottom: 0;
 	}
 
-	time {
-		margin-top: 1rem;
-		font-weight: bold;
-		float: right;
-		background-color: #a6d2d5;
-		padding: 0.3rem;
-		border-radius: 5px;
-	}
-
 	.event-block {
 		background-color: #fcf6d2;
 		padding: 1rem;
@@ -88,11 +87,22 @@
 	}
 
 	.info-block {
+		margin-top: 1rem;
+		margin-left: 1rem;
+		font-weight: bold;
+		float: right;
+		background-color: #a6d2d5;
+		padding: 0.3rem;
+		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
 	}
 
 	img {
 		filter: drop-shadow(4px 4px 4px #c1c1c1);
+	}
+
+	.maps-link {
+		color: #393939;
 	}
 </style>

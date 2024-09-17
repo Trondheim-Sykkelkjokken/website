@@ -3,14 +3,6 @@ export interface EventBriteResponse {
     events: BikeKitchenEvent[]
 }
 
-export interface Pagination {
-    object_count: number
-    page_number: number
-    page_size: number
-    page_count: number
-    has_more_items: boolean
-}
-
 export interface BikeKitchenEvent {
     name: Name
     description: Description
@@ -61,6 +53,11 @@ export interface BikeKitchenEvent {
     series_id?: string
 }
 
+export interface BikeKitchenEventWithVenue extends BikeKitchenEvent {
+    venue?: Venue
+
+}
+
 export interface Name {
     text: string
     html: string
@@ -109,3 +106,43 @@ export interface Original {
     width: number
     height: number
 }
+
+export interface VenueResponse {
+    pagination: Pagination
+    venues: Venue[]
+}
+
+export interface Pagination {
+    object_count: number
+    continuation: any
+    page_count: number
+    page_size: number
+    has_more_items: boolean
+    page_number: number
+}
+
+export interface Venue {
+    address: Address
+    resource_uri: string
+    id: string
+    age_restriction: any
+    capacity: any
+    name: string
+    latitude: string
+    longitude: string
+}
+
+export interface Address {
+    address_1: string
+    address_2: string
+    city: string
+    region: string
+    postal_code: string
+    country: string
+    latitude: string
+    longitude: string
+    localized_address_display: string
+    localized_area_display: string
+    localized_multi_line_address_display: string[]
+}
+
