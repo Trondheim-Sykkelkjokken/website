@@ -1,16 +1,13 @@
-<script lang="ts">
-	import AiOutlineCalendar from 'svelte-icons-pack/ai/AiOutlineCalendar';
-	import LocationPin from 'svelte-icons-pack/hi/HiOutlineLocationMarker';
+<script>
+	/** @type {import('./$types').PageData} */
 	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import type { BikeKitchenEvent } from '$lib/types/events.type';
+	import AiOutlineCalendar from 'svelte-icons-pack/ai/AiOutlineCalendar';
+	import LocationPin from 'svelte-icons-pack/hi/HiOutlineLocationMarker';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
-	let events: BikeKitchenEvent[] = data.events;
-	let upcomingEvents: BikeKitchenEvent[] = events.filter(
-		(event) => new Date(event.start.local) > new Date()
-	);
+	let events = data.events;
+	let upcomingEvents = events.filter((event) => new Date(event.start.local) > new Date());
 </script>
 
 <h1>Events</h1>
@@ -86,7 +83,7 @@
 
 	hr {
 		border: none;
-		border-top: 1px dashed #fcf6d2; /* Adjust color and width as needed */
+		border-top: 1px dashed #fcf6d2;
 		margin: 1em 0;
 	}
 

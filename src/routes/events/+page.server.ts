@@ -2,6 +2,7 @@ export const prerender = false;
 
 import { EVENTBRITE_API_KEY } from '$env/static/private';
 import fixtureEvents from '$lib/fixtures/test-events.json';
+import type { BikeKitchenEvent, EventBriteResponse } from '$lib/types/events.type';
 
 import type { PageServerLoad } from './$types';
 
@@ -12,10 +13,10 @@ export const load: PageServerLoad = async ({ fetch }) => {
             'Content-Type': 'application/json'
         }
     });
-    const data = await response.json();
+    const data: EventBriteResponse = await response.json();
 
     if (process.env.NODE_ENV === 'development') {
-        data.events.push(...fixtureEvents);
+        data.events.push(...fixtureEvents as unknown as BikeKitchenEvent[]);
     }
 
     return {
