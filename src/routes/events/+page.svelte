@@ -27,25 +27,23 @@
 				<div class="event-block">
 					<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} />
 					<div>
-						<div class="event-header">
-							<h2>{event.name.text}</h2>
-							<div class="info-block">
-								<time>
-									<Icon src={AiOutlineCalendar} />
-									{new Date(event.start.local).toLocaleDateString([], {
-										day: '2-digit',
-										month: 'short'
-									})}
-									{new Date(event.start.local).toLocaleTimeString([], {
-										hour: '2-digit',
-										minute: '2-digit'
-									})}
-								</time>
-								<!-- <span><Icon src={LocationPin} />location goes here</span> -->
-							</div>
-						</div>
-						<p>{event.description.text}</p>
+						<time>
+							<Icon src={AiOutlineCalendar} />
+							{new Date(event.start.local).toLocaleDateString([], {
+								day: '2-digit',
+								month: 'short'
+							})}
+							{new Date(event.start.local).toLocaleTimeString([], {
+								hour: '2-digit',
+								minute: '2-digit'
+							})}
+						</time>
 					</div>
+					<h2>{event.name.text}</h2>
+					<div class="info-block">
+						<!-- <span><Icon src={LocationPin} />location goes here</span> -->
+					</div>
+					<p>{event.description.text}</p>
 				</div>
 				<hr />
 			</li>
@@ -60,28 +58,30 @@
 {/if}
 
 <style>
+	ul {
+		padding: 0;
+	}
+
 	li {
 		list-style-type: none;
 	}
 
 	h2 {
-		display: inline;
+		margin-bottom: 0;
 	}
 
 	time {
+		margin-top: 1rem;
 		font-weight: bold;
+		float: right;
+		background-color: #a6d2d5;
+		padding: 0.3rem;
+		border-radius: 5px;
 	}
 
 	.event-block {
 		background-color: #fcf6d2;
 		padding: 1rem;
-	}
-
-	.event-header {
-		margin-top: 1rem;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 	}
 
 	hr {
