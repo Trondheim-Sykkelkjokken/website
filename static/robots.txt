@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /wp-login.php
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /function.php
+Disallow: /.well-known/
+Disallow: /wp-header.php
+Disallow: /config.php
+Disallow: /chart/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /scripts/
+Allow: /
