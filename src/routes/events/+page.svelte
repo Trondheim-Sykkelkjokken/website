@@ -23,30 +23,32 @@
 			<li>
 				<div class="event-block">
 					<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} />
-					<div class="info-block">
-						<time>
-							<Icon src={AiOutlineCalendar} />
-							{new Date(event.start.local).toLocaleDateString([], {
-								day: '2-digit',
-								month: 'short'
-							})}
-							{new Date(event.start.local).toLocaleTimeString([], {
-								hour: '2-digit',
-								minute: '2-digit'
-							})}
-						</time>
-						<span title={event.venue?.address.localized_address_display}
-							><Icon src={LocationPin} /><a
-								class="maps-link"
-								href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue?.address.localized_address_display)}`}
-								target="_blank"
-								rel="noopener noreferrer"
+					<div class="header-block">
+						<h2>{event.name.text}</h2>
+						<div class="info-block">
+							<time>
+								<Icon src={AiOutlineCalendar} />
+								{new Date(event.start.local).toLocaleDateString([], {
+									day: '2-digit',
+									month: 'short'
+								})}
+								{new Date(event.start.local).toLocaleTimeString([], {
+									hour: '2-digit',
+									minute: '2-digit'
+								})}
+							</time>
+							<span title={event.venue?.address.localized_address_display}
+								><Icon src={LocationPin} /><a
+									class="maps-link"
+									href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue?.address.localized_address_display)}`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{event.venue?.name ?? 'Event venue unknown'}</a
+								></span
 							>
-								{event.venue?.name ?? 'Event venue unknown'}</a
-							></span
-						>
+						</div>
 					</div>
-					<h2>{event.name.text}</h2>
 
 					<p>{event.description.text}</p>
 				</div>
@@ -86,16 +88,23 @@
 		margin: 1em 0;
 	}
 
+	.header-block {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
 	.info-block {
 		margin-top: 1rem;
 		margin-left: 1rem;
 		font-weight: bold;
-		float: right;
 		background-color: #a6d2d5;
 		padding: 0.3rem;
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
+		min-width: 165px;
+		max-height: 3rem;
 	}
 
 	img {
