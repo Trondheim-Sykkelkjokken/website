@@ -114,4 +114,14 @@
 	.maps-link {
 		color: #393939;
 	}
+
+	@media (max-width: 420px) {
+		.header-block {
+			flex-direction: column;
+		}
+
+		.info-block {
+			margin-left: 0;
+		}
+	}
 </style>
