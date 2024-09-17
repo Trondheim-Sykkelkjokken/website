@@ -1,0 +1,715 @@
+[
+    {
+        "name": {
+            "text": "Krasjkurs: Bytte til vinterdekk på sykkelen",
+            "html": "Krasjkurs: Bytte til vinterdekk på sykkelen"
+        },
+        "description": {
+            "text": "Lær deg bytte til vinterdekk på sykkelen sammen med Trondheim Sykkelkjøkken! ",
+            "html": "Lær deg bytte til vinterdekk på sykkelen sammen med Trondheim Sykkelkjøkken! "
+        },
+        "url": "https://www.eventbrite.com/e/krasjkurs-bytte-til-vinterdekk-pa-sykkelen-tickets-126276457283",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-10-28T18:30:00",
+            "utc": "2025-10-28T17:30:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-10-28T20:00:00",
+            "utc": "2025-10-28T19:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2025-10-21T15:40:45Z",
+        "changed": "2025-10-28T23:39:53Z",
+        "published": "2025-10-21T17:14:11Z",
+        "capacity": 30,
+        "capacity_is_custom": true,
+        "status": "completed",
+        "currency": "USD",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Lær deg bytte til vinterdekk på sykkelen sammen med Trondheim Sykkelkjøkken! ",
+        "facebook_event_id": null,
+        "logo_id": "115416865",
+        "organizer_id": "31570234453",
+        "venue_id": "54132619",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "9",
+        "id": "126276457283",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/126276457283/",
+        "is_externally_ticketed": false,
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 72,
+                    "y": 0
+                },
+                "width": 1500,
+                "height": 750
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F115416865%2F486297933577%2F1%2Foriginal.20251021-171230?auto=format%2Ccompress&q=75&sharp=10&s=1d87d475768f79219d373d16e0011c37",
+                "width": 1708,
+                "height": 750
+            },
+            "id": "115416865",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F115416865%2F486297933577%2F1%2Foriginal.20251021-171230?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=72%2C0%2C1500%2C750&s=01de891abca0bb036274aae3f967055a",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Trip stories from the bicycle saddle",
+            "html": "Trip stories from the bicycle saddle"
+        },
+        "description": {
+            "text": "Come and listen to stories from the bicycle saddle and get inspired to do a bike trip this summer!",
+            "html": "Come and listen to stories from the bicycle saddle and get inspired to do a bike trip this summer!"
+        },
+        "url": "https://www.eventbrite.com/e/trip-stories-from-the-bicycle-saddle-tickets-155924029971",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-06-10T18:00:00",
+            "utc": "2021-06-10T16:00:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-06-10T20:00:00",
+            "utc": "2021-06-10T18:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-05-19T09:06:01Z",
+        "changed": "2021-06-10T23:59:41Z",
+        "published": "2021-05-19T09:12:15Z",
+        "capacity": 15,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Come and listen to stories from the bicycle saddle and get inspired to do a bike trip this summer!",
+        "facebook_event_id": null,
+        "logo_id": "135871201",
+        "organizer_id": "31570234453",
+        "venue_id": "60091495",
+        "category_id": "109",
+        "subcategory_id": "9999",
+        "format_id": "2",
+        "id": "155924029971",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/155924029971/",
+        "is_externally_ticketed": false,
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 144,
+                    "y": 0
+                },
+                "width": 2274,
+                "height": 1137
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F135871201%2F486297933577%2F1%2Foriginal.20210519-090618?auto=format%2Ccompress&q=75&sharp=10&s=a518fd3a0a2d777d488bd015c854dbcb",
+                "width": 2563,
+                "height": 1137
+            },
+            "id": "135871201",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F135871201%2F486297933577%2F1%2Foriginal.20210519-090618?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=144%2C0%2C2274%2C1137&s=dc39537db480bc20590782eaa3b2012b",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Super Chill Coastal Bike Trip",
+            "html": "Super Chill Coastal Bike Trip"
+        },
+        "description": {
+            "text": "Join Trondheim Sykkelkjøkken for a bike trip to Ørlandet!",
+            "html": "Join Trondheim Sykkelkjøkken for a bike trip to Ørlandet!"
+        },
+        "url": "https://www.eventbrite.com/e/super-chill-coastal-bike-trip-tickets-156002169689",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-06-19T09:00:00",
+            "utc": "2021-06-19T07:00:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-06-20T20:00:00",
+            "utc": "2021-06-20T18:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-05-19T18:49:11Z",
+        "changed": "2021-06-21T00:06:29Z",
+        "published": "2021-05-19T18:53:06Z",
+        "capacity": 10,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": false,
+        "shareable": false,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Join Trondheim Sykkelkjøkken for a bike trip to Ørlandet!",
+        "facebook_event_id": null,
+        "logo_id": "135939899",
+        "organizer_id": "31570234453",
+        "venue_id": null,
+        "category_id": "109",
+        "subcategory_id": "9999",
+        "format_id": "18",
+        "id": "156002169689",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/156002169689/",
+        "is_externally_ticketed": false,
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 156,
+                    "y": 0
+                },
+                "width": 2250,
+                "height": 1125
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F135939899%2F486297933577%2F1%2Foriginal.20210519-184923?auto=format%2Ccompress&q=75&sharp=10&s=bff649c0d26a01c3cde3ecced8c21b48",
+                "width": 2563,
+                "height": 1125
+            },
+            "id": "135939899",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F135939899%2F486297933577%2F1%2Foriginal.20210519-184923?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=156%2C0%2C2250%2C1125&s=962219c9f461b4d84a4a0333817804e4",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Sommeravslutning på sykkelkjøkkenet",
+            "html": "Sommeravslutning på sykkelkjøkkenet"
+        },
+        "description": {
+            "text": "It's the last #Mekkeonsdag before the summer holiday and we'd like to celebrate with some cake!",
+            "html": "It's the last #Mekkeonsdag before the summer holiday and we'd like to celebrate with some cake!"
+        },
+        "url": "https://www.eventbrite.com/e/sommeravslutning-pa-sykkelkjkkenet-tickets-161341915011",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-08-11T19:00:00",
+            "utc": "2021-08-11T17:00:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-08-11T21:00:00",
+            "utc": "2021-08-11T19:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-06-26T19:36:45Z",
+        "changed": "2021-08-12T00:11:02Z",
+        "published": "2021-06-26T20:48:01Z",
+        "capacity": 15,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": false,
+        "shareable": false,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "It's the last #Mekkeonsdag before the summer holiday and we'd like to celebrate with some cake!",
+        "facebook_event_id": null,
+        "logo_id": "139960657",
+        "organizer_id": "31570234453",
+        "venue_id": "61573737",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "11",
+        "id": "161341915011",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/161341915011/",
+        "is_externally_ticketed": false,
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 144,
+                    "y": 0
+                },
+                "width": 2274,
+                "height": 1137
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F139960657%2F486297933577%2F1%2Foriginal.20210626-204647?auto=format%2Ccompress&q=75&sharp=10&s=a5c50e3b84f4ddc2dabeb003812de4d8",
+                "width": 2563,
+                "height": 1137
+            },
+            "id": "139960657",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F139960657%2F486297933577%2F1%2Foriginal.20210626-204647?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=144%2C0%2C2274%2C1137&s=ff816e7bc794417803ac2600e57b1ffb",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Volunteer gathering",
+            "html": "Volunteer gathering"
+        },
+        "description": {
+            "text": "Social gathering for all volunteers at Trondheim Bike Kitchen",
+            "html": "Social gathering for all volunteers at Trondheim Bike Kitchen"
+        },
+        "url": "https://www.eventbrite.com/e/volunteer-gathering-tickets-167165774331",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-08-25T19:00:00",
+            "utc": "2021-08-25T17:00:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-08-25T21:00:00",
+            "utc": "2021-08-25T19:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-08-14T16:50:46Z",
+        "changed": "2021-08-25T23:43:35Z",
+        "published": "2021-08-14T16:52:41Z",
+        "capacity": 17,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": false,
+        "shareable": false,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Social gathering for all volunteers at Trondheim Bike Kitchen",
+        "facebook_event_id": null,
+        "logo_id": "144541197",
+        "organizer_id": "31570234453",
+        "venue_id": "62691223",
+        "category_id": "108",
+        "subcategory_id": null,
+        "format_id": "11",
+        "id": "167165774331",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/167165774331/",
+        "is_externally_ticketed": false,
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 156,
+                    "y": 0
+                },
+                "width": 2250,
+                "height": 1125
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F144541197%2F486297933577%2F1%2Foriginal.20210814-165116?auto=format%2Ccompress&q=75&sharp=10&s=cca4cf6b172aa338a0be8deda34a9ac1",
+                "width": 2563,
+                "height": 1125
+            },
+            "id": "144541197",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F144541197%2F486297933577%2F1%2Foriginal.20210814-165116?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=156%2C0%2C2250%2C1125&s=ab8e971c72734791f0cb58688b2d7f25",
+            "aspect_ratio": "2",
+            "edge_color": "#ffb67f",
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Kurs i dekkskifte",
+            "html": "Kurs i dekkskifte"
+        },
+        "description": {
+            "text": "Vi lærer deg å bytte til vinterdekk på sykkelen.",
+            "html": "Vi lærer deg å bytte til vinterdekk på sykkelen."
+        },
+        "url": "https://www.eventbrite.com/e/kurs-i-dekkskifte-tickets-200809034227",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-11-24T18:00:00",
+            "utc": "2021-11-24T17:00:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-11-24T18:40:00",
+            "utc": "2021-11-24T17:40:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-10-28T10:51:14Z",
+        "changed": "2021-11-25T05:21:13Z",
+        "published": "2021-10-28T10:55:22Z",
+        "capacity": 10,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": true,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Vi lærer deg å bytte til vinterdekk på sykkelen.",
+        "facebook_event_id": null,
+        "logo_id": "175550629",
+        "organizer_id": "31570234453",
+        "venue_id": "70315069",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "9",
+        "id": "200809034227",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/200809034227/",
+        "is_externally_ticketed": false,
+        "series_id": "200804841687",
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 156,
+                    "y": 0
+                },
+                "width": 2250,
+                "height": 1125
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F175550629%2F486297933577%2F1%2Foriginal.20211028-104451?auto=format%2Ccompress&q=75&sharp=10&s=2994610cc4b07f22ea3aa8dd7d97e997",
+                "width": 2563,
+                "height": 1125
+            },
+            "id": "175550629",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F175550629%2F486297933577%2F1%2Foriginal.20211028-104451?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=156%2C0%2C2250%2C1125&s=ce27d9cbd5ee9b7dc914efbeac0a6e39",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Kurs i dekkskifte",
+            "html": "Kurs i dekkskifte"
+        },
+        "description": {
+            "text": "Vi lærer deg å bytte til vinterdekk på sykkelen.",
+            "html": "Vi lærer deg å bytte til vinterdekk på sykkelen."
+        },
+        "url": "https://www.eventbrite.com/e/kurs-i-dekkskifte-tickets-200809094407",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-11-24T18:40:00",
+            "utc": "2021-11-24T17:40:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-11-24T19:20:00",
+            "utc": "2021-11-24T18:20:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-10-28T10:51:28Z",
+        "changed": "2021-11-25T05:21:13Z",
+        "published": "2021-10-28T10:55:22Z",
+        "capacity": 10,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": true,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Vi lærer deg å bytte til vinterdekk på sykkelen.",
+        "facebook_event_id": null,
+        "logo_id": "175550629",
+        "organizer_id": "31570234453",
+        "venue_id": "70315069",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "9",
+        "id": "200809094407",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/200809094407/",
+        "is_externally_ticketed": false,
+        "series_id": "200804841687",
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 156,
+                    "y": 0
+                },
+                "width": 2250,
+                "height": 1125
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F175550629%2F486297933577%2F1%2Foriginal.20211028-104451?auto=format%2Ccompress&q=75&sharp=10&s=2994610cc4b07f22ea3aa8dd7d97e997",
+                "width": 2563,
+                "height": 1125
+            },
+            "id": "175550629",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F175550629%2F486297933577%2F1%2Foriginal.20211028-104451?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=156%2C0%2C2250%2C1125&s=ce27d9cbd5ee9b7dc914efbeac0a6e39",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Kurs i dekkskifte",
+            "html": "Kurs i dekkskifte"
+        },
+        "description": {
+            "text": "Vi lærer deg å bytte til vinterdekk på sykkelen.",
+            "html": "Vi lærer deg å bytte til vinterdekk på sykkelen."
+        },
+        "url": "https://www.eventbrite.com/e/kurs-i-dekkskifte-tickets-200809164617",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-11-24T19:20:00",
+            "utc": "2021-11-24T18:20:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-11-24T20:00:00",
+            "utc": "2021-11-24T19:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2021-10-28T10:51:39Z",
+        "changed": "2021-11-25T05:21:13Z",
+        "published": "2021-10-28T10:55:22Z",
+        "capacity": 10,
+        "capacity_is_custom": false,
+        "status": "completed",
+        "currency": "USD",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 480,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": true,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "coyote",
+        "is_free": true,
+        "version": null,
+        "summary": "Vi lærer deg å bytte til vinterdekk på sykkelen.",
+        "facebook_event_id": null,
+        "logo_id": "175550629",
+        "organizer_id": "31570234453",
+        "venue_id": "70315069",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "9",
+        "id": "200809164617",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/200809164617/",
+        "is_externally_ticketed": false,
+        "series_id": "200804841687",
+        "logo": {
+            "crop_mask": {
+                "top_left": {
+                    "x": 156,
+                    "y": 0
+                },
+                "width": 2250,
+                "height": 1125
+            },
+            "original": {
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F175550629%2F486297933577%2F1%2Foriginal.20211028-104451?auto=format%2Ccompress&q=75&sharp=10&s=2994610cc4b07f22ea3aa8dd7d97e997",
+                "width": 2563,
+                "height": 1125
+            },
+            "id": "175550629",
+            "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F175550629%2F486297933577%2F1%2Foriginal.20211028-104451?h=200&w=450&auto=format%2Ccompress&q=75&sharp=10&rect=156%2C0%2C2250%2C1125&s=ce27d9cbd5ee9b7dc914efbeac0a6e39",
+            "aspect_ratio": "2",
+            "edge_color": null,
+            "edge_color_set": true
+        }
+    },
+    {
+        "name": {
+            "text": "Test-event",
+            "html": "Test-event"
+        },
+        "description": {
+            "text": "Test",
+            "html": "Test"
+        },
+        "url": "https://www.eventbrite.com/e/test-event-tickets-1013399193267",
+        "start": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-10-20T10:00:00",
+            "utc": "2024-10-20T08:00:00Z"
+        },
+        "end": {
+            "timezone": "Europe/Oslo",
+            "local": "2025-10-20T12:00:00",
+            "utc": "2024-10-20T10:00:00Z"
+        },
+        "organization_id": "486298958703",
+        "created": "2024-09-10T06:47:33Z",
+        "changed": "2024-09-10T07:19:45Z",
+        "published": "2024-09-10T07:17:01Z",
+        "capacity": 100,
+        "capacity_is_custom": true,
+        "status": "live",
+        "currency": "NOK",
+        "listed": true,
+        "shareable": true,
+        "invite_only": false,
+        "online_event": false,
+        "show_remaining": false,
+        "tx_time_limit": 1200,
+        "hide_start_date": false,
+        "hide_end_date": false,
+        "locale": "en_US",
+        "is_locked": false,
+        "privacy_setting": "unlocked",
+        "is_series": false,
+        "is_series_parent": false,
+        "inventory_type": "limited",
+        "is_reserved_seating": false,
+        "show_pick_a_seat": false,
+        "show_seatmap_thumbnail": false,
+        "show_colors_in_seatmap_thumbnail": false,
+        "source": "auto_create",
+        "is_free": true,
+        "version": null,
+        "summary": "Test",
+        "facebook_event_id": "1239229640755165",
+        "logo_id": "846224499",
+        "organizer_id": "31570234453",
+        "venue_id": "231731369",
+        "category_id": "108",
+        "subcategory_id": "8003",
+        "format_id": "12",
+        "id": "1013399193267",
+        "resource_uri": "https://www.eventbriteapi.com/v3/events/1013399193267/",
+        "is_externally_ticketed": false,
+        "logo": null
+    }
+]

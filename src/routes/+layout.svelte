@@ -3,12 +3,18 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import messageData from '../config/header_message.json';
 	let message = messageData.message;
+	import { navigating } from '$app/stores';
+	import Spinner from '$lib/components/Spinner.svelte';
 </script>
 
 <Header {message} />
 
 <main>
-	<slot />
+	{#if $navigating}
+		<Spinner />
+	{:else}
+		<slot />
+	{/if}
 </main>
 
 <Footer />

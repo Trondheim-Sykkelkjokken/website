@@ -1,4 +1,5 @@
 <script>
+	import { preloadData } from '$app/navigation';
 	import img2 from '$lib/assets/2.jpg?w=900&format=webp&srcset&imagetools';
 	import img3 from '$lib/assets/3.jpg?w=900&format=webp&srcset&imagetools';
 	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset&imagetools';
@@ -9,11 +10,11 @@
 	<section>
 		<h1>Trondheim Bike Kitchen</h1>
 		<p>
-			Trondheim Bike Kitchen is a community bicycle workshop run by volunteers. Our members
-			help each other learn how to repair our own bicycles, and we provide access to
-			a wide range of tools. Everyone is welcome to become a member or a volunteer, regardless of
-			bicycle repair skill. Our goal is to make cycling available to all of Trondheim, to spread
-			cycling knowledge and joy, and to encourage enivironmentally friendly transport.
+			Trondheim Bike Kitchen is a community bicycle workshop run by volunteers. Our members help
+			each other learn how to repair our own bicycles, and we provide access to a wide range of
+			tools. Everyone is welcome to become a member or a volunteer, regardless of bicycle repair
+			skill. Our goal is to make cycling available to all of Trondheim, to spread cycling knowledge
+			and joy, and to encourage enivironmentally friendly transport.
 		</p>
 	</section>
 	<img srcset={img6} alt="" class="banner" />
