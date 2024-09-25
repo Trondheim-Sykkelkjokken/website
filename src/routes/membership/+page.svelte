@@ -63,13 +63,13 @@
 		</p>
 	</fieldset>
 
-	<div class="line" />
+	<div class="line"></div>
 	<p class="total">Price: NOK {memberships.find((m) => m.id === selectedMembership)?.price}</p>
 	<div class="buttons">
-		<button class="vipps_button" formaction="?/payWithVipps"
+		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
 			><img alt="" src="/vipps_english.svg" />
 		</button><span> or </span>
-		<button class="card_button" formaction="?/payWithCard"
+		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
 			>Pay with card&nbsp<Icon src={AiOutlineCreditCard} /></button
 		>
 	</div>
