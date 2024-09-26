@@ -2,25 +2,25 @@
   "memberships": [
     {
       "reduced": false,
-      "name": "Full-year membership",
+      "name": "Year",
       "price": 350,
       "id": "full-regular"
     },
     {
       "reduced": true,
-      "name": "Full-year membership",
+      "name": "Year",
       "price": 230,
       "id": "full-reduced"
     },
     {
       "reduced": false,
-      "name": "Semester membership",
+      "name": "Semester",
       "price": 230,
       "id": "semester-regular"
     },
     {
       "reduced": true,
-      "name": "Semester membership",
+      "name": "Semester",
       "price": 160,
       "id": "semester-reduced"
     }

@@ -11,7 +11,7 @@
 
 	// @ts-ignore
 	function formatMembershipName(membership) {
-		let reduced = membership.reduced ? '(reduced price)' : '';
+		let reduced = membership.reduced ? '(reduced)' : '';
 		let startDate = new Intl.DateTimeFormat('en-GB', {
 			day: 'numeric',
 			month: 'long',
@@ -23,7 +23,7 @@
 			year: 'numeric'
 		}).format(calculateExpiryDate(membership.id));
 		let asterisk = membership.reduced ? '<sup>*</sup>' : '';
-		return `${membership.name} ${reduced} - ${startDate} - ${endDate} ${asterisk}`;
+		return `${membership.name} ${reduced}: ${startDate} – ${endDate} ${asterisk}`;
 	}
 </script>
 
