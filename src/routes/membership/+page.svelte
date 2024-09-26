@@ -33,7 +33,7 @@
 <form method="POST">
 	<h2>Membership form</h2>
 	<label>
-		Name:
+		Full name:
 		<input required name="name" type="text" />
 	</label>
 	<label>
