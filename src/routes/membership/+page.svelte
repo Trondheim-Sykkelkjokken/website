@@ -58,8 +58,7 @@
 		{/each}
 
 		<p>
-			<sup>*</sup> Reduced price is only available for students, children, pensioners and unemployed
-			persons.
+			<sup>*</sup> Reduced price is available for students, children, pensioners and unemployed persons.
 		</p>
 	</fieldset>
 
