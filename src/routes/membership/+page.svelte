@@ -30,6 +30,14 @@
 <h1>Become a member!</h1>
 <Terms />
 
+<h2>Prices</h2>
+Reduced prices are available for students, children, pensioners and unemployed.
+<ul>
+	{#each memberships as membership}
+		<li>{membership.name}{membership.reduced ? ' (reduced)' : ''}: NOK {membership.price}</li>
+	{/each}
+</ul>
+
 <form method="POST">
 	<h2>Membership form</h2>
 	<label>
