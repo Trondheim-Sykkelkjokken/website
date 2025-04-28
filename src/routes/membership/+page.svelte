@@ -24,17 +24,17 @@
 	<h2>Sign up</h2>
 
 	<label>
-		<strong>Full name:</strong><br />
-		<input required name="name" type="text" style="width: 100%; max-width: 400px;" />
+		Full name:<br />
+		<input required name="name" type="text" style="width: 100%; max-width: 300px;" />
 	</label>
 
 	<label>
-		<strong>Email:</strong><br />
-		<input required name="email" type="email" style="width: 100%; max-width: 400px;" />
+		Email:<br />
+		<input required name="email" type="email" style="width: 100%; max-width: 300px;" />
 	</label>
 
 	<fieldset>
-		<legend>Membership type</legend>
+		<legend>Membership type:</legend>
 
 		{#each memberships as membership}
 			<label
