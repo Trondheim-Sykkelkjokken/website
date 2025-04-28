@@ -30,16 +30,17 @@
 <h1>Become a member!</h1>
 <Terms />
 
-<h2>Prices</h2>
-Reduced prices are available for students, children, pensioners and unemployed.
+
+<h2>Membership types</h2>
 <ul>
-	{#each memberships as membership}
-		<li>{membership.name}{membership.reduced ? ' (reduced)' : ''}: NOK {membership.price}</li>
-	{/each}
+  <li>Full-year: July–June</li>
+  <li>Semester: July–December or January–June</li>
 </ul>
 
+<p>Reduced price offered to students, seniors, children, and unemployed.</p>
+
 <form method="POST">
-	<h2>Membership form</h2>
+	<h2>Sign up</h2>
 	<label>
 		Full name:
 		<input required name="name" type="text" />
@@ -50,7 +51,7 @@ Reduced prices are available for students, children, pensioners and unemployed.
 	</label>
 
 	<fieldset>
-		<legend>Choose membership type</legend>
+		<legend>Membership type</legend>
 
 		{#each memberships as membership}
 			<label
@@ -61,17 +62,14 @@ Reduced prices are available for students, children, pensioners and unemployed.
 					value={membership.id}
 					required
 				/>
-				{@html formatMembershipName(membership)}
+				{membership.name}{membership.reduced ? ' (reduced)' : ''}: {membership.price} kr
 			</label>
 		{/each}
-
-		<p>
-			<sup>*</sup> Reduced price is available for students, children, pensioners and unemployed persons.
-		</p>
 	</fieldset>
 
 	<div class="line"></div>
-	<p class="total">Price: NOK {memberships.find((m) => m.id === selectedMembership)?.price}</p>
+
+	<p class="total">Price: {memberships.find((m) => m.id === selectedMembership)?.price} kr</p>
 	<div class="buttons">
 		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
 			><img alt="" src="/vipps_english.svg" />
