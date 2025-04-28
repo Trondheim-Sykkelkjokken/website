@@ -23,11 +23,11 @@
 <form method="POST">
 	<h2>Sign up</h2>
 	<label>
-		Full name:
+		<b>Full name:</b>
 		<input required name="name" type="text" />
 	</label>
 	<label>
-		Email:
+		<b>Email:</b>
 		<input required name="email" type="email" />
 	</label>
 
