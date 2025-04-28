@@ -6,30 +6,11 @@
 	import memberships_data from '../../config/memberships.json';
 	import { calculateStartDate, calculateExpiryDate } from '$lib/utils/memberships';
 	let memberships = memberships_data.memberships;
-
 	let selectedMembership = 'full-regular';
-
-	// @ts-ignore
-	function formatMembershipName(membership) {
-		let reduced = membership.reduced ? '(reduced price)' : '';
-		let startDate = new Intl.DateTimeFormat('en-GB', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric'
-		}).format(calculateStartDate(membership.id));
-		let endDate = new Intl.DateTimeFormat('en-GB', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric'
-		}).format(calculateExpiryDate(membership.id));
-		let asterisk = membership.reduced ? '<sup>*</sup>' : '';
-		return `${membership.name} ${reduced} - ${startDate} - ${endDate} ${asterisk}`;
-	}
 </script>
 
 <h1>Become a member!</h1>
 <Terms />
-
 
 <h2>Membership types</h2>
 <ul>
