@@ -4,7 +4,7 @@
 
 <div class="tandc">
 	<details>
-		<summary><h2>Click to read the full terms and conditions</h2></summary>
+		<summary><h2>Click to read the terms and conditions</h2></summary>
 		<h3>Parties</h3>
 		<p>
 			The seller is Trondheim sykkelkjokken, Professor Brochs gate 2, 7030 Trondheim,
@@ -49,23 +49,23 @@
 
 		<h3>Membership</h3>
 		<p>Membership runs until it expires and cannot be terminated or modified.</p>
-	</details>
 
-	<h3>Your acceptance of this agreement</h3>
-	<p>
-		By becoming a member of Trondheim Bike Kitchen, you commit to the following code of conduct:
-	</p>
-	<ul>
-		<li>Respect people, bicycles and tools at the bike kitchen.</li>
-		<li>Make sure your bike is clean before you bring it inside.</li>
-		<li>Take good care of tools and clean up after yourself.</li>
-		<li>Help others and share your knowledge.</li>
-	</ul>
-	<p>ALL PARTICIPATION IN ACTIVITIES AT THE BIKE KITCHEN IS AT YOUR OWN RISK.</p>
-	<p>
-		If the code of conduct is not respected, you will have to leave the premises and the Bike
-		Kitchen's activities, and you risk losing your membership.
-	</p>
+		<h3>Your acceptance of this agreement</h3>
+		<p>
+			By becoming a member of Trondheim Bike Kitchen, you commit to the following code of conduct:
+		</p>
+		<ul>
+			<li>Respect people, bicycles and tools at the bike kitchen.</li>
+			<li>Make sure your bike is clean before you bring it inside.</li>
+			<li>Take good care of tools and clean up after yourself.</li>
+			<li>Help others and share your knowledge.</li>
+		</ul>
+		<p>ALL PARTICIPATION IN ACTIVITIES AT THE BIKE KITCHEN IS AT YOUR OWN RISK.</p>
+		<p>
+			If the code of conduct is not respected, you will have to leave the premises and the Bike
+			Kitchen's activities, and you risk losing your membership.
+		</p>
+	</details>
 </div>
 
 <style>
