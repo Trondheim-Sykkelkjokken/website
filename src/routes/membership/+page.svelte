@@ -22,13 +22,15 @@
 
 <form method="POST">
 	<h2>Sign up</h2>
+
 	<label>
-		<b>Full name:</b>
-		<input required name="name" type="text" />
+		<strong>Full name:</strong><br />
+		<input required name="name" type="text" style="width: 100%; max-width: 400px;" />
 	</label>
+
 	<label>
-		<b>Email:</b>
-		<input required name="email" type="email" />
+		<strong>Email:</strong><br />
+		<input required name="email" type="email" style="width: 100%; max-width: 400px;" />
 	</label>
 
 	<fieldset>
