@@ -12,14 +12,6 @@
 <h1>Become a member!</h1>
 <Terms />
 
-<h2>Membership types</h2>
-<ul>
-  <li>Full-year: July–June</li>
-  <li>Semester: July–December or January–June</li>
-</ul>
-
-<p>Reduced price offered to students, seniors, children, and unemployed.</p>
-
 <form method="POST">
 	<h2>Sign up</h2>
 
@@ -36,6 +28,13 @@
 	<fieldset>
 		<legend>Membership type:</legend>
 
+		<ul>
+		  <li>Full-year: July–June</li>
+		  <li>Semester: July–December or January–June</li>
+		</ul>
+
+		<p>Reduced price offered to students, seniors, children and unemployed.</p>
+
 		{#each memberships as membership}
 			<label
 				><input
@@ -49,8 +48,6 @@
 			</label>
 		{/each}
 	</fieldset>
-
-	<div class="line"></div>
 
 	<p class="total">Price: {memberships.find((m) => m.id === selectedMembership)?.price} kr</p>
 	<div class="buttons">
@@ -76,7 +73,7 @@
 	}
 
 	.total {
-		font-size: 2.5rem;
+		font-size: 2.0rem;
 	}
 
 	button {
