@@ -13,7 +13,7 @@
 		<div class="flex-container">
 			<div class="footer-item">
 				<a href="https://maps.app.goo.gl/hdDM7xn28vsrV7Vv7"
-					>Bøker & Bylab<br />Professor Brochs gate 2<br />7030 Trondheim, Norway</a
+					>Bøker & bylab (Teknobyen)<br />Professor Brochs gate 2<br />7030 Trondheim, Norway</a
 				><br />
 				<span
 					>Orgnr: <a href="https://w2.brreg.no/enhet/sok/detalj.jsp?orgnr=923049274">923049274</a
