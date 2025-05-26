@@ -10,6 +10,7 @@ This is a Svelte project, powered by [`create-svelte`](https://github.com/svelte
 ## Setup
 
 1. Install a recent version of [Node.js](https://nodejs.org/en)
+1. `cd` to where you cloned this repo
 1. Install dependencies: `npm install`
 
 ## Develop
