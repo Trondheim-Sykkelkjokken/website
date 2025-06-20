@@ -1,15 +1,19 @@
 <script lang="ts">
+	import AiOutlineMenu from 'svelte-icons-pack/ai/AiOutlineMenu';
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import NavLink from './NavLink.svelte';
+	import LangButton from './LangButton.svelte';
+
 	import { navOpen, setNavOpen } from '../../stores';
+	import { t } from '$lib/translations';
+
 	let open: boolean;
 	navOpen.subscribe((value) => {
 		open = value;
 	});
 
 	export let message: string;
-
-	import AiOutlineMenu from 'svelte-icons-pack/ai/AiOutlineMenu';
-	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import NavLink from './NavLink.svelte';
+	
 </script>
 
 <header>
@@ -19,16 +23,22 @@
 		<button on:click={() => setNavOpen(!open)}>
 			<Icon color="black" src={AiOutlineMenu} />
 		</button>
+		<div class="i18n-header-wrapper">
+			<LangButton />
+		</div>
 	</div>
 	<div id="nav-wrapper">
 		<nav class:hidden={!open}>
-			<NavLink title="Home" href="/" />
-			<NavLink title="Events" href="/events" />
-			<NavLink title="Membership" href="/membership" />
+			<NavLink title={$t('layout.home')} href="/" />
+			<NavLink title={$t('layout.events')} href="/events" />
+			<NavLink title={$t('layout.membership')} href="/membership" />
 			<!-- <NavLink title="Blog" href="/blog" /> -->
-			<NavLink title="Volunteer" href="/volunteer" />
-			<NavLink title="Tools/parts" href="/tools" />
-			<NavLink title="Resources" href="/resources" />
+			<NavLink title={$t('layout.volunteer')} href="/volunteer" />
+			<NavLink title={$t('layout.tools')} href="/tools" />
+			<NavLink title={$t('layout.resources')} href="/resources" />
+			<div class="i18n-menu-wrapper">
+				<LangButton />
+			</div>
 		</nav>
 	</div>
 	<div class="info">
@@ -57,6 +67,7 @@
 		max-width: 80%;
 		max-height: 4rem;
 		margin: 0 auto;
+		padding-left: 3rem;
 	}
 
 	#nav-wrapper {
@@ -83,10 +94,20 @@
 		cursor: pointer;
 	}
 
+	.i18n-menu-wrapper {
+		margin-top: 1rem;
+		margin-left: -1rem;
+		display: none;
+	}
+
 	@media (max-width: 720px) {
 		#nav-wrapper {
 			position: absolute;
 			width: 100%;
+		}
+
+		.heading-link {
+			padding-left: 0;
 		}
 
 		nav {
@@ -106,6 +127,14 @@
 
 		.cog-wrapper {
 			display: none;
+		}
+
+		.i18n-header-wrapper {
+			display: none;
+		}
+
+		.i18n-menu-wrapper {
+			display: block;
 		}
 	}
 

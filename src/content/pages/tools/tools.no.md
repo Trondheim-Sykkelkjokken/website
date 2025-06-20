@@ -1,4 +1,9 @@
-# Tools
+---
+title: Tools page
+---
+# Verktøy
+
+TODO: FIKS OVERSETTELSE
 
 As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access to our many tools:
 

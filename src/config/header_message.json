@@ -1,3 +1,8 @@
 {
-  "message": "Open Wednesdays 17–20"
+  "en": {
+    "message": "Open Wednesdays 17–20"
+  },
+  "no": {
+    "message": "Åpent onsdager fra 17 til 20"
+  }
 }
