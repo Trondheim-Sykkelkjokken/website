@@ -36,7 +36,19 @@ export const config = {
             key: 'home',
             routes: ['/'],
             loader: async () => (await import('../../content/translations/no/home.json')).default,
-        }
+        },
+        {
+            locale: 'en',
+            key: 'membership',
+            routes: ['/membership'],
+            loader: async () => (await import('../../content/translations/en/membership.json')).default,
+        },
+        {
+            locale: 'no',
+            key: 'membership',
+            routes: ['/membership'],
+            loader: async () => (await import('../../content/translations/no/membership.json')).default,
+        },
     ],
 };
 

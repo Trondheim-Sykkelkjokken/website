@@ -5,35 +5,36 @@
 	import Terms from './terms.svelte';
 	import memberships_data from '../../config/memberships.json';
 	import { calculateStartDate, calculateExpiryDate } from '$lib/utils/memberships';
+	import { t } from '$lib/translations';
 	let memberships = memberships_data.memberships;
 	let selectedMembership = 'full-regular';
 </script>
 
-<h1>Become a member!</h1>
+<h1>{@html $t("membership.heading")}</h1>
 <Terms />
 
 <form method="POST">
-	<h2>Sign up</h2>
+	<h2>{@html $t("membership.signup")}</h2>
 
 	<label>
-		Full name:<br />
+		{@html $t("membership.name_field")}<br />
 		<input required name="name" type="text" style="width: 100%; max-width: 300px;" />
 	</label>
 
 	<label>
-		Email:<br />
+		{@html $t("membership.email_field")}<br />
 		<input required name="email" type="email" style="width: 100%; max-width: 300px;" />
 	</label>
 
 	<fieldset>
-		<legend>Membership type:</legend>
+		<legend>{@html $t("membership.membership_type")}</legend>
 
 		<ul>
-		  <li>Full-year: July–June</li>
-		  <li>Semester: July–December or January–June</li>
+		  <li>{@html $t("membership.type1")}</li>
+		  <li>{@html $t("membership.type2")}</li>
 		</ul>
 
-		<p>Reduced price offered to students, seniors, children and unemployed.</p>
+		<p>{@html $t("membership.reduced_price")}</p>
 
 		{#each memberships as membership}
 			<label
@@ -49,13 +50,13 @@
 		{/each}
 	</fieldset>
 
-	<p class="total">Price: {memberships.find((m) => m.id === selectedMembership)?.price} kr</p>
+	<p class="total">{@html $t("membership.price")} {memberships.find((m) => m.id === selectedMembership)?.price} kr</p>
 	<div class="buttons">
 		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
 			><img alt="" src="/vipps_english.svg" />
-		</button><span> or </span>
+		</button><span> {@html $t("membership.or")} </span>
 		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
-			>Pay with card&nbsp<Icon src={AiOutlineCreditCard} /></button
+			>{@html $t("membership.card")}&nbsp<Icon src={AiOutlineCreditCard} /></button
 		>
 	</div>
 </form>
