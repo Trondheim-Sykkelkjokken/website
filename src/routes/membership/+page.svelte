@@ -5,9 +5,15 @@
 	import Terms from './terms.svelte';
 	import memberships_data from '../../config/memberships.json';
 	import { calculateStartDate, calculateExpiryDate } from '$lib/utils/memberships';
-	import { t } from '$lib/translations';
+	import { t, locale } from '$lib/translations';
 	let memberships = memberships_data.memberships;
 	let selectedMembership = 'full-regular';
+
+	let currentLocale = locale.get();
+    locale.subscribe((value) => {
+        currentLocale = value;
+	});
+
 </script>
 
 <h1>{@html $t("membership.heading")}</h1>
@@ -52,8 +58,9 @@
 
 	<p class="total">{@html $t("membership.price")} {memberships.find((m) => m.id === selectedMembership)?.price} kr</p>
 	<div class="buttons">
+		
 		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
-			><img alt="" src="/vipps_english.svg" />
+			><img alt="" src="/vipps_{currentLocale}.svg" />
 		</button><span> {@html $t("membership.or")} </span>
 		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
 			>{@html $t("membership.card")}&nbsp<Icon src={AiOutlineCreditCard} /></button
@@ -99,14 +106,14 @@
 		display: flex;
 		align-items: center;
 		align-content: space-between;
-		font-size: 1.1rem;
-		background-color: #46d919;
+		font-size: 1rem;
+		background-color:rgb(58, 183, 19);
 		border: none;
-		color: #393939;
+		color: white;
 		padding: 10px 20px;
 		text-align: center;
 		text-decoration: none;
-		border-radius: 25px;
+		border-radius: 5px;
 		height: 44px;
 		margin-left: 0.5rem;
 		font-weight: 500;
