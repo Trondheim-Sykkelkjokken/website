@@ -10,37 +10,36 @@
 	let selectedMembership = 'full-regular';
 
 	let currentLocale = locale.get();
-    locale.subscribe((value) => {
-        currentLocale = value;
+	locale.subscribe((value) => {
+		currentLocale = value;
 	});
-
 </script>
 
-<h1>{@html $t("membership.heading")}</h1>
+<h1>{@html $t('membership.heading')}</h1>
 <Terms />
 
 <form method="POST">
-	<h2>{@html $t("membership.signup")}</h2>
+	<h2>{@html $t('membership.signup')}</h2>
 
 	<label>
-		{@html $t("membership.name_field")}<br />
+		{@html $t('membership.name_field')}<br />
 		<input required name="name" type="text" style="width: 100%; max-width: 300px;" />
 	</label>
 
 	<label>
-		{@html $t("membership.email_field")}<br />
+		{@html $t('membership.email_field')}<br />
 		<input required name="email" type="email" style="width: 100%; max-width: 300px;" />
 	</label>
 
 	<fieldset>
-		<legend>{@html $t("membership.membership_type")}</legend>
+		<legend>{@html $t('membership.membership_type')}</legend>
 
 		<ul>
-		  <li>{@html $t("membership.type1")}</li>
-		  <li>{@html $t("membership.type2")}</li>
+			<li>{@html $t('membership.type1')}</li>
+			<li>{@html $t('membership.type2')}</li>
 		</ul>
 
-		<p>{@html $t("membership.reduced_price")}</p>
+		<p>{@html $t('membership.reduced_price')}</p>
 
 		{#each memberships as membership}
 			<label
@@ -51,19 +50,23 @@
 					value={membership.id}
 					required
 				/>
-				{currentLocale === "no" ? membership.norwegian_name : membership.name}{membership.reduced ? ' (reduced)' : ''}: {membership.price} kr
+				{currentLocale === 'no' ? membership.norwegian_name : membership.name}{membership.reduced
+					? ' (reduced)'
+					: ''}: {membership.price} kr
 			</label>
 		{/each}
 	</fieldset>
 
-	<p class="total">{@html $t("membership.price")} {memberships.find((m) => m.id === selectedMembership)?.price} kr</p>
+	<p class="total">
+		{@html $t('membership.price')}
+		{memberships.find((m) => m.id === selectedMembership)?.price} kr
+	</p>
 	<div class="buttons">
-		
 		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
 			><img alt="" src="/vipps_{currentLocale}.svg" />
-		</button><span> {@html $t("membership.or")} </span>
+		</button><span> {@html $t('membership.or')} </span>
 		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
-			>{@html $t("membership.card")}&nbsp<Icon src={AiOutlineCreditCard} color="white" /></button
+			>{@html $t('membership.card')}&nbsp<Icon src={AiOutlineCreditCard} color="white" /></button
 		>
 	</div>
 </form>
@@ -74,14 +77,8 @@
 		margin: 0.5rem 0;
 	}
 
-	.line {
-		margin-top: 3rem;
-		width: 100%;
-		border-top: 3px solid white;
-	}
-
 	.total {
-		font-size: 2.0rem;
+		font-size: 2rem;
 	}
 
 	button {
@@ -107,7 +104,7 @@
 		align-items: center;
 		align-content: space-between;
 		font-size: 1rem;
-		background-color:rgb(58, 183, 19);
+		background-color: rgb(58, 183, 19);
 		border: none;
 		color: white;
 		padding: 10px 20px;
