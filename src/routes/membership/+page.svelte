@@ -51,7 +51,7 @@
 					value={membership.id}
 					required
 				/>
-				{membership.name}{membership.reduced ? ' (reduced)' : ''}: {membership.price} kr
+				{currentLocale === "no" ? membership.norwegian_name : membership.name}{membership.reduced ? ' (reduced)' : ''}: {membership.price} kr
 			</label>
 		{/each}
 	</fieldset>
@@ -63,7 +63,7 @@
 			><img alt="" src="/vipps_{currentLocale}.svg" />
 		</button><span> {@html $t("membership.or")} </span>
 		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
-			>{@html $t("membership.card")}&nbsp<Icon src={AiOutlineCreditCard} /></button
+			>{@html $t("membership.card")}&nbsp<Icon src={AiOutlineCreditCard} color="white" /></button
 		>
 	</div>
 </form>

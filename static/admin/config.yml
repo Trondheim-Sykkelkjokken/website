@@ -25,6 +25,12 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: string }
               - {
+                  label: "Norwegian name",
+                  name: "norwegian_name",
+                  widget: string,
+                  hint: "For display in norwegian language setting",
+                }
+              - {
                   label: "Reduced",
                   name: "reduced",
                   widget: boolean,
