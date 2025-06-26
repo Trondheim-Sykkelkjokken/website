@@ -15,8 +15,14 @@
 </script>
 
 <div class="language-selector">
-	<span class="globe-icon">🌐</span>
-	<select class="i18n-dropdown" bind:value={$locale} on:change={handleChange}>
+	<label for="language-select" class="sr-only">Select language</label>
+	<select
+		id="language-select"
+		class="i18n-dropdown"
+		bind:value={$locale}
+		on:change={handleChange}
+		aria-label="Language selector"
+	>
 		{#each $locales as value}
 			<option {value}>{$t(`lang.${value}`)}</option>
 		{/each}
@@ -32,16 +38,11 @@
 		width: 3rem;
 	}
 
-	.globe-icon {
-		font-size: 1.2rem;
-		margin-right: -0.5rem;
-	}
-
 	.i18n-dropdown {
 		appearance: none;
 		border: none;
 		background: transparent;
-		font-size: 1rem;
+		font-size: 1.25rem;
 		cursor: pointer;
 	}
 
@@ -53,5 +54,22 @@
 		.language-selector {
 			order: -1; /* Move the language selector to the left */
 		}
+	}
+
+	.i18n-dropdown:focus {
+		outline: 2px solid #0078d4; /* High-contrast focus outline */
+		outline-offset: 2px;
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
 	}
 </style>

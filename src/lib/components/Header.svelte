@@ -13,18 +13,19 @@
 	});
 
 	export let message: string;
-	
 </script>
 
 <header>
 	<div class="cog-wrapper"><a href="/"><img class="cog" alt="" src="/logo.svg" /></a></div>
-	<div class="heading-banner">
-		<a href="/" class="heading-link"><img class="heading" src="/title.png" alt="" /></a>
-		<button on:click={() => setNavOpen(!open)}>
-			<Icon color="black" src={AiOutlineMenu} />
-		</button>
-		<div class="i18n-header-wrapper">
-			<LangButton />
+	<div class="heading-wrapper">
+		<div class="heading-banner">
+			<a href="/" class="heading-link"><img class="heading" src="/title.png" alt="" /></a>
+			<button on:click={() => setNavOpen(!open)}>
+				<Icon color="black" src={AiOutlineMenu} />
+			</button>
+			<div class="i18n-heading-wrapper">
+				<LangButton />
+			</div>
 		</div>
 	</div>
 	<div id="nav-wrapper">
@@ -47,11 +48,16 @@
 </header>
 
 <style>
+	.heading-wrapper {
+		background-color: white;
+	}
 	.heading-banner {
 		background-color: white;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
+		max-width: 1025px;
+		margin: 0 auto;
 	}
 
 	.heading {
@@ -100,6 +106,10 @@
 		display: none;
 	}
 
+	.i18n-heading-wrapper {
+		margin-top: 15px;
+	}
+
 	@media (max-width: 720px) {
 		#nav-wrapper {
 			position: absolute;
@@ -129,7 +139,7 @@
 			display: none;
 		}
 
-		.i18n-header-wrapper {
+		.i18n-heading-wrapper {
 			display: none;
 		}
 
