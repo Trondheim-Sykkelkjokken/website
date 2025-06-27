@@ -21,10 +21,16 @@ Start a development server:
 npm run dev
 ```
 
-Or start the server and open the app in a new browser tab:
+To preview on your browser:
 
 ```sh
 npm run dev -- --open
+```
+
+Host on local network for e.g. testing on mobile:
+
+```sh
+npm run dev -- --host  # Can be combined with --open
 ```
 
 ## Build
