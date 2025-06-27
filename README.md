@@ -30,8 +30,10 @@ npm run dev -- --open
 Host on local network for e.g. testing on mobile:
 
 ```sh
-npm run dev -- --host  # Can be combined with --open
+npm run dev -- --host
 ```
+
+(You can combine `--open` and `--host`.)
 
 ## Build
 
