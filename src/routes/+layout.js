@@ -1,7 +1,6 @@
 import { loadTranslations } from "$lib/translations";
 
-// I am not really sure this actually does anything
-export const prerender = true;
+export const prerender = false;
 
 
 /** @type {import('@sveltejs/kit').Load} */
