@@ -14,23 +14,13 @@
 	</section>
 	<img srcset={img6} alt="" class="banner" />
 	<section class="right">
-		<h1>What we do</h1>
-		<p>
-			At the bike kitchen you can learn more about repairing bikes and meet other people who are
-			interested in cycling, repairing and green mobility. Our workshop is open on Wednesdays from
-			17-20h, and occasionally we also host other bike related events.
-		</p>
+		<h1>{@html $t('home.title2')}</h1>
+		<p>{@html $t('home.text2')}</p>
 	</section>
 	<img srcset={img2} alt="" class="banner" />
 	<section class="right">
-		<h1>Tools</h1>
-		<p>
-			Bike tools can be expensive, and often you'll only need them once. By becoming a member, for
-			the price of a tool, you get access to all our tools, and our knowledgable members. Our
-			workshop located at Bøker & Bylab is well stocked with most tools needed for both maintenance
-			and repair, as well as consumeables such as inner tubes, brake pads, grease and cleaning
-			supplies.
-		</p>
+		<h1>{@html $t('home.title3')}</h1>
+		<p>{@html $t('home.text3')}</p>
 	</section>
 	<img srcset={img3} alt="" class="banner" />
 </div>
