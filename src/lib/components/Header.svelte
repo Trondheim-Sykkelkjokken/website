@@ -56,8 +56,9 @@
 		width: 100%;
 		display: flex;
 		flex-direction: row;
-		max-width: 1025px;
+		max-width: 1052px;
 		margin: 0 auto;
+		align-items: center;
 	}
 
 	.heading {
@@ -89,6 +90,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		align-content: center;
+		justify-content: space-between;
 	}
 
 	button {
@@ -104,10 +106,6 @@
 		margin-top: 1rem;
 		margin-left: -1rem;
 		display: none;
-	}
-
-	.i18n-heading-wrapper {
-		margin-top: 15px;
 	}
 
 	@media (max-width: 720px) {

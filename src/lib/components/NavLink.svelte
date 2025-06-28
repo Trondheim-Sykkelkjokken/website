@@ -27,7 +27,6 @@
 		color: #676a3e;
 		text-decoration: none;
 		text-transform: uppercase;
-		flex-grow: 1;
 		font-size: 1.2rem;
 		align-self: baseline;
 		margin-inline: 0.25rem;

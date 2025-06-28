@@ -34,8 +34,6 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.25rem 0.5rem;
-		width: 3rem;
 	}
 
 	.i18n-dropdown {
