@@ -49,6 +49,18 @@ export const config = {
             routes: ['/membership'],
             loader: async () => (await import('../../content/translations/no/membership.json')).default,
         },
+        {
+            locale: 'en',
+            key: 'volunteer',
+            routes: ['/volunteer'],
+            loader: async () => (await import('../../content/translations/en/volunteer.json')).default,
+        },
+        {
+            locale: 'no',
+            key: 'volunteer',
+            routes: ['/volunteer'],
+            loader: async () => (await import('../../content/translations/no/volunteer.json')).default,
+        },
     ],
 };
 
