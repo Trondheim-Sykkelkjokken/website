@@ -6,8 +6,6 @@ import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/uti
 import { calculateExpiryDate } from '$lib/utils/memberships.js';
 import type { RouteParams } from '../$types';
 
-export const prerender = false;
-
 async function pay(event: RequestEvent<RouteParams, "/membership">, paymentType: PaymentType) {
     const formData = await event.request.formData();
     formData.append("id", crypto.randomUUID());

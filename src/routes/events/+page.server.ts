@@ -1,5 +1,3 @@
-export const prerender = false;
-
 import { EVENTBRITE_API_KEY } from '$env/static/private';
 import fixtureEvents from '$lib/fixtures/test-events.json';
 import type { BikeKitchenEvent, BikeKitchenEventWithVenue, EventBriteResponse, Venue, VenueResponse } from '$lib/types/events.type';
