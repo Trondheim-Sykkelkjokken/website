@@ -1,6 +1,7 @@
 <script>
 	/** @type {import('./$types').PageData} */
 	// @ts-ignore
+	import { t } from '$lib/translations';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCalendar from 'svelte-icons-pack/ai/AiOutlineCalendar';
 	import LocationPin from 'svelte-icons-pack/hi/HiOutlineLocationMarker';
@@ -10,11 +11,9 @@
 	let upcomingEvents = events.filter((event) => new Date(event.start.local) > new Date());
 </script>
 
-<h1>Events</h1>
+<h1>{@html $t('events.heading')}</h1>
 <p>
-	You can also find upcoming events on our <a
-		href="https://www.facebook.com/trondheimsykkelkjokken/events">Facebook page</a
-	>.
+	{@html $t('events.paragraph1')}
 </p>
 
 {#if upcomingEvents.length > 0}
@@ -58,9 +57,7 @@
 	</ul>
 {:else}
 	<p>
-		No upcoming events. Send us a mail with suggestions at <a
-			href="mailto:<kontakt@sykkelkjokken.no">kontakt@sykkelkjokken.no</a
-		>
+		{@html $t('events.no_events')}
 	</p>
 {/if}
 

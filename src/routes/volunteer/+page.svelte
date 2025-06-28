@@ -1,6 +1,6 @@
 <script>
 	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset&imagetools';
-	import { t, locale } from '$lib/translations';
+	import { t } from '$lib/translations';
 </script>
 
 <h1>{@html $t('volunteer.heading')}</h1>
