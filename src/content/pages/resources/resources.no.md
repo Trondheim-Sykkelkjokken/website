@@ -3,7 +3,6 @@ title: Resources page
 ---
 # Ressurser
 
-TODO: Fiks oversettelse
 
-- [Park Tools youtube channel](https://www.youtube.com/channel/UCzaZ1sPWEuZN-I8_XT6AH8g) - Instructional videos on almost anything
-- [Sheldon Brown's webpage](https://www.sheldonbrown.com/) - The man, the myth, the legend
+- [Park Tools på YouTube](https://www.youtube.com/channel/UCzaZ1sPWEuZN-I8_XT6AH8g) - Førsteklasses videoer om nesten alt
+- [Sheldon Brown](https://www.sheldonbrown.com/) - Legendarisk sykkelgubbe

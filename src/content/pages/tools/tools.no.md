@@ -3,59 +3,57 @@ title: Tools page
 ---
 # Verktøy
 
-TODO: FIKS OVERSETTELSE
-
-As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access to our many tools:
+Som <a href="/membership">medlem</a> får du tilgang til alt vårt verktøy:
 
 - Adjustable pin spanner SPA-6C
-- Adjustable torque driver
-- Adjustable wrench
-- Allen keys
-- Bike pumps
-- Bleeding kit Shimano, Avid, Magura
-- Bottom bracket tool BBT-32
-- Bottom bracket tool TL-FC33
-- Cassett remover tool Shimano/Sram
-- Cassette lockring tool FR-1.3
-- Cassette lockring tool FR-5.2
-- Cassette wrench
-- Chain checker
-- Chain cutter
-- Chain link pliers
-- Combination pliers
-- Cone wrenches 13, 14, 15, 17mm
-- Crank and bottom bracket wrench HCW-4
-- Crank puller CWP-7C
-- Cutting pliers
-- Digital Calliper
-- Files
-- Flat pliers
-- Hanger genie
-- Headset wrench
-- Joint handle
-- Knife
-- Metal saw
-- Park Tool Repair stands
-- Pedal wrench
-- Polygrip pliers
-- Puncture repair kits
-- Ratchet screwdriver
-- Scissors
-- Screw drivers in all kinds of sizes
-- Socket set
+- Justerbar momentnøkkel
+- Skiftenøkkel
+- Sekskantnøkler
+- Sykkelpumer
+- Luftesett Shimano, Avid, Magura
+- Krankverktøy BBT-32
+- Krankverktøy TL-FC33
+- Kassettavdrager Shimano/Sram
+- Frikransavdrager FR-1.3
+- Frikransavdrager FR-5.2
+- Kassettnøkkel
+- Kjedemåler
+- Kjedekutter
+- Kjedelåstang
+- Kombinasjonstang
+- Konusnøkler 13, 14, 15, 17mm
+- Kranklagernøkkel HCW-4
+- Krankavdrager CWP-7C
+- Avbitertang
+- Skyvelære
+- Filer
+- Flattang
+- Girøreavretter
+- Styrelagernøkkel
+- Latmannsarm
+- Kniv
+- Baufil
+- Mekkestativ
+- Pedalavdrager
+- Vannpumpetang
+- Lappesaker
+- Skralletrekker
+- Saks
+- Skrujern i allverdens slag
+- Pipenøkler
 - Spanners
 - Spoke gauge
-- Spoke tension meter
-- Spoke wrench
-- Steel brushes
-- Tire levers
-- Torx keys
-- Wheel truing stand
+- Eikespenningsmåler
+- Eikenøkler
+- Stålbørster
+- Dekkspaker
+- Torx-nøkler
+- Hjulrettestativ
 
-# Parts
+# Deler
 
-We also have some parts for sale:
+Vi har også noen deler til salgs:
 
-- Inner tubes
-- Brake pads for disc and rim brakes
-- Gear and brake wires and housing
+- Slanger
+- Bremseklosser for felg- og skivebrems
+- Gir- og bremsewire og strømpe
