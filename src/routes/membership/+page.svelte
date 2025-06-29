@@ -51,7 +51,7 @@
 					required
 				/>
 				{currentLocale === 'no' ? membership.norwegian_name : membership.name}{membership.reduced
-					? ' (reduced)'
+					? ` (${currentLocale === 'no' ? 'redusert' : 'reduced'})`
 					: ''}: {membership.price} kr
 			</label>
 		{/each}
