@@ -21,11 +21,19 @@ Start a development server:
 npm run dev
 ```
 
-Or start the server and open the app in a new browser tab:
+To preview on your browser:
 
 ```sh
 npm run dev -- --open
 ```
+
+Host on local network for e.g. testing on mobile:
+
+```sh
+npm run dev -- --host
+```
+
+(You can combine `--open` and `--host`.)
 
 ## Build
 
@@ -36,9 +44,3 @@ npm run build
 ```
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
-
-
-# Todo:
-* Integrate sales to Fiken
-* Use direct charge with vipps
-
