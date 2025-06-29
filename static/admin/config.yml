@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: i18n
+  branch: main
 collections:
   - name: "settings"
     label: "Settings"
