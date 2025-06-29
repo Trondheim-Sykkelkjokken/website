@@ -4,22 +4,32 @@ backend:
 collections:
   - name: "settings"
     label: "Settings"
+    i18n: true
     files:
       - label: "Header message"
         name: header_message
         file: "src/config/header_message.json"
+        i18n: true
         fields:
           - name: message
             widget: text
+            i18n: true
       - label: "Memberships"
         name: memberships
         file: "src/config/memberships.json"
+        i18n: false
         fields:
           - name: memberships
             widget: list
             collapsed: false
             fields:
               - { label: "Name", name: "name", widget: string }
+              - {
+                  label: "Norwegian name",
+                  name: "norwegian_name",
+                  widget: string,
+                  hint: "For display in norwegian language setting",
+                }
               - {
                   label: "Reduced",
                   name: "reduced",
@@ -29,36 +39,39 @@ collections:
                   hint: "This is a reduced price membership for students etc.",
                 }
               - { label: "Price", name: "price", widget: number }
-  - name: "pages"
-    label: "Pages"
-    files:
-      - label: "Tools page"
-        name: "tools"
-        file: "src/routes/tools/+page.md"
-        fields:
-          - name: body
-            widget: markdown
-      - label: "Resources page"
-        name: "resources"
-        file: "src/routes/resources/+page.md"
-        fields:
-          - name: body
-            widget: markdown
-  - name: blog
-    label: Blog
-    folder: src/content/posts
-    create: true
+  - name: "Resources"
+    label: "Resources"
+    i18n:
+      structure: multiple_files
+    folder: src/content/pages/resources
     fields:
-      - name: slug
-        hint: "Last part of URL after 'blog/'"
-      - name: title
-      - name: publication_date
-        label: Publication Date
-        widget: datetime
-        date_format: "DD.MM.YYYY"
-        time_format: "HH:mm"
       - name: body
         widget: markdown
+        i18n: true
+  - name: "Tools"
+    label: "Tools"
+    folder: src/content/pages/tools
+    i18n:
+      structure: multiple_files
+    fields:
+      - name: body
+        widget: markdown
+        i18n: true
+  # - name: blog
+  #   label: Blog
+  #   folder: src/content/posts
+  #   create: true
+  #   fields:
+  #     - name: slug
+  #       hint: "Last part of URL after 'blog/'"
+  #     - name: title
+  #     - name: publication_date
+  #       label: Publication Date
+  #       widget: datetime
+  #       date_format: "DD.MM.YYYY"
+  #       time_format: "HH:mm"
+  #     - name: body
+  #       widget: markdown
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
@@ -66,3 +79,7 @@ public_folder: "/uploads"
 site_url: https://sykkelkjokken.no
 display_url: https://sykkelkjokken.no
 logo_url: ../title.png
+
+i18n:
+  structure: single_file
+  locales: ["en", "no"]

@@ -2,9 +2,16 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import messageData from '../config/header_message.json';
-	let message = messageData.message;
 	import { navigating } from '$app/stores';
 	import Spinner from '$lib/components/Spinner.svelte';
+	import { t, locale, locales } from '$lib/translations';
+
+	let message = '';
+	locale.subscribe((value) => {
+		message = messageData[value].message;
+	});
+
+
 </script>
 
 <Header {message} />

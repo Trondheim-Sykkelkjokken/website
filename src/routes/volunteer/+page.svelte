@@ -1,22 +1,23 @@
 <script>
 	import img4 from '$lib/assets/4.jpg?w=900&format=webp&srcset&imagetools';
+	import { t } from '$lib/translations';
 </script>
 
-<h1>Become a volunteer!</h1>
+<h1>{@html $t('volunteer.heading')}</h1>
 
-<p>Volunteering at our Trondheim Bike Kitchen is all about community and getting hands-on with bikes. It's a relaxed space where we help each other fix up our rides, sharing skills and stories. Whether you're a complete beginner or a seasoned mechanic, there's a place for you here. By helping folks get their bikes back on the road; we're boosting the cycling vibe across Trondheim. Join us, tinker with some bikes, and be part of a movement that keeps our city pedaling!</p>
+<p>{@html $t('volunteer.paragraph1')}</p>
 
-<p>As a volunteer, you will...</p>
+<p>{@html $t('volunteer.paragraph2')}</p>
 
 <ul>
-	<li>Assist us in opening the space for our weekly Repair Wednesdays</li>
-	<li>Help others with their bicycle repairs</li>
-	<li>Get to know a bunch of friendly cyclists</li>
-	<li>Help organize events, such as bike trips, community events, and film screenings</li>
-	<li>Get a t-shirt with a Trondheim Bike Kitchen design!</li>
+	<li>{@html $t('volunteer.li1')}</li>
+	<li>{@html $t('volunteer.li2')}</li>
+	<li>{@html $t('volunteer.li3')}</li>
+	<li>{@html $t('volunteer.li4')}</li>
+	<li>{@html $t('volunteer.li5')}</li>
 </ul>
-<p>No previous bicycle repair experience is required!</p>
-<p>Does this sound interesting? Reach out to <a href="mailto:kontakt@sykkelkjokken.no">kontakt@sykkelkjokken.no</a>, or in person at the bike kitchen!</p>
+<p>{@html $t('volunteer.paragraph3')}</p>
+<p>{@html $t('volunteer.paragraph4')}</p>
 <img srcset={img4} alt="" />
 
 <style>

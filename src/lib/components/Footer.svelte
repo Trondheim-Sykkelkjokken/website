@@ -5,6 +5,8 @@
 	import AiOutlineInstagram from 'svelte-icons-pack/ai/AiOutlineInstagram';
 	import AiOutlineGithub from 'svelte-icons-pack/ai/AiOutlineGithub';
 
+	import { t } from '$lib/translations';
+
 	const iconProps = { size: '35px', color: 'whitesmoke' };
 </script>
 
@@ -20,7 +22,7 @@
 					></span
 				>
 			</div>
-			<div class="footer-item">Community — Skill-sharing — Sustainability</div>
+			<div class="footer-item">{$t('layout.slogan')}</div>
 			<div class="footer-item">
 				<div class="icons">
 					<a href="mailto:kontakt@sykkelkjokken.no"><Icon {...iconProps} src={AiOutlineMail} /></a>

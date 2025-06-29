@@ -3,24 +3,28 @@
     {
       "reduced": false,
       "name": "Full-year",
+      "norwegian_name": "Helårs",
       "price": 350,
       "id": "full-regular"
     },
     {
       "reduced": true,
       "name": "Full-year",
+      "norwegian_name": "Helårs",
       "price": 230,
       "id": "full-reduced"
     },
     {
       "reduced": false,
       "name": "Semester",
+      "norwegian_name": "Semester",
       "price": 230,
       "id": "semester-regular"
     },
     {
       "reduced": true,
       "name": "Semester",
+      "norwegian_name": "Semester",
       "price": 160,
       "id": "semester-reduced"
     }

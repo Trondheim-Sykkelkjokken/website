@@ -1,3 +1,8 @@
 {
-  "message": "Closed for summer, back in August!"
+  "en": {
+    "message": "Closed for the summer, back in August!"
+  },
+  "no": {
+    "message": "Stengt for sommeren, vi sees i august!"
+  }
 }
