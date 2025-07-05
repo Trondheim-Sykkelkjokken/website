@@ -50,8 +50,8 @@
 					value={membership.id}
 					required
 				/>
-				{currentLocale === 'no' ? membership.norwegian_name : membership.name}{membership.reduced
-					? ` (${currentLocale === 'no' ? 'redusert' : 'reduced'})`
+				{currentLocale === 'nb' ? membership.norwegian_name : membership.name}{membership.reduced
+					? ` (${currentLocale === 'nb' ? 'redusert' : 'reduced'})`
 					: ''}: {membership.price} kr
 			</label>
 		{/each}

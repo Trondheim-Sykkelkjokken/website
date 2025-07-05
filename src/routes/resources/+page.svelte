@@ -2,7 +2,7 @@
 
     import { locale } from '$lib/translations';
     import PageEn from '../../content/pages/resources/resources.en.md';
-    import PageNo from '../../content/pages/resources/resources.no.md';
+    import PageNb from '../../content/pages/resources/resources.nb.md';
 
     let currentLocale = 'en';
     locale.subscribe((value) => {
@@ -11,4 +11,4 @@
   
   </script>
   
-  <svelte:component this={currentLocale === 'no' ? PageNo : PageEn} />
+  <svelte:component this={currentLocale === 'nb' ? PageNb : PageEn} />
