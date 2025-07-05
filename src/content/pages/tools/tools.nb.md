@@ -5,7 +5,7 @@ title: Tools page
 
 Som <a href="/membership">medlem</a> får du tilgang til alt vårt verktøy:
 
-- Adjustable pin spanner SPA-6C
+- Justerbar pin-nøkkel SPA-6C
 - Justerbar momentnøkkel
 - Skiftenøkkel
 - Sekskantnøkler
@@ -21,7 +21,7 @@ Som <a href="/membership">medlem</a> får du tilgang til alt vårt verktøy:
 - Kjedekutter
 - Kjedelåstang
 - Kombinasjonstang
-- Konusnøkler 13, 14, 15, 17mm
+- Konusnøkler 13, 14, 15, 17 mm
 - Kranklagernøkkel HCW-4
 - Krankavdrager CWP-7C
 - Avbitertang
@@ -41,8 +41,7 @@ Som <a href="/membership">medlem</a> får du tilgang til alt vårt verktøy:
 - Saks
 - Skrujern i allverdens slag
 - Pipenøkler
-- Spanners
-- Spoke gauge
+- Eikemåler
 - Eikespenningsmåler
 - Eikenøkler
 - Stålbørster
