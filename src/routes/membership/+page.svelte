@@ -65,7 +65,7 @@
 	</p>
 	<div class="buttons">
 		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
-			><img alt="" src="/vipps_{currentLocale}.svg" />
+			><img alt="" src="/vipps_{currentLocale === 'en' ? 'en' : 'no'}.svg" />
 		</button><span> {@html $t('membership.or')} </span>
 		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
 			>{@html $t('membership.card')}&nbsp<Icon src={AiOutlineCreditCard} color="white" /></button
