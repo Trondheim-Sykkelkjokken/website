@@ -1,11 +1,10 @@
 <script>
 	// @ts-ignore, as there is no type definition for svelte-icons-pack
+	import { locale, t } from '$lib/translations';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
-	import Terms from './terms.svelte';
 	import memberships_data from '../../config/memberships.json';
-	import { calculateStartDate, calculateExpiryDate } from '$lib/utils/memberships';
-	import { t, locale } from '$lib/translations';
+	import Terms from './terms.svelte';
 	let memberships = memberships_data.memberships;
 	let selectedMembership = 'full-regular';
 
@@ -50,8 +49,11 @@
 					value={membership.id}
 					required
 				/>
-				{currentLocale === 'no' ? membership.norwegian_name : membership.name}{membership.reduced
-					? ` (${currentLocale === 'no' ? 'redusert' : 'reduced'})`
+				{currentLocale === 'nb' || currentLocale === 'nn'
+					? membership.norwegian_name
+					: membership.name}
+				{membership.reduced
+					? ` (${currentLocale === 'nb' || currentLocale === 'nn' ? 'redusert' : 'reduced'})`
 					: ''}: {membership.price} kr
 			</label>
 		{/each}

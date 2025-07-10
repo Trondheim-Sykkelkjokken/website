@@ -1,6 +1,5 @@
 import { EVENTBRITE_API_KEY } from '$env/static/private';
-import fixtureEvents from '$lib/fixtures/test-events.json';
-import type { BikeKitchenEvent, BikeKitchenEventWithVenue, EventBriteResponse, Venue, VenueResponse } from '$lib/types/events.type';
+import type { BikeKitchenEventWithVenue, EventBriteResponse, VenueResponse } from '$lib/types/events.type';
 
 import type { PageServerLoad } from './$types';
 

@@ -82,4 +82,4 @@ logo_url: ../title.png
 
 i18n:
   structure: single_file
-  locales: ["en", "no"]
+  locales: ["en", "nb", "nn"]
