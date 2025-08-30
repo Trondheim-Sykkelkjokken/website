@@ -103,6 +103,21 @@ export const config = {
             routes: ['/events'],
             loader: async () => (await import('../../content/translations/nn/events.json')).default,
         },
+        {
+            locale: 'en',
+            key: 'email',
+            loader: async () => (await import('../../content/translations/en/email.json')).default,
+        },
+        {
+            locale: 'nb',
+            key: 'email',
+            loader: async () => (await import('../../content/translations/nb/email.json')).default,
+        },
+        {
+            locale: 'nn',
+            key: 'email',
+            loader: async () => (await import('../../content/translations/nn/email.json')).default,
+        },
     ],
 };
 
