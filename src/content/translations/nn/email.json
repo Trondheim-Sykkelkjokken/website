@@ -1,3 +1,4 @@
 {
-    "subject": "Velkomen til Trondheim sykkelkjokken!"
+    "subject": "Welcome to Trondheim Bike Kitchen!",
+    "bodyText": "Welcome {name}! We have registred your membership! Your membership is valid from now and untill {expiry}. If you have any questions, you can reply to this email. Ride safe!"
 }

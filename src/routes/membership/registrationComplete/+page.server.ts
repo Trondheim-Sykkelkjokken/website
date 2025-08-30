@@ -36,7 +36,7 @@ export async function load({ url }) {
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
             await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
-            sendMail(email, name);
+            sendMail(email, name, expiryDateDate);
         }
 
         return { name };

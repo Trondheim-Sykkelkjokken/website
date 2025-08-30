@@ -106,7 +106,7 @@ export const config = {
         {
             locale: 'en',
             key: 'email',
-            loader: async () => (await import('../../content/translations/en/email.json')).default,
+            loader: async () => (await import('../../content/translations/en/email')).default,
         },
         {
             locale: 'nb',
