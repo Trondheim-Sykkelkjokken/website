@@ -1,4 +1,4 @@
 {
-    "subject": "Welcome to Trondheim Bike Kitchen!",
-    "bodyText": "Welcome {name}! We have registred your membership! Your membership is valid from now and untill {expiry}. If you have any questions, you can reply to this email. Ride safe!"
+    "subject": "Velkomen til Trondheim sykkelkjøkken!",
+    "bodyText": "Velkomen som medlem i Trondheim sykkelkjøkken, {name}! Medlemskapet ditt gjeld til {expiry}. Du må gjerne bli med i vår <a href=about:blank>Signal-gruppe</a> for å kome i kontakt med andre medlemar. Lurar du på noko, er det berre å svare på denne e-posten. Trill trygt, og vel møtt på mekkeonsdag!"
 }
