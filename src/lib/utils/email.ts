@@ -1,4 +1,4 @@
-import { GOOGLE_GMAIL_CLIENT_ID, GOOGLE_GMAIL_SECRET, GOOGLE_GMAIL_REFRESH_TOKEN, GOOGLE_GMAIL_REDIRECT_URI } from '$env/static/private';
+import { GOOGLE_GMAIL_CLIENT_ID, GOOGLE_GMAIL_SECRET, GOOGLE_GMAIL_REFRESH_TOKEN, GOOGLE_GMAIL_REDIRECT_URI, SIGNAL_GROUP_URL } from '$env/static/private';
 import { google } from "googleapis";
 import { t, locale } from '$lib/translations';
 
@@ -19,7 +19,8 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
 
     const body: string = t.get('email.bodyText')
         .replace("{name}", name)
-        .replace("{expiry}", formatedExpiryDate);
+        .replace("{expiry}", formatedExpiryDate)
+        .replace("{signal_url}", SIGNAL_GROUP_URL);
 
     const senderName = "Trondheim sykkelkjøkken";
     const encodedSenderName = `=?UTF-8?B?${Buffer.from(senderName, 'utf8').toString('base64')}?=`;
@@ -29,7 +30,7 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
         `From: ${encodedSenderName} <kontakt@sykkelkjokken.no>\r\n` +
         `Reply-To: kontakt@sykkelkjokken.no\r\n` +
         `Subject: =?UTF-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=\r\n` +
-        `Content-Type: text/plain; charset=UTF-8\r\n` +
+        `Content-Type: text/html; charset=UTF-8\r\n` +
         `Content-Transfer-Encoding: base64\r\n\r\n` +
         Buffer.from(body, 'utf8').toString('base64')
     ).toString("base64").replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, "");

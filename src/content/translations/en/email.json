@@ -1,4 +1,4 @@
 {
     "subject": "Welcome to the Trondheim Bike Kitchen!",
-    "bodyText": "Welcome as a member of Trondheim Bike Kitchen, {name}! Your membership is valid until {expiry}. Feel free to join our <a href=about:blank>Signal group</a> to get in touch with other members. Any questions? Just reply to this email. Ride safe, and welcome to our repair Wednesdays!"
+    "bodyText": "Welcome as a member of Trondheim Bike Kitchen, {name}! Your membership is valid until {expiry}. Feel free to join our <a href=\"{signal_url}\">Signal group</a> to get in touch with other members. Any questions? Just reply to this email. Ride safe, and welcome to our repair Wednesdays!"
 }
