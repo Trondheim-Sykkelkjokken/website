@@ -3,6 +3,7 @@ import { addPaymentDetailsToRegistration } from '$lib/utils/googleSheets';
 import { decryptFormData } from '$lib/utils/crypto.js';
 import { redirect } from '@sveltejs/kit';
 import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
+import { sendMail } from '$lib/utils/email';
 
 export async function load({ url }) {
     const encryptedData: string | null = url.searchParams.get('data');
@@ -13,7 +14,7 @@ export async function load({ url }) {
 
     try {
         const decryptedJson = await decryptFormData(encryptedData);
-        const { id, name, paymentType, expiryDate } = decryptedJson;
+        const { id, name, paymentType, expiryDate, email } = decryptedJson;
         const vippsToken = await getVippsAccessToken();
         const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
         const pspReference = paymentStatus.pspReference;
@@ -35,6 +36,7 @@ export async function load({ url }) {
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
             await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
+            sendMail(email, name, expiryDateDate);
         }
 
         return { name };

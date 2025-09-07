@@ -34,5 +34,9 @@
     "reduced_price": "Reduced price for students, seniors, children and unemployed.",
     "price": "Price:",
     "or": "or",
-    "card": "Pay with card"
+    "card": "Pay with card",
+    "welcome": "Welcome",
+    "registred_paragraph": "We have registred your membership. You should receive an email confirmation shortyly. If you do not, check your spam filter, promotions folder etc.",
+    "error_heading": "Something went wrong!",
+    "error_paragraph": "Please try again, or contact us at <a href=\"mailto:kontakt@sykkelkjokken.no\">kontakt@sykkelkjokken.no</a> if the problem persists."
 }
