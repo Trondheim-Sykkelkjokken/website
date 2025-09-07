@@ -52,19 +52,19 @@ export const config = {
         {
             locale: 'en',
             key: 'membership',
-            routes: ['/membership'],
+            routes: ['/membership', '/membership/registrationComplete'],
             loader: async () => (await import('../../content/translations/en/membership.json')).default,
         },
         {
             locale: 'nb',
             key: 'membership',
-            routes: ['/membership'],
+            routes: ['/membership', '/membership/registrationComplete'],
             loader: async () => (await import('../../content/translations/nb/membership.json')).default,
         },
         {
             locale: 'nn',
             key: 'membership',
-            routes: ['/membership'],
+            routes: ['/membership', '/membership/registrationComplete'],
             loader: async () => (await import('../../content/translations/nn/membership.json')).default,
         },
         {
@@ -106,7 +106,7 @@ export const config = {
         {
             locale: 'en',
             key: 'email',
-            loader: async () => (await import('../../content/translations/en/email')).default,
+            loader: async () => (await import('../../content/translations/en/email.json')).default,
         },
         {
             locale: 'nb',

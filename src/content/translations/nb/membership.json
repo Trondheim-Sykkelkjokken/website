@@ -34,5 +34,9 @@
     "reduced_price": "Redusert pris for student, honnør, barn og arbeidsledige.",
     "price": "Pris:",
     "or": "eller",
-    "card": "Betal med kort"
+    "card": "Betal med kort",
+    "welcome": "Velkommen",
+    "registred_paragraph": "Vi har registrert medlemskapet ditt. Du vil snart motta en e-postbekreftelse. Hvis du ikke gjør det, sjekk søppelpost, reklamefanen og lignende.",
+    "error_heading": "Noe gikk galt!",
+    "error_paragraph": "Prøv på nytt, om problemet ikke forsvinner ta kontakt med oss på <a href=\"mailto:kontakt@sykkelkjokken.no\">kontakt@sykkelkjokken.no</a>"
 }
