@@ -13,34 +13,41 @@ oAuth2Client.setCredentials({ refresh_token: GOOGLE_GMAIL_REFRESH_TOKEN });
 const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
 
 export async function sendMail(address: string, name: string, expiryDate: Date) {
-    const subject = t.get('email.subject');
+    console.log(`[sendMail] Called with address=`, address, `, name=`, name, `, expiryDate=`, expiryDate);
+    try {
+        const subject = t.get('email.subject');
+        const formatedExpiryDate = formatDate(expiryDate, locale.get());
+        const body = t.get('email.bodyText')
+            .replace("{name}", name)
+            .replace("{expiry}", formatedExpiryDate)
+            .replace("{signal_url}", SIGNAL_GROUP_URL);
+        const senderName = "Trondheim sykkelkjøkken";
+        const encodedSenderName = `=?UTF-8?B?${Buffer.from(senderName, 'utf8').toString('base64')}?=`;
+        const rawMessage = Buffer.from(
+            `To: ${address}\r\n` +
+            `From: ${encodedSenderName} <kontakt@sykkelkjokken.no>\r\n` +
+            `Reply-To: kontakt@sykkelkjokken.no\r\n` +
+            `Subject: =?UTF-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=\r\n` +
+            `Content-Type: text/html; charset=UTF-8\r\n` +
+            `Content-Transfer-Encoding: base64\r\n\r\n` +
+            Buffer.from(body, 'utf8').toString('base64')
+        ).toString("base64").replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, "");
 
-    const formatedExpiryDate = formatDate(expiryDate, locale.get());
+        console.log("[sendMail] Subject:", subject);
+        console.log("[sendMail] Body:", body);
+        console.log("[sendMail] Encoded sender:", encodedSenderName);
+        console.log("[sendMail] Sending email to:", address);
 
-    const body: string = t.get('email.bodyText')
-        .replace("{name}", name)
-        .replace("{expiry}", formatedExpiryDate)
-        .replace("{signal_url}", SIGNAL_GROUP_URL);
+        const res = await gmail.users.messages.send({
+            userId: "me",
+            requestBody: { raw: rawMessage },
+        });
 
-    const senderName = "Trondheim sykkelkjøkken";
-    const encodedSenderName = `=?UTF-8?B?${Buffer.from(senderName, 'utf8').toString('base64')}?=`;
-
-    const rawMessage = Buffer.from(
-        `To: ${address}\r\n` +
-        `From: ${encodedSenderName} <kontakt@sykkelkjokken.no>\r\n` +
-        `Reply-To: kontakt@sykkelkjokken.no\r\n` +
-        `Subject: =?UTF-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=\r\n` +
-        `Content-Type: text/html; charset=UTF-8\r\n` +
-        `Content-Transfer-Encoding: base64\r\n\r\n` +
-        Buffer.from(body, 'utf8').toString('base64')
-    ).toString("base64").replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, "");
-
-    const res = await gmail.users.messages.send({
-        userId: "me",
-        requestBody: { raw: rawMessage },
-    });
-
-    console.log("Message sent:", res.data);
+        console.log("[sendMail] Message sent:", res.data);
+    } catch (err) {
+        console.error("[sendMail] Error sending email:", err);
+        throw err;
+    }
 }
 
 function formatDate(date: Date, locale: string) {
