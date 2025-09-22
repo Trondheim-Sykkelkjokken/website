@@ -1,5 +1,6 @@
 import { VIPPS_CLIENT_ID, VIPPS_CLIENT_SECRET, VIPPS_OCP_APIM_SUBSCRIPTION_KEY, VIPPS_MSN, VIPPS_BASE_URL } from '$env/static/private';
 import memberships_data from '../../config/memberships.json';
+import { remoteLog } from './logging';
 let memberships = memberships_data.memberships;
 
 export enum PaymentType {
@@ -46,7 +47,7 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
     const idempotencyKey = formData.get("id") as string;
     const membershipType = formData.get("membershipType") as string;
     const price = membershipPrice(membershipType);
-    console.log(formData);
+    remoteLog(`[initiateVippsPayment] FormData: ${JSON.stringify(Object.fromEntries(formData.entries()))}`);
 
 
     const headers = {
@@ -83,16 +84,16 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
     if (!response.ok) {
         try {
             const data = await response.json();
-            console.log(data);
+            remoteLog(`[initiateVippsPayment] Error response: ${JSON.stringify(data)}`, "ERROR");
         } catch (error) {
-            console.log('Response is not JSON');
+            remoteLog('[initiateVippsPayment] Response is not JSON', "ERROR");
         }
         throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const responseData = await response.json();
 
-    console.log(responseData);
+    remoteLog(`[initiateVippsPayment] Response data: ${JSON.stringify(responseData)}`);
 
     return responseData;
 }
@@ -147,13 +148,13 @@ export async function capturePayment(paymentReference: string, amount: number, a
     if (!response.ok) {
         const responseData = await response.json();
 
-        console.log(responseData);
+        remoteLog(`[capturePayment] Error response: ${JSON.stringify(responseData)}`, "ERROR");
 
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     const responseData = await response.json();
 
-    console.log(responseData);
+    remoteLog(`[capturePayment] Response data: ${JSON.stringify(responseData)}`);
 
     return responseData;
 }

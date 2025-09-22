@@ -1,5 +1,6 @@
 import { google } from "googleapis";
 import { GOOGLE_SHEETS_KEY, GOOGLE_SHEETS_EMAIL, GOOGLE_SHEETS_ID } from '$env/static/private';
+import { remoteLog } from './logging';
 import type { PaymentType } from "./vipps";
 
 export async function saveMemberToGoogleSheet(formData: FormData) {
@@ -31,7 +32,7 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
         [id, name, email, membershipType, new Date()]
     ];
 
-    console.log(data)
+    remoteLog(`[saveMemberToGoogleSheet] Data: ${JSON.stringify(data)}`);
 
     const body = {
         values: data,
@@ -47,9 +48,9 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
         resource: body
     }, function (err, response) {
         if (err) {
-            console.log('The Google Sheets API returned an error: ' + err);
+            remoteLog(`[saveMemberToGoogleSheet] The Google Sheets API returned an error: ${err}`, "ERROR");
         } else {
-            console.log('Data saved to google sheet: ' + data);
+            remoteLog(`[saveMemberToGoogleSheet] Data saved to google sheet: ${JSON.stringify(data)}`);
         }
     });
 
@@ -68,8 +69,8 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
     try {
         await jwtClient.authorize();
     } catch (e: any) {
-        console.error("Unable to authorize against google API")
-        console.error(e.message);
+        remoteLog("[saveMemberToGoogleSheet] Unable to authorize against google API", "ERROR");
+        remoteLog(`[saveMemberToGoogleSheet] Error message: ${e.message}`, "ERROR");
         throw e.message;
     }
 
@@ -88,7 +89,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
     const rows = response.data.values;
 
     if (!rows) {
-        console.error('No rows returned from the Google Sheets API');
+        remoteLog('[addPaymentDetailsToRegistration] No rows returned from the Google Sheets API', "ERROR");
         return;
     }
 
@@ -113,9 +114,9 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
             },
         });
 
-        console.log('Payment details added to row:', row);
+        remoteLog(`[addPaymentDetailsToRegistration] Payment details added to row: ${JSON.stringify(row)}`);
 
     } else {
-        console.error('No row found with the given ID');
+        remoteLog('[addPaymentDetailsToRegistration] No row found with the given ID', "ERROR");
     }
 }
