@@ -4,6 +4,7 @@ import { decryptFormData } from '$lib/utils/crypto.js';
 import { redirect } from '@sveltejs/kit';
 import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
 import { sendMail } from '$lib/utils/email';
+import { remoteLog } from '$lib/utils/logging';
 
 export async function load({ url }) {
     const encryptedData: string | null = url.searchParams.get('data');
@@ -22,7 +23,7 @@ export async function load({ url }) {
         let expiryDateDate = new Date(expiryDate);
 
         if (paymentStatus.state !== 'AUTHORIZED') {
-            console.error(`Payment ${id} for ${name} cancelled or failed.`)
+            remoteLog(`Payment ${id} for ${name} cancelled or failed.`, "ERROR");
             await addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed);
             return { error: true }
         }
