@@ -1,6 +1,7 @@
 import { GOOGLE_GMAIL_CLIENT_ID, GOOGLE_GMAIL_SECRET, GOOGLE_GMAIL_REFRESH_TOKEN, GOOGLE_GMAIL_REDIRECT_URI, SIGNAL_GROUP_URL } from '$env/static/private';
 import { google } from "googleapis";
 import { t, locale } from '$lib/translations';
+import { remoteLog } from './logging';
 
 const oAuth2Client = new google.auth.OAuth2(
     GOOGLE_GMAIL_CLIENT_ID,
@@ -13,7 +14,7 @@ oAuth2Client.setCredentials({ refresh_token: GOOGLE_GMAIL_REFRESH_TOKEN });
 const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
 
 export async function sendMail(address: string, name: string, expiryDate: Date) {
-    console.log(`[sendMail] Called with address=`, address, `, name=`, name, `, expiryDate=`, expiryDate);
+    remoteLog(`[sendMail] Called with address=${address}, name=${name}, expiryDate=${expiryDate}`);
     try {
         const subject = t.get('email.subject');
         const formatedExpiryDate = formatDate(expiryDate, locale.get());
@@ -33,19 +34,19 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
             Buffer.from(body, 'utf8').toString('base64')
         ).toString("base64").replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, "");
 
-        console.log("[sendMail] Subject:", subject);
-        console.log("[sendMail] Body:", body);
-        console.log("[sendMail] Encoded sender:", encodedSenderName);
-        console.log("[sendMail] Sending email to:", address);
+        remoteLog(`[sendMail] Subject: ${subject}`);
+        remoteLog(`[sendMail] Body: ${body}`);
+        remoteLog(`[sendMail] Encoded sender: ${encodedSenderName}`);
+        remoteLog(`[sendMail] Sending email to: ${address}`);
 
         const res = await gmail.users.messages.send({
             userId: "me",
             requestBody: { raw: rawMessage },
         });
 
-        console.log("[sendMail] Message sent:", res.data);
+        remoteLog(`[sendMail] Message sent: ${JSON.stringify(res.data)}`);
     } catch (err) {
-        console.error("[sendMail] Error sending email:", err);
+        remoteLog(`[sendMail] Error sending email: ${err}`, "ERROR");
         throw err;
     }
 }
