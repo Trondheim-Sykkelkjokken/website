@@ -81,6 +81,13 @@
 	.event-block {
 		background-color: #fcf6d2;
 		padding: 1rem;
+		transition: filter 0.3s ease;
+		transition: scale 0.3s ease;
+	}
+
+	.event-block:hover {
+		filter: drop-shadow(10px 10px 20px rgba(36, 36, 36, 0.5));
+		scale: 102%;
 	}
 
 	hr {
@@ -127,6 +134,11 @@
 
 		.info-block {
 			margin-left: 0;
+		}
+
+		.event-block:hover {
+			filter: unset;
+			scale: unset;
 		}
 	}
 </style>
