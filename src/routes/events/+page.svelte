@@ -21,9 +21,15 @@
 		{#each upcomingEvents as event}
 			<li>
 				<div class="event-block">
-					<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} />
-					<div class="header-block">
-						<h2>{event.name.text}</h2>
+					<a class="card-link" href={event.url} target="_blank" rel="noopener noreferrer">
+						<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} /></a
+					>
+					<div class="event-layout">
+						<a class="card-link" href={event.url} target="_blank" rel="noopener noreferrer">
+							<h2>{event.name.text}</h2>
+							<p>{event.description.text}</p>
+						</a>
+
 						<div class="info-block">
 							<time>
 								<Icon src={AiOutlineCalendar} />
@@ -48,8 +54,6 @@
 							>
 						</div>
 					</div>
-
-					<p>{event.description.text}</p>
 				</div>
 				<hr />
 			</li>
@@ -85,12 +89,6 @@
 		margin: 1em 0;
 	}
 
-	.header-block {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-	}
-
 	.info-block {
 		margin-top: 1rem;
 		margin-left: 1rem;
@@ -112,9 +110,19 @@
 		color: #393939;
 	}
 
-	@media (max-width: 420px) {
-		.header-block {
-			flex-direction: column;
+	.event-layout {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	@media (max-width: 600px) {
+		.event-layout {
+			flex-direction: column-reverse;
 		}
 
 		.info-block {
