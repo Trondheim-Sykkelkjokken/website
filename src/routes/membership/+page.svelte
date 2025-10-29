@@ -15,11 +15,8 @@
 </script>
 
 <h1>{@html $t('membership.heading')}</h1>
-<Terms />
 
 <form method="POST">
-	<h2>{@html $t('membership.signup')}</h2>
-
 	<label>
 		{@html $t('membership.name_field')}<br />
 		<input required name="name" type="text" style="width: 100%; max-width: 300px;" />
@@ -118,3 +115,6 @@
 		font-weight: 500;
 	}
 </style>
+
+<div style="margin-top: 1rem;"></div>
+<Terms />
