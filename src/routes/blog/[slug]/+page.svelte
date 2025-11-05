@@ -5,4 +5,8 @@
 	const post = data.post;
 </script>
 
-<BlogPost {post} />
+{#if post}
+	<BlogPost {post} />
+{:else}
+	<p>Post not found</p>
+{/if}

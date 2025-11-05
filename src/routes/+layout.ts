@@ -1,10 +1,9 @@
 import { loadTranslations } from "$lib/translations";
+import type { LayoutLoad } from "./$types";
 
 export const prerender = false;
 
-
-/** @type {import('@sveltejs/kit').Load} */
-export const load = async ({ url, data }) => {
+export const load: LayoutLoad = async ({ url, data }) => {
     const { pathname } = url;
     const locale = data?.locale || 'en';
 

@@ -1,14 +1,22 @@
 
 import { ENCRYPTION_KEY, INITIALIZATION_VECTOR } from '$env/static/private';
 
+export interface MembershipFormData {
+	id: string;
+	name: string;
+	email: string;
+	membershipType: string;
+	paymentType: string;
+	expiryDate: string;
+}
 
-export async function encryptFormData(formData: FormData) {
-    const name = formData.get("name")?.toString();
-    const email = formData.get("email")?.toString();
-    const membershipType = formData.get("membershipType")?.toString();
-    const id = formData.get("id")?.toString();
-    const paymentType = formData.get("paymentType")?.toString();
-    const expiryDate = formData.get("expiryDate")?.toString();
+export async function encryptFormData(formData: FormData): Promise<Uint8Array> {
+    const name = formData.get("name")?.toString() ?? '';
+    const email = formData.get("email")?.toString() ?? '';
+    const membershipType = formData.get("membershipType")?.toString() ?? '';
+    const id = formData.get("id")?.toString() ?? '';
+    const paymentType = formData.get("paymentType")?.toString() ?? '';
+    const expiryDate = formData.get("expiryDate")?.toString() ?? '';
 
     const json = JSON.stringify({ id, name, email, membershipType, paymentType, expiryDate });
 
@@ -26,7 +34,7 @@ export async function encryptFormData(formData: FormData) {
     return encryptedArray
 }
 
-export async function decryptFormData(data: string) {
+export async function decryptFormData(data: string): Promise<MembershipFormData> {
     const encoder = new TextEncoder();
     const encryptionKey = encoder.encode(ENCRYPTION_KEY);
     const iv = encoder.encode(INITIALIZATION_VECTOR);
@@ -34,6 +42,6 @@ export async function decryptFormData(data: string) {
     let encryptedArray = new Uint8Array(data.split(',').map(Number))
     const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, encryptedArray);
     const decryptedString = new TextDecoder().decode(new Uint8Array(decrypted));
-    const decryptedJson = JSON.parse(decryptedString);
+    const decryptedJson = JSON.parse(decryptedString) as MembershipFormData;
     return decryptedJson;
 }

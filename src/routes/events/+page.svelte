@@ -1,12 +1,11 @@
-<script>
-	/** @type {import('./$types').PageData} */
-	// @ts-ignore
+<script lang="ts">
+	import type { PageData } from './$types';
 	import { t } from '$lib/translations';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCalendar from 'svelte-icons-pack/ai/AiOutlineCalendar';
 	import LocationPin from 'svelte-icons-pack/hi/HiOutlineLocationMarker';
 
-	export let data;
+	export let data: PageData;
 	let events = data.events;
 	let upcomingEvents = events.filter((event) => new Date(event.start.local) > new Date());
 </script>
@@ -45,7 +44,7 @@
 							<span title={event.venue?.address.localized_address_display}
 								><Icon src={LocationPin} /><a
 									class="maps-link"
-									href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue?.address.localized_address_display)}`}
+									href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue?.address.localized_address_display ?? '')}`}
 									target="_blank"
 									rel="noopener noreferrer"
 								>

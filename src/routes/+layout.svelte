@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import messageData from '../config/header_message.json';
@@ -6,9 +6,17 @@
 	import Spinner from '$lib/components/Spinner.svelte';
 	import { t, locale, locales } from '$lib/translations';
 
+	type MessageData = {
+		en: { message: string };
+		nb: { message: string };
+		nn: { message: string };
+	};
+
 	let message = '';
 	locale.subscribe((value) => {
-		message = messageData[value].message;
+		const data = messageData as MessageData;
+		const localeKey = value as keyof MessageData;
+		message = data[localeKey]?.message ?? '';
 	});
 
 

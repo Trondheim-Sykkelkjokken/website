@@ -1,15 +1,15 @@
 import type { PageLoad } from './$types';
-import type { Post } from '$lib/types/post.type';
+import type { Post, PostSummary } from '$lib/types/post.type';
 
 const allPosts = import.meta.glob(`../../content/posts/*.md`, { eager: true });
 
-let posts = [];
+let posts: PostSummary[] = [];
 for (let path in allPosts) {
 	const post = allPosts[path] as Post;
 	const slug = post.metadata.slug;
 	const date = post.metadata.publication_date;
 	const title = post.metadata.title;
-	const p = { post, slug, date, title };
+	const p: PostSummary = { post, slug, date, title };
 	posts.push(p);
 }
 posts = posts.sort((a, b) => +new Date(b.date) - +new Date(a.date));

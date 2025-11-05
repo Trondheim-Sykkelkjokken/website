@@ -1,3 +1,17 @@
+import type { SvelteComponentTyped } from 'svelte';
+
 export type Post = {
-	metadata: { slug: String; publication_date: String; title: String };
+	metadata: {
+		slug: string;
+		publication_date: string;
+		title: string;
+	};
+	default: typeof SvelteComponentTyped;
+};
+
+export type PostSummary = {
+	post: Post;
+	slug: string;
+	date: string;
+	title: string;
 };

@@ -46,7 +46,7 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
 
         remoteLog(`[sendMail] Message sent: ${JSON.stringify(res.data)}`);
     } catch (err) {
-        remoteLog(`[sendMail] Error sending email: ${err}`, "ERROR");
+        remoteLog(`[sendMail] Error sending email: ${err instanceof Error ? err.message : String(err)}`, "ERROR");
         throw err;
     }
 }

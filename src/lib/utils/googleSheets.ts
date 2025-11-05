@@ -4,14 +4,14 @@ import { remoteLog } from './logging';
 import type { PaymentType } from "./vipps";
 
 export async function saveMemberToGoogleSheet(formData: FormData) {
-    const name = formData.get("name").toString();
-    const email = formData.get("email").toString();
-    const membershipType = formData.get("membershipType").toString();
-    const id = formData.get("id").toString();
+    const name = formData.get("name")?.toString() ?? '';
+    const email = formData.get("email")?.toString() ?? '';
+    const membershipType = formData.get("membershipType")?.toString() ?? '';
+    const id = formData.get("id")?.toString() ?? '';
 
     let jwtClient = new google.auth.JWT(
         GOOGLE_SHEETS_EMAIL,
-        null,
+        undefined,
         GOOGLE_SHEETS_KEY,
         ['https://www.googleapis.com/auth/spreadsheets']);
 
@@ -21,8 +21,8 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
         await jwtClient.authorize();
     } catch (e) {
         console.error("Unable to authorize against google API")
-        console.error(e.message);
-        throw e.message;
+        console.error(e instanceof Error ? e.message : String(e));
+        throw e instanceof Error ? e.message : String(e);
     }
 
     //Google Sheets API
@@ -45,8 +45,8 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
         spreadsheetId: GOOGLE_SHEETS_ID,
         range,
         valueInputOption: "RAW",
-        resource: body
-    }, function (err, response) {
+        requestBody: body
+    }, function (err: any, response: any) {
         if (err) {
             remoteLog(`[saveMemberToGoogleSheet] The Google Sheets API returned an error: ${err}`, "ERROR");
         } else {
@@ -109,7 +109,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
             spreadsheetId: GOOGLE_SHEETS_ID,
             range: `raw_data!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`, // Replace with the range of the row you want to update
             valueInputOption: 'RAW',
-            resource: {
+            requestBody: {
                 values: [row],
             },
         });

@@ -10,12 +10,13 @@ export async function load({ url }) {
     const encryptedData: string | null = url.searchParams.get('data');
 
     if (!encryptedData) {
-        redirect(303, "/");
+        throw redirect(303, "/");
     }
 
     try {
         const decryptedJson = await decryptFormData(encryptedData);
-        const { id, name, paymentType, expiryDate, email } = decryptedJson;
+        const { id, name, paymentType: paymentTypeStr, expiryDate, email } = decryptedJson;
+        const paymentType = paymentTypeStr as PaymentType;
         const vippsToken = await getVippsAccessToken();
         const paymentStatus = await getPaymentStatus(id, vippsToken.access_token);
         const pspReference = paymentStatus.pspReference;
@@ -24,7 +25,7 @@ export async function load({ url }) {
 
         if (paymentStatus.state !== 'AUTHORIZED') {
             remoteLog(`Payment ${id} for ${name} cancelled or failed.`, "ERROR");
-            await addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed);
+            await addPaymentDetailsToRegistration(parseInt(id), "payment cancelled or failed", PaymentType.CancelledOrFailed);
             return { error: true }
         }
 
@@ -36,15 +37,15 @@ export async function load({ url }) {
             await new Promise(resolve => setTimeout(resolve, 3000));
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
-            await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
-            sendMail(email, name, expiryDateDate);
+            await addPaymentDetailsToRegistration(parseInt(id), pspReference, paymentType, expiryDateDate);
+            await sendMail(email, name, expiryDateDate);
         }
 
         return { name };
 
     }
-    catch (error: any) {
-        console.error(error.message)
+    catch (error) {
+        console.error(error instanceof Error ? error.message : String(error))
         return { error: true }
     }
 }
