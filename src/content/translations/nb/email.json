@@ -1,4 +1,4 @@
 {
     "subject": "Velkommen til Trondheim sykkelkjøkken!",
-    "bodyText": "Velkommen som medlem i Trondheim sykkelkjøkken, {name}! Medlemskapet ditt er gyldig til {expiry}. Du må gjerne bli med i vår <a href=\"{signal_url}\">Signal-gruppe</a> om du vil komme i kontakt med andre medlemmer. Lurer du på noe er det bare å svare på denne e-posten. Trill trygt, og vel møtt på mekkeonsdag!"
+    "bodyText": "Velkommen som medlem i Trondheim sykkelkjøkken, {name}! Medlemskapet ditt er gyldig til {expiry}. Du må gjerne bli med i vår <a href=\"{signal_url}\">Signal-gruppe</a> om du vil komme i kontakt med andre medlemmer. Lurer du på noe er det bare å svare på denne e-posten. Trill trygt, og vel møtt på mekkeonsdag! Du finner oss på Bøker & bylab (Teknobyen/Elgeseter)."
 }
