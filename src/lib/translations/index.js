@@ -4,7 +4,19 @@ import lang from './lang.json';
 
 export const defaultLocale = 'en';
 
-/** @type {import('sveltekit-i18n').Config} */
+const LOCALES = ['en', 'nb', 'nn'];
+
+const KEYS = {
+    layout: undefined,
+    home: ['/'],
+    membership: ['/membership', '/membership/registrationComplete'],
+    events: ['/events'],
+    resources: ['/resources'],
+    tools: ['/tools'],
+    volunteer: ['/volunteer'],
+    counter: undefined,
+};
+
 export const config = {
     fallbackLocale: 'en',
     log: {
@@ -15,125 +27,15 @@ export const config = {
         nb: { lang },
         nn: { lang },
     },
-    loaders: [
-        {
-            locale: 'en',
-            key: 'layout',
-            loader: async () => (await import('../../content/translations/en/layout.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'layout',
-            loader: async () => (await import('../../content/translations/nb/layout.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'layout',
-            loader: async () => (await import('../../content/translations/nn/layout.json')).default,
-        },
-        {
-            locale: 'en',
-            key: 'home',
-            routes: ['/'],
-            loader: async () => (await import('../../content/translations/en/home.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'home',
-            routes: ['/'],
-            loader: async () => (await import('../../content/translations/nb/home.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'home',
-            routes: ['/'],
-            loader: async () => (await import('../../content/translations/nn/home.json')).default,
-        },
-        {
-            locale: 'en',
-            key: 'membership',
-            routes: ['/membership', '/membership/registrationComplete'],
-            loader: async () => (await import('../../content/translations/en/membership.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'membership',
-            routes: ['/membership', '/membership/registrationComplete'],
-            loader: async () => (await import('../../content/translations/nb/membership.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'membership',
-            routes: ['/membership', '/membership/registrationComplete'],
-            loader: async () => (await import('../../content/translations/nn/membership.json')).default,
-        },
-        {
-            locale: 'en',
-            key: 'volunteer',
-            routes: ['/volunteer'],
-            loader: async () => (await import('../../content/translations/en/volunteer.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'volunteer',
-            routes: ['/volunteer'],
-            loader: async () => (await import('../../content/translations/nb/volunteer.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'volunteer',
-            routes: ['/volunteer'],
-            loader: async () => (await import('../../content/translations/nn/volunteer.json')).default,
-        },
-        {
-            locale: 'en',
-            key: 'events',
-            routes: ['/events'],
-            loader: async () => (await import('../../content/translations/en/events.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'events',
-            routes: ['/events'],
-            loader: async () => (await import('../../content/translations/nb/events.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'events',
-            routes: ['/events'],
-            loader: async () => (await import('../../content/translations/nn/events.json')).default,
-        },
-        {
-            locale: 'en',
-            key: 'email',
-            loader: async () => (await import('../../content/translations/en/email.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'email',
-            loader: async () => (await import('../../content/translations/nb/email.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'email',
-            loader: async () => (await import('../../content/translations/nn/email.json')).default,
-        },
-        {
-            locale: 'en',
-            key: 'counter',
-            loader: async () => (await import('../../content/translations/en/counter.json')).default,
-        },
-        {
-            locale: 'nb',
-            key: 'counter',
-            loader: async () => (await import('../../content/translations/nb/counter.json')).default,
-        },
-        {
-            locale: 'nn',
-            key: 'counter',
-            loader: async () => (await import('../../content/translations/nn/counter.json')).default,
-        },
-    ],
+    loaders: Object.entries(KEYS).flatMap(([key, routes]) =>
+        LOCALES.map((locale) => ({
+            locale,
+            key,
+            ...(routes ? { routes } : {}),
+            loader: async () =>
+                (await import(`../../content/translations/${locale}/${key}.json`)).default,
+        })),
+    ),
 };
 
 export const { t, loading, locales, locale, translations, loadTranslations, addTranslations, setLocale, setRoute } = new i18n(config);
