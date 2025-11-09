@@ -1,9 +1,10 @@
 ---
 title: Tools page
 ---
+
 # Verktøy
 
-Som <a href="/membership">medlem</a> får du tilgang til alle verktøya våre:
+Alle  <a href="/membership">medlemar</a> av sykkelkjøkkenet kan nytte verktøya våre:
 
 - Justerbar pin-nøkkel SPA-6C
 - Justerbar momentnøkkel
@@ -49,10 +50,12 @@ Som <a href="/membership">medlem</a> får du tilgang til alle verktøya våre:
 - Torx-nøklar
 - Hjulrettestativ
 
-# Delar
+# Delar til sals
 
 Vi har også nokre delar til sals:
 
-- Slangar
 - Bremseklossar for felg- og skivebrems
-- Gir- og bremsewire og strømpe
+- Slangar
+- Wire og strømpe til gir og brems
+- Sykkelkjeder
+- Bremseskiver
