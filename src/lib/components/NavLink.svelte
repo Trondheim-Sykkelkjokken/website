@@ -24,7 +24,7 @@
 	a,
 	a:visited,
 	a:active {
-		color: #676a3e;
+		color: #393939;
 		text-decoration: none;
 		text-transform: uppercase;
 		font-size: 1.2rem;
