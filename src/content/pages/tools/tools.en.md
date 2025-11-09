@@ -1,9 +1,10 @@
 ---
 title: Tools page
 ---
-# Tools
 
-As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access to our many tools:
+# Our tools
+
+All <a href="/membership">members</a> of the bike kitchen can use our tools:
 
 - Adjustable pin spanner SPA-6C
 - Adjustable torque driver
@@ -50,10 +51,12 @@ As a <a href="/membership">member</a> of Trondheim Bike Kitchen, you get access 
 - Torx keys
 - Wheel truing stand
 
-# Parts
+# Parts for sale
 
 We also have some parts for sale:
 
-- Inner tubes
 - Brake pads for disc and rim brakes
-- Gear and brake wires and housing
+- Inner tubes
+- Wire and housing for gears and brakes
+- Chains
+- Brake rotors
