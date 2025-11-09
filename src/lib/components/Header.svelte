@@ -42,7 +42,7 @@
 			<!-- <NavLink title="Blog" href="/blog" /> -->
 			<NavLink title={$t('layout.volunteer')} href="/volunteer" />
 			<NavLink title={$t('layout.tools')} href="/tools" />
-			<NavLink title={$t('layout.resources')} href="/resources" />
+			<!-- <NavLink title={$t('layout.resources')} href="/resources" /> -->
 			<div class="i18n-menu-wrapper">
 				<LangButton />
 			</div>
