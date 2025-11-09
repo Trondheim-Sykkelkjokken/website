@@ -118,6 +118,21 @@ export const config = {
             key: 'email',
             loader: async () => (await import('../../content/translations/nn/email.json')).default,
         },
+        {
+            locale: 'en',
+            key: 'counter',
+            loader: async () => (await import('../../content/translations/en/counter.json')).default,
+        },
+        {
+            locale: 'nb',
+            key: 'counter',
+            loader: async () => (await import('../../content/translations/nb/counter.json')).default,
+        },
+        {
+            locale: 'nn',
+            key: 'counter',
+            loader: async () => (await import('../../content/translations/nn/counter.json')).default,
+        },
     ],
 };
 
