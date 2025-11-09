@@ -2,7 +2,7 @@
 title: Tools page
 ---
 
-# Verktøy
+# Verktøya våre
 
 Alle  <a href="/membership">medlemar</a> av sykkelkjøkkenet kan nytte verktøya våre:
 
