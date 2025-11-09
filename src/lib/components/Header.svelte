@@ -94,6 +94,7 @@
 
 	#nav-wrapper {
 		background-color: #efeb92;
+		z-index: 10;  /* above the badge */
 	}
 
 	nav {
@@ -194,6 +195,7 @@
 		position: absolute;
 		bottom: -3.75rem;
 		right: calc(50% - min(var(--content-max), 100vw) / 2 + var(--gutter));
+		z-index: 0;
 	}
 
 </style>
