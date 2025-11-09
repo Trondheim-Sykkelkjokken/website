@@ -17,7 +17,7 @@
 	<li>{@html $t('volunteer.li5')}</li>
 </ul>
 <p>{@html $t('volunteer.paragraph3')}</p>
-<p>{@html $t('volunteer.paragraph4')}</p>
+
 <img srcset={img4} alt="" />
 
 <style>
