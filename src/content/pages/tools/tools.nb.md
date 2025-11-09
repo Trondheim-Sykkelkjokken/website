@@ -2,9 +2,9 @@
 title: Tools page
 ---
 
-# Vårt verktøy
+# Våre verktøy
 
-Alle <a href="/membership">medlemmer</a> av sykkelkjøkkenet kan bruke vårt verktøy:
+Alle <a href="/membership">medlemmer</a> av sykkelkjøkkenet kan bruke våre verktøy:
 
 - Justerbar pin-nøkkel SPA-6C
 - Justerbar momentnøkkel
