@@ -3,6 +3,7 @@
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import NavLink from './NavLink.svelte';
 	import LangButton from './LangButton.svelte';
+	import BikesFixedCounter from '$lib/components/BikesFixedCounter.svelte';
 
 	import { navOpen, setNavOpen } from '../../stores';
 	import { t } from '$lib/translations';
@@ -16,7 +17,10 @@
 </script>
 
 <header>
+	<!-- Our logo -->
 	<div class="cog-wrapper"><a href="/"><img class="cog" alt="" src="/logo.svg" /></a></div>
+
+	<!-- The first row of the header, with our name and the language switcher -->
 	<div class="heading-wrapper">
 		<div class="heading-banner">
 			<a href="/" class="heading-link"><img class="heading" src="/title.png" alt="" /></a>
@@ -28,6 +32,8 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- The second row of the header, with the navigation -->
 	<div id="nav-wrapper">
 		<nav class:hidden={!open}>
 			<NavLink title={$t('layout.home')} href="/" />
@@ -42,15 +48,24 @@
 			</div>
 		</nav>
 	</div>
+
+	<!-- The third row of the header, with the opening hours -->
 	<div class="info">
 		<p class="infotext">{message}</p>
 	</div>
+
+	<!-- The "fixed bikes" badge -->
+	<div class="fixed-bikes-badge">
+		<BikesFixedCounter />
+	</div>
+
 </header>
 
 <style>
 	.heading-wrapper {
 		background-color: white;
 	}
+
 	.heading-banner {
 		background-color: white;
 		width: 100%;
@@ -165,4 +180,20 @@
 		text-align: center;
 		margin: 0 auto;
 	}
+
+	:root {
+		/* same as heading-banner max-width */
+		--content-max: 1052px;
+		/* spacing between badge and right edge */
+		--gutter: 32px;
+	}
+
+	header { position: relative; }
+
+	.fixed-bikes-badge {
+		position: absolute;
+		bottom: -3.75rem;
+		right: calc(50% - min(var(--content-max), 100vw) / 2 + var(--gutter));
+	}
+
 </style>
