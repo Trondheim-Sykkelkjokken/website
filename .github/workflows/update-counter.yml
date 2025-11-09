@@ -1,6 +1,8 @@
 name: Update fixed bikes counter
 
 on:
+  schedule:
+    - cron: '0 6 * * 4'  #  “At 06:00 on Thursday.”
   workflow_dispatch:
 
 jobs:
@@ -8,4 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Hello"
+      - run: sudo apt-get purge -y man-db  # Speeds up install step
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y jq curl moreutils
+      - run: src/lib/data/update-stats.sh
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Chore: Update fixed bikes counter'
