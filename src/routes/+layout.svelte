@@ -33,7 +33,6 @@
 		height: 100%;
 		margin: 0;
 		font-family: sans-serif;
-		scrollbar-gutter: stable both-edges;
 	}
 
 	:global(img) {
