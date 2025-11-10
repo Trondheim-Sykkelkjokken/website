@@ -2,7 +2,7 @@
 	export let href: string;
 	export let title: string;
 	import { navOpen, setNavOpen } from '../../stores';
-	import { page } from '$app/stores';
+	import { page, navigating } from '$app/stores';
 
 	let open: boolean;
 	navOpen.subscribe((value) => {
@@ -14,7 +14,7 @@
 	{href}
 	{title}
 	on:click={() => setNavOpen(false)}
-	class:active={$page.url.pathname === href}
+	class:active={$navigating ? ($navigating.to?.url.pathname === href) : ($page.url.pathname === href)}
 	class:hidden={$$props.href === '/'}
 >
 	{title}
