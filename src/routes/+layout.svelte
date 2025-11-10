@@ -35,6 +35,10 @@
 		font-family: sans-serif;
 	}
 
+	:global(html) {
+		overflow-y: scroll;
+	}
+
 	:global(img) {
 		max-width: 100%;
 	}
