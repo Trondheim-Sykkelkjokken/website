@@ -58,8 +58,6 @@
 	.tools-content :global(li) {
 		/* Prevent list items from breaking across columns */
 		break-inside: avoid;
-		/* Adjust list item spacing */
-		margin-bottom: 0.3rem;
 	}
 
 	/* Mobile: stack vertically, single column list */
