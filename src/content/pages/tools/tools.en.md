@@ -57,6 +57,7 @@ We also have some parts for sale:
 
 - Brake pads for disc and rim brakes
 - Inner tubes
-- Wire and housing for gears and brakes
+- Gear wire and housing
+- Brake wire and housing
 - Chains
 - Brake rotors

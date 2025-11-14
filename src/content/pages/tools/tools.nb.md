@@ -56,6 +56,7 @@ Vi har også noen deler til salgs:
 
 - Bremseklosser for felg- og skivebrems
 - Slanger
-- Wire og strømpe til gir og brems
+- Girwire og -strømpe
+- Bremsewire og -strømpe
 - Sykkelkjeder
 - Bremseskiver
