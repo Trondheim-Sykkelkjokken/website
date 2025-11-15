@@ -56,7 +56,7 @@ Vi har også nokre delar til sals:
 
 - Bremseklossar for felg- og skivebrems
 - Slangar
-- Wire og strømpe til gir
-- Wire og strømpe til brems
+- Girvaier og -strømpe
+- Bremsevaier og -strømpe
 - Sykkelkjeder
 - Bremseskiver
