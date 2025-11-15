@@ -58,6 +58,8 @@
 	.tools-content :global(li) {
 		/* Prevent list items from breaking across columns */
 		break-inside: avoid;
+		/* Keep hyphenated words together (e.g., "Bremsevaier og -strømpe") */
+		word-break: keep-all;
 	}
 
 	/* Mobile: stack vertically, single column list */
