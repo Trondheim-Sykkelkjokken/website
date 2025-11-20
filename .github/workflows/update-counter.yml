@@ -2,7 +2,7 @@ name: Update fixed bikes counter
 
 on:
   schedule:
-    - cron: '0 6 * * 4'  #  “At 06:00 on Thursday.”
+    - cron: '0 3 * * 4'  #  “At 03:00 on Thursday.”
   workflow_dispatch:
 
 jobs:
