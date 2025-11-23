@@ -34,5 +34,7 @@
 		animation:
 			showSpinner 0.5s forwards,
 			spin 1s ease-in-out infinite;
+		/* Make the wheel a bit wobbly :) */
+		transform-origin: calc(50% + 2px) calc(50% + 2px);
 	}
 </style>
