@@ -11,14 +11,13 @@
 	}
 
 	@keyframes spin {
-		from {
-			transform: rotate(0deg);
-		}
 		to {
 			transform: rotate(360deg);
 		}
 	}
 
+	/* Don't show spinner for fast-ish pageloads by hiding it until one full
+	animation is finished (0.5s, below) */
 	@keyframes showSpinner {
 		0% {
 			opacity: 0;
@@ -35,6 +34,5 @@
 		animation:
 			showSpinner 0.5s forwards,
 			spin 1s ease-in-out infinite;
-		transform-origin: calc(50% + 2px) calc(50% + 2px);
 	}
 </style>
