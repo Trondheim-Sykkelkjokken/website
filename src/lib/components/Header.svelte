@@ -16,6 +16,10 @@
 	export let message: string;
 </script>
 
+{#if open}
+	<div class="nav-overlay" on:click={() => setNavOpen(false)}></div>
+{/if}
+
 <header>
 	<!-- Our logo -->
 	<div class="cog-wrapper"><a href="/"><img class="cog" alt="" src="/logo.svg" /></a></div>
@@ -62,6 +66,16 @@
 </header>
 
 <style>
+	/* Invisible fullscreen overlay behind mobile nav menu - clicking it closes the menu */
+	.nav-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 9; /* Below nav (z-index 10) but above page content */
+	}
+
 	.heading-wrapper {
 		background-color: white;
 	}
