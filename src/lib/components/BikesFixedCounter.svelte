@@ -19,7 +19,6 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     transform: rotate(-4deg);
     position: relative;
-    user-select: none;
     z-index: 0;
   }
   .value { font-weight: 600; font-size: 1.8rem; line-height: 1; }
