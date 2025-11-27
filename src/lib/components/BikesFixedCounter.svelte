@@ -24,4 +24,10 @@
   .value { font-weight: 600; font-size: 1.8rem; line-height: 1; }
   .label { font-size: 0.85rem; margin-top: 0.1rem; }
 
+  /* Smaller on mobile */
+  @media (max-width: 768px) {
+    .value { font-size: 1.2rem; text-align: center; }
+    .label { font-size: 0.7rem; }
+  }
+
 </style>
