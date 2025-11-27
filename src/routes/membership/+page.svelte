@@ -16,6 +16,8 @@
 
 <h1>{@html $t('membership.heading')}</h1>
 
+<p>{@html $t('membership.intro')}</p>
+
 <form method="POST">
 	<label>
 		{@html $t('membership.name_field')}<br />
