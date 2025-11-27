@@ -35,6 +35,8 @@ npm run dev -- --host
 
 (You can combine `--open` and `--host`.)
 
+To preview mobile view in Firefox: Press F12, then click the responsive design mode icon (top right of toolbar).
+
 ## Build
 
 Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
