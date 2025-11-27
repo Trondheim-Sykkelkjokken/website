@@ -70,6 +70,8 @@
 	</div>
 </form>
 
+<Terms />
+
 <style>
 	label {
 		display: block;
@@ -82,6 +84,10 @@
 
 	button {
 		cursor: pointer;
+	}
+
+	form {
+		margin-bottom: 1rem;
 	}
 
 	.buttons {
@@ -116,5 +122,3 @@
 	}
 </style>
 
-<div style="margin-top: 1rem;"></div>
-<Terms />

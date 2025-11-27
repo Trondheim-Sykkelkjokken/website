@@ -62,7 +62,6 @@
 		color: black;
 		font-family: monospace;
 		padding: 1rem;
-		margin-bottom: 3rem;
 	}
 
 	h2 {

@@ -19,9 +19,3 @@
 <p>{@html $t('volunteer.paragraph3')}</p>
 
 <img srcset={img4} alt="" />
-
-<style>
-	img {
-		padding-top: 1rem;
-	}
-</style>

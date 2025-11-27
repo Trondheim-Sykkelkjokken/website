@@ -35,8 +35,6 @@
 		grid-template-columns: 60fr 40fr;
 		gap: 1rem;
 		align-items: start;
-		max-width: 1200px;
-		margin: 0 auto;
 	}
 
 	/* Push image down to align with list content below heading */

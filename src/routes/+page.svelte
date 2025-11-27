@@ -31,17 +31,6 @@
 		flex-direction: column;
 	}
 
-	section {
-		width: 75%;
-		margin: 2.5rem 0;
-	}
-
-	@media (max-width: 720px) {
-		section {
-			width: 100%;
-		}
-	}
-
 	.banner {
 		width: 100%;
 		max-height: 20rem;
