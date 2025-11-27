@@ -180,6 +180,8 @@
 		height: 0;
 		max-width: 1000px;
 		margin: auto;
+		position: relative;
+		z-index: 1;
 	}
 
 	.cog {
@@ -205,9 +207,14 @@
 
 	header { position: relative; }
 
+	.info {
+		position: relative;
+	}
+
 	.fixed-bikes-badge {
 		position: absolute;
-		bottom: -3.75rem;
+		top: 100%;
+		margin-top: -0.5rem;
 		right: calc(50% - min(var(--content-max), 100vw) / 2 + var(--gutter));
 		z-index: 0;
 	}
