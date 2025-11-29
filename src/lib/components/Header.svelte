@@ -43,7 +43,7 @@
 			<NavLink title={$t('layout.home')} href="/" />
 			<NavLink title={$t('layout.events')} href="/events" />
 			<NavLink title={$t('layout.membership')} href="/membership" />
-			<!-- <NavLink title="Blog" href="/blog" /> -->
+			<!-- <NavLink title={$t('layout.blog')} href="/blog" /> -->
 			<NavLink title={$t('layout.volunteer')} href="/volunteer" />
 			<NavLink title={$t('layout.tools')} href="/tools" />
 			<!-- <NavLink title={$t('layout.resources')} href="/resources" /> -->
