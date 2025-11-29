@@ -68,8 +68,6 @@ collections:
       - name: publication_date
         label: Publication Date
         widget: datetime
-        date_format: "DD.MM.YYYY"
-        time_format: "HH:mm"
       - name: body
         widget: markdown
 
