@@ -1,7 +1,7 @@
 ---
 slug: mortens-test
 title: Morten's test entry
-publication_date: 2025-11-29T15:23:00.000Z
+publication_date: 2025-11-29T15:23:00.000+01:00
 ---
 ![](/uploads/lunde.jpg)
 
