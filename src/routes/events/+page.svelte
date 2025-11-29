@@ -90,10 +90,14 @@
 		scale: 102%;
 	}
 
+	/* Dashed line to separate entries -- keep style in sync with blog page! */
 	hr {
 		border: none;
 		border-top: 1px dashed #fcf6d2;
 		margin: 1em 0;
+	}
+	li:last-child hr {
+		display: none;
 	}
 
 	.info-block {

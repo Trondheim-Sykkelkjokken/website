@@ -20,11 +20,11 @@
 		padding: 0;
 	}
 
+	/* Dashed line to separate entries -- keep style in sync with events page! */
 	li {
 		padding-bottom: 1rem;
-		border-bottom: whitesmoke 1px dashed;
+		border-bottom: 1px dashed #fcf6d2;
 	}
-
 	li:last-child {
 		border-style: none;
 	}
