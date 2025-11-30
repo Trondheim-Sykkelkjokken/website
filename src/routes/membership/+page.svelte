@@ -63,12 +63,14 @@
 		{memberships.find((m) => m.id === selectedMembership)?.price} kr
 	</p>
 	<div class="buttons">
-		<button class="vipps_button" formaction="?/payWithVipps" aria-label="Pay with Vipps"
-			><img alt="" src="/vipps_{currentLocale === 'en' ? 'en' : 'no'}.svg" />
-		</button><span> {@html $t('membership.or')} </span>
-		<button class="card_button" formaction="?/payWithCard" aria-label="Pay with card"
-			>{@html $t('membership.card')}&nbsp<Icon src={AiOutlineCreditCard} color="white" /></button
-		>
+		<button class="payment-button vipps" formaction="?/payWithVipps" aria-label="Pay with Vipps">
+			<span>{@html $t('membership.pay_with')}</span>
+			<img src="/vipps_logo.svg" alt="Vipps" />
+		</button>
+		<button class="payment-button card" formaction="?/payWithCard" aria-label="Pay with card">
+			<span>{@html $t('membership.pay_with')} {@html $t('membership.card')}</span>
+			<Icon src={AiOutlineCreditCard} color="white" size="20" />
+		</button>
 	</div>
 </form>
 
@@ -94,33 +96,42 @@
 
 	.buttons {
 		display: flex;
-		align-items: center;
-	}
-
-	.vipps_button {
-		background: none;
-		border: none;
+		gap: 1rem;
+		flex-wrap: wrap;
 	}
 
 	fieldset {
 		margin-top: 3rem;
 	}
 
-	.card_button {
+	.payment-button {
 		display: flex;
 		align-items: center;
-		align-content: space-between;
-		font-size: 1rem;
-		background-color: rgb(58, 183, 19);
-		border: none;
-		color: white;
-		padding: 10px 20px;
-		text-align: center;
-		text-decoration: none;
-		border-radius: 5px;
+		justify-content: center;
+		gap: 0.5rem;
 		height: 44px;
-		margin-left: 0.5rem;
-		font-weight: 500;
+		min-width: 200px;
+		padding: 0 20px;
+		font-size: 16px;
+		font-weight: 600;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		white-space: nowrap;
+	}
+
+	.payment-button.vipps {
+		background-color: #ff5b24;
+	}
+
+	.payment-button.card {
+		background-color: #3ab713;
+	}
+
+	.payment-button img {
+		height: 16px;
+		width: auto;
+		margin-top: 3px;
 	}
 </style>
 
