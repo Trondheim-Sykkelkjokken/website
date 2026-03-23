@@ -10,6 +10,7 @@ const KEYS = {
     layout: undefined,
     home: ['/'],
     membership: ['/membership', '/membership/registrationComplete'],
+    email: ['/membership/registrationComplete'],
     events: ['/events'],
     resources: ['/resources'],
     tools: ['/tools'],
