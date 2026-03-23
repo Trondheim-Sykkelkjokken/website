@@ -4,7 +4,6 @@ import { decryptFormData } from '$lib/utils/crypto.js';
 import { redirect } from '@sveltejs/kit';
 import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
 import { sendMail } from '$lib/utils/email';
-import { remoteLog } from '$lib/utils/logging';
 
 export async function load({ url }) {
     const encryptedData: string | null = url.searchParams.get('data');
@@ -23,7 +22,7 @@ export async function load({ url }) {
         let expiryDateDate = new Date(expiryDate);
 
         if (paymentStatus.state !== 'AUTHORIZED') {
-            remoteLog(`Payment ${id} for ${name} cancelled or failed.`, "ERROR");
+            console.error(`Payment ${id} for ${name} cancelled or failed.`);
             await addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed);
             return { error: true }
         }
@@ -37,7 +36,7 @@ export async function load({ url }) {
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
             await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
-            sendMail(email, name, expiryDateDate);
+            await sendMail(email, name, expiryDateDate);
         }
 
         return { name };

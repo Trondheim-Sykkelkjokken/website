@@ -1,6 +1,5 @@
 import { VIPPS_CLIENT_ID, VIPPS_CLIENT_SECRET, VIPPS_OCP_APIM_SUBSCRIPTION_KEY, VIPPS_MSN, VIPPS_BASE_URL } from '$env/static/private';
 import memberships_data from '../../config/memberships.json';
-import { remoteLog } from './logging';
 let memberships = memberships_data.memberships;
 
 export enum PaymentType {
@@ -47,9 +46,6 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
     const idempotencyKey = formData.get("id") as string;
     const membershipType = formData.get("membershipType") as string;
     const price = membershipPrice(membershipType);
-    remoteLog(`[initiateVippsPayment] FormData: ${JSON.stringify(Object.fromEntries(formData.entries()))}`);
-
-
     const headers = {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${accessToken}`,
@@ -84,18 +80,14 @@ export async function initiateVippsPayment(accessToken: string, formData: FormDa
     if (!response.ok) {
         try {
             const data = await response.json();
-            remoteLog(`[initiateVippsPayment] Error response: ${JSON.stringify(data)}`, "ERROR");
-        } catch (error) {
-            remoteLog('[initiateVippsPayment] Response is not JSON', "ERROR");
+            console.error(`[initiateVippsPayment] Error response:`, data);
+        } catch {
+            console.error('[initiateVippsPayment] Response is not JSON');
         }
         throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const responseData = await response.json();
-
-    remoteLog(`[initiateVippsPayment] Response data: ${JSON.stringify(responseData)}`);
-
-    return responseData;
+    return await response.json();
 }
 
 export async function getPaymentStatus(paymentReference: string, accessToken: string) {
@@ -147,14 +139,9 @@ export async function capturePayment(paymentReference: string, amount: number, a
 
     if (!response.ok) {
         const responseData = await response.json();
-
-        remoteLog(`[capturePayment] Error response: ${JSON.stringify(responseData)}`, "ERROR");
-
+        console.error(`[capturePayment] Error response:`, responseData);
         throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const responseData = await response.json();
 
-    remoteLog(`[capturePayment] Response data: ${JSON.stringify(responseData)}`);
-
-    return responseData;
+    return await response.json();
 }

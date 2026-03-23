@@ -1,6 +1,5 @@
 import { google } from "googleapis";
 import { GOOGLE_SHEETS_KEY, GOOGLE_SHEETS_EMAIL, GOOGLE_SHEETS_ID } from '$env/static/private';
-import { remoteLog } from './logging';
 import type { PaymentType } from "./vipps";
 
 export async function saveMemberToGoogleSheet(formData: FormData) {
@@ -32,8 +31,6 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
         [id, name, email, membershipType, new Date()]
     ];
 
-    remoteLog(`[saveMemberToGoogleSheet] Data: ${JSON.stringify(data)}`);
-
     const body = {
         values: data,
     };
@@ -46,11 +43,9 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
         range,
         valueInputOption: "RAW",
         resource: body
-    }, function (err, response) {
+    }, function (err) {
         if (err) {
-            remoteLog(`[saveMemberToGoogleSheet] The Google Sheets API returned an error: ${err}`, "ERROR");
-        } else {
-            remoteLog(`[saveMemberToGoogleSheet] Data saved to google sheet: ${JSON.stringify(data)}`);
+            console.error(`[saveMemberToGoogleSheet] The Google Sheets API returned an error: ${err}`);
         }
     });
 
@@ -69,8 +64,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
     try {
         await jwtClient.authorize();
     } catch (e: any) {
-        remoteLog("[saveMemberToGoogleSheet] Unable to authorize against google API", "ERROR");
-        remoteLog(`[saveMemberToGoogleSheet] Error message: ${e.message}`, "ERROR");
+        console.error("[addPaymentDetailsToRegistration] Unable to authorize against google API");
         throw e.message;
     }
 
@@ -89,7 +83,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
     const rows = response.data.values;
 
     if (!rows) {
-        remoteLog('[addPaymentDetailsToRegistration] No rows returned from the Google Sheets API', "ERROR");
+        console.error('[addPaymentDetailsToRegistration] No rows returned from the Google Sheets API');
         return;
     }
 
@@ -114,9 +108,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
             },
         });
 
-        remoteLog(`[addPaymentDetailsToRegistration] Payment details added to row: ${JSON.stringify(row)}`);
-
     } else {
-        remoteLog('[addPaymentDetailsToRegistration] No row found with the given ID', "ERROR");
+        console.error('[addPaymentDetailsToRegistration] No row found with the given ID');
     }
 }
