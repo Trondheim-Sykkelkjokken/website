@@ -1,5 +1,5 @@
 /** @type {import('./$types').PageLoad} */
-import { addPaymentDetailsToRegistration } from '$lib/utils/googleSheets';
+import { addPaymentDetailsToRegistration, updateEmailStatus } from '$lib/utils/googleSheets';
 import { decryptFormData } from '$lib/utils/crypto.js';
 import { redirect } from '@sveltejs/kit';
 import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
@@ -34,7 +34,15 @@ export async function load({ url }) {
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
             await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
-            await sendMail(email, name, expiryDateDate);
+
+            let emailSent = false;
+            try {
+                await sendMail(email, name, expiryDateDate);
+                emailSent = true;
+            } catch (err: any) {
+                console.error(`[registrationComplete] Failed to send email to ${email}: ${err.message}`);
+            }
+            await updateEmailStatus(id, emailSent);
         }
 
         return { name };

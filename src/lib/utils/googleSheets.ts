@@ -107,3 +107,53 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
         console.error('[addPaymentDetailsToRegistration] No row found with the given ID');
     }
 }
+
+export async function updateEmailStatus(id: string, sent: boolean) {
+    let jwtClient = new google.auth.JWT(
+        GOOGLE_SHEETS_EMAIL,
+        undefined,
+        GOOGLE_SHEETS_KEY,
+        ['https://www.googleapis.com/auth/spreadsheets']);
+
+    try {
+        await jwtClient.authorize();
+    } catch (e: any) {
+        console.error("[updateEmailStatus] Unable to authorize against google API");
+        throw e.message;
+    }
+
+    let sheets = google.sheets('v4');
+
+    const range = "raw_data!A:Z";
+
+    const response = await sheets.spreadsheets.values.get({
+        auth: jwtClient,
+        spreadsheetId: GOOGLE_SHEETS_ID,
+        range
+    });
+
+    const rows = response.data.values;
+
+    if (!rows) {
+        console.error('[updateEmailStatus] No rows returned from the Google Sheets API');
+        return;
+    }
+
+    const rowIndex = rows.findIndex((row) => row[0] === id);
+
+    if (rowIndex !== -1) {
+        const row = rows[rowIndex];
+        row.push(sent ? "TRUE" : "FALSE");
+        await sheets.spreadsheets.values.update({
+            auth: jwtClient,
+            spreadsheetId: GOOGLE_SHEETS_ID,
+            range: `raw_data!A${rowIndex + 1}:Z${rowIndex + 1}`,
+            valueInputOption: 'RAW',
+            requestBody: {
+                values: [row],
+            },
+        });
+    } else {
+        console.error('[updateEmailStatus] No row found with the given ID');
+    }
+}
