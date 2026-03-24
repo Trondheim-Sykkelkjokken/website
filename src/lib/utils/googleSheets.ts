@@ -37,16 +37,12 @@ export async function saveMemberToGoogleSheet(formData: FormData) {
 
     const range = "raw_data!A:E";
 
-    sheets.spreadsheets.values.append({
+    await sheets.spreadsheets.values.append({
         auth: jwtClient,
         spreadsheetId: GOOGLE_SHEETS_ID,
         range,
         valueInputOption: "RAW",
-        resource: body
-    }, function (err) {
-        if (err) {
-            console.error(`[saveMemberToGoogleSheet] The Google Sheets API returned an error: ${err}`);
-        }
+        requestBody: body
     });
 
 }
@@ -97,13 +93,12 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
         if (expiryDate) {
             row.push(expiryDate.toLocaleDateString('nb-NO'));
         }
-        // Update the sheet
-        sheets.spreadsheets.values.update({
+        await sheets.spreadsheets.values.update({
             auth: jwtClient,
             spreadsheetId: GOOGLE_SHEETS_ID,
-            range: `raw_data!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`, // Replace with the range of the row you want to update
+            range: `raw_data!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`,
             valueInputOption: 'RAW',
-            resource: {
+            requestBody: {
                 values: [row],
             },
         });

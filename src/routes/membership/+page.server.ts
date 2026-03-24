@@ -14,7 +14,7 @@ async function pay(event: RequestEvent<RouteParams, "/membership">, paymentType:
     let expiryDate = calculateExpiryDate(formData.get("membershipType") as string);
     formData.append("expiryDate", expiryDate.toISOString());
 
-    saveMemberToGoogleSheet(formData);
+    await saveMemberToGoogleSheet(formData);
     const encryptedFormData = await encryptFormData(formData);
 
     let accessTokenResponse = await getVippsAccessToken();
