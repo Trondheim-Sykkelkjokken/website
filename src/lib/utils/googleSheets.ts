@@ -97,7 +97,7 @@ export async function addPaymentDetailsToRegistration(id: number, pspReference: 
             auth: jwtClient,
             spreadsheetId: GOOGLE_SHEETS_ID,
             range: `raw_data!A${rows.indexOf(row) + 1}:Z${rows.indexOf(row) + 1}`,
-            valueInputOption: 'RAW',
+            valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [row],
             },
