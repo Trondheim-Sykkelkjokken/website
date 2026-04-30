@@ -9,11 +9,11 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
       - run: sudo apt-get purge -y man-db  # Speeds up install step
       - run: sudo apt-get update
       - run: sudo apt-get install -y jq curl moreutils
       - run: src/lib/data/update-stats.sh
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9  # v7.1.0
         with:
           commit_message: 'Chore: Update fixed bikes counter'
