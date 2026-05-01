@@ -29,6 +29,7 @@
     "name_field": "Full name:",
     "email_field": "Email:",
     "half_price": "I'm a student / senior / child / unemployed (half price)",
+    "duration_legend": "Membership duration",
     "semester_option": "Semester (until {{date}}): {{price}} kr",
     "full_year_option": "Full year (until {{date}}): {{price}} kr",
     "price": "Price:",

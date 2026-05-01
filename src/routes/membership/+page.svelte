@@ -51,7 +51,7 @@
 		{$t('membership.half_price')}
 	</label>
 
-	<div class="duration">
+	<div class="duration" role="radiogroup" aria-label={$t('membership.duration_legend')}>
 		<label>
 			<input type="radio" bind:group={duration} value="semester" />
 			{semesterLabel}

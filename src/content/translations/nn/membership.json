@@ -29,6 +29,7 @@
     "name_field": "Fullt namn:",
     "email_field": "E-postadresse:",
     "half_price": "Eg er student / honnør / barn / arbeidsledig (halv pris)",
+    "duration_legend": "Medlemskapets varigheit",
     "semester_option": "Semester (til {{date}}): {{price}} kr",
     "full_year_option": "Heilår (til {{date}}): {{price}} kr",
     "price": "Pris:",
