@@ -4,14 +4,31 @@
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCreditCard from 'svelte-icons-pack/ai/AiOutlineCreditCard';
 	import memberships_data from '../../config/memberships.json';
+	import { calculateExpiryDate } from '$lib/utils/memberships';
 	import Terms from './terms.svelte';
-	let memberships = memberships_data.memberships;
-	let selectedMembership = 'full-regular';
 
-	let currentLocale = locale.get();
-	locale.subscribe((value) => {
-		currentLocale = value;
-	});
+	const memberships = memberships_data.memberships;
+	const yearExpiry = calculateExpiryDate('full');
+	const semesterExpiry = calculateExpiryDate('semester');
+
+	/** @type {Intl.DateTimeFormatOptions} */
+	const dateFormat = { day: 'numeric', month: 'long' };
+
+	/** Default selection */
+	let duration = 'semester';
+	let reduced = false;
+
+	/** @param {string} dur @param {boolean} isReduced */
+	const priceFor = (dur, isReduced) =>
+		memberships.find((m) => m.id === `${dur}-${isReduced ? 'reduced' : 'regular'}`)?.price;
+
+	$: dateLocale = $locale === 'en' ? 'en-GB' : 'nb-NO';
+	$: semesterDate = semesterExpiry.toLocaleDateString(dateLocale, dateFormat);
+	$: fullDate = yearExpiry.toLocaleDateString(dateLocale, dateFormat);
+	// @ts-ignore - sveltekit-i18n payload types are stricter than runtime
+	$: semesterLabel = $t('membership.semester_option', { date: semesterDate, price: priceFor('semester', reduced) });
+	// @ts-ignore
+	$: fullLabel = $t('membership.full_year_option', { date: fullDate, price: priceFor('full', reduced) });
 </script>
 
 <h1>{@html $t('membership.heading')}</h1>
@@ -29,38 +46,33 @@
 		<input required name="email" type="email" style="width: 100%; max-width: 300px;" />
 	</label>
 
-	<fieldset>
-		<legend>{@html $t('membership.membership_type')}</legend>
+	<label class="reduced-check">
+		<input type="checkbox" bind:checked={reduced} />
+		{$t('membership.half_price')}
+	</label>
 
-		<ul>
-			<li>{@html $t('membership.type1')}</li>
-			<li>{@html $t('membership.type2')}</li>
-		</ul>
+	<div class="duration" role="radiogroup" aria-label={$t('membership.duration_legend')}>
+		<label>
+			<input type="radio" bind:group={duration} value="semester" />
+			{semesterLabel}
+		</label>
 
-		<p>{@html $t('membership.reduced_price')}</p>
+		<label>
+			<input type="radio" bind:group={duration} value="full" />
+			{fullLabel}
+		</label>
+	</div>
 
-		{#each memberships as membership}
-			<label
-				><input
-					name="membershipType"
-					bind:group={selectedMembership}
-					type="radio"
-					value={membership.id}
-					required
-				/>
-				{currentLocale === 'nb' || currentLocale === 'nn'
-					? membership.norwegian_name
-					: membership.name}
-				{membership.reduced
-					? ` (${currentLocale === 'nb' || currentLocale === 'nn' ? 'redusert' : 'reduced'})`
-					: ''}: {membership.price} kr
-			</label>
-		{/each}
-	</fieldset>
+	<!-- The server expects the original four-id format, so reconstruct it from the form state. -->
+	<input
+		type="hidden"
+		name="membershipType"
+		value={`${duration}-${reduced ? 'reduced' : 'regular'}`}
+	/>
 
 	<p class="total">
 		{@html $t('membership.price')}
-		{memberships.find((m) => m.id === selectedMembership)?.price} kr
+		{priceFor(duration, reduced)} kr
 	</p>
 	<div class="buttons">
 		<button class="payment-button vipps" formaction="?/payWithVipps" aria-label="Pay with Vipps">
@@ -100,8 +112,12 @@
 		flex-wrap: wrap;
 	}
 
-	fieldset {
-		margin-top: 3rem;
+	.reduced-check {
+		margin-top: 2rem;
+	}
+
+	.duration {
+		margin-top: 1.5rem;
 	}
 
 	.payment-button {
@@ -134,4 +150,3 @@
 		margin-top: 3px;
 	}
 </style>
-

@@ -392,6 +392,11 @@ npm run build     # Ensure build passes
 - Server code (APIs, secrets) lives in `+page.server.ts` or `src/lib/utils/*`
 - Static assets go in `static/` or `src/lib/assets/`
 
+## Accessibility
+
+- Radio/checkbox groups need an accessible name — per-option labels alone don't tell screen readers what the group is for. Use `<div role="radiogroup" aria-label={$t('...')}>` (or `<fieldset><legend>` if you want a visible label). See `membership/+page.svelte` for the pattern.
+- Every `<input>` needs an associated `<label>`. Placeholders aren't labels.
+
 ## Security and Safety Guidelines
 
 **For AI assistants:**
