@@ -1,6 +1,7 @@
 /** @type {import('./$types').Actions} */
 import { redirect, type RequestEvent } from '@sveltejs/kit';
 import { saveMemberToGoogleSheet } from '$lib/utils/googleSheets';
+import { saveMemberToTurso, tursoBestEffort } from '$lib/utils/turso';
 import { encryptFormData } from '$lib/utils/crypto';
 import { PaymentType, getVippsAccessToken, initiateVippsPayment } from '$lib/utils/vipps';
 import { calculateExpiryDate } from '$lib/utils/memberships.js';
@@ -14,7 +15,12 @@ async function pay(event: RequestEvent<RouteParams, "/membership">, paymentType:
     let expiryDate = calculateExpiryDate(formData.get("membershipType") as string);
     formData.append("expiryDate", expiryDate.toISOString());
 
-    await saveMemberToGoogleSheet(formData);
+    // Sheets is authoritative during the dual-write phase; Turso is wrapped
+    // in tursoBestEffort so its failures don't block the user from paying.
+    await Promise.all([
+        saveMemberToGoogleSheet(formData),
+        tursoBestEffort('membership/pay', () => saveMemberToTurso(formData))
+    ]);
     const encryptedFormData = await encryptFormData(formData);
 
     let accessTokenResponse = await getVippsAccessToken();

@@ -1,5 +1,6 @@
 /** @type {import('./$types').PageLoad} */
 import { addPaymentDetailsToRegistration, updateEmailStatus } from '$lib/utils/googleSheets';
+import { addPaymentDetailsToTurso, updateEmailStatusInTurso, tursoBestEffort } from '$lib/utils/turso';
 import { decryptFormData } from '$lib/utils/crypto.js';
 import { redirect } from '@sveltejs/kit';
 import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
@@ -23,7 +24,11 @@ export async function load({ url }) {
 
         if (paymentStatus.state !== 'AUTHORIZED') {
             console.error(`Payment ${id} for ${name} cancelled or failed.`);
-            await addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed);
+            await Promise.all([
+                addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed),
+                tursoBestEffort(`registrationComplete/payment-failed/${id}`,
+                    () => addPaymentDetailsToTurso(id, "payment cancelled or failed", PaymentType.CancelledOrFailed))
+            ]);
             return { error: true }
         }
 
@@ -33,7 +38,11 @@ export async function load({ url }) {
         if (paymentStatus.state === 'AUTHORIZED' && !alreadyCaptured) {
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
-            await addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate);
+            await Promise.all([
+                addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate),
+                tursoBestEffort(`registrationComplete/payment/${id}`,
+                    () => addPaymentDetailsToTurso(id, pspReference, paymentType, expiryDateDate))
+            ]);
 
             let emailSent = false;
             try {
@@ -42,7 +51,11 @@ export async function load({ url }) {
             } catch (err: any) {
                 console.error(`[registrationComplete] Failed to send email to ${email}: ${err.message}`);
             }
-            await updateEmailStatus(id, emailSent);
+            await Promise.all([
+                updateEmailStatus(id, emailSent),
+                tursoBestEffort(`registrationComplete/email-status/${id}`,
+                    () => updateEmailStatusInTurso(id, emailSent))
+            ]);
         }
 
         return { name };
