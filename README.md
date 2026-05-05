@@ -49,6 +49,75 @@ npm run build
 
 ---
 
+## Database (Turso)
+
+Membership registrations are persisted to a [Turso](https://turso.tech) (libSQL/SQLite) database. During the migration phase, every write also goes to the legacy Google Sheet — Sheets remains the source of truth until Turso has been verified in parallel.
+
+There are two databases:
+
+| Name | Purpose |
+| --- | --- |
+| `sykkelkjokken-members` | Production. Used by the deployed site. |
+| `sykkelkjokken-members-dev` | Local development. Safe to wipe and re-seed. |
+
+### Set up Turso locally
+
+1. Install the [Turso CLI](https://docs.turso.tech/cli/installation) and `turso auth login`.
+2. Create a token for the dev database:
+   ```sh
+   turso db tokens create sykkelkjokken-members-dev
+   ```
+3. Add the dev URL and token to your local `.env`:
+   ```
+   TURSO_DATABASE_URL=libsql://sykkelkjokken-members-dev-<your-org>.aws-eu-west-1.turso.io
+   TURSO_AUTH_TOKEN=<token from step 2>
+   ```
+4. The other secrets (`VIPPS_*`, `GOOGLE_SHEETS_*`, `GOOGLE_GMAIL_*`, `EVENTBRITE_API_KEY`, `ENCRYPTION_KEY`, `INITIALIZATION_VECTOR`, `LOG_*`) are not in the repo — **ask Sverre for them** if you need them locally. The full list lives in `CLAUDE.md`.
+
+After `.env` is in place, `npm run dev` will dual-write to both Sheets and Turso on every membership registration.
+
+### Apply schema changes
+
+Schema files live in `migrations/`, numbered sequentially. They are plain SQL and idempotent (`CREATE TABLE IF NOT EXISTS`, etc.). Apply with:
+
+```sh
+turso db shell sykkelkjokken-members-dev < migrations/0001_init.sql
+```
+
+(Swap in `sykkelkjokken-members` for production. Be deliberate about which DB you target.)
+
+### Inspect the data
+
+```sh
+turso db shell sykkelkjokken-members-dev
+```
+
+Useful queries:
+
+```sql
+SELECT COUNT(*) FROM members;
+SELECT * FROM members ORDER BY registered_at DESC LIMIT 10;
+SELECT COUNT(*) FROM members WHERE id LIKE 'manual-%'; -- entries imported without a UUID
+```
+
+### Backfill from the legacy Google Sheet
+
+A one-shot script imports historical rows from `raw_data` in the Google Sheet into Turso. It is idempotent (UPSERT on `id`), so re-running won't create duplicates and won't blank existing fields.
+
+```sh
+# Preview without writing
+node --env-file=.env scripts/import-sheets-to-turso.mjs --dry-run
+
+# Run the import (atomic — all rows or nothing)
+npm run db:import-sheets
+```
+
+The script needs both Google Sheets credentials and Turso credentials in your `.env`. For Google auth you can use either `GOOGLE_APPLICATION_CREDENTIALS` (path to the service-account JSON file — recommended) or `GOOGLE_SHEETS_KEY` + `GOOGLE_SHEETS_EMAIL`. **Ask Sverre for the service-account JSON** if you don't have it.
+
+Manual rows in the sheet (no UUID, payment type `MANUAL`) get a stable synthetic id derived from email + dates, so they import cleanly and re-run idempotently.
+
+---
+
 ## How to write a blog post
 
 Posts appear at https://sykkelkjokken.no/blog and in the main navigation menu.

@@ -256,11 +256,26 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 - To change filtering, edit query params or types in `src/lib/types/events.type.ts`
 
 ### Google Sheets (`src/lib/utils/googleSheets.ts`)
-- Acts as database for membership registrations
+- Currently the source of truth for membership registrations during the
+  Turso migration. Will be retired once Turso has run in parallel without
+  drift.
 - Uses service account authentication (JWT)
 - Key functions:
   - `saveMemberToGoogleSheet()` - Initial registration data
   - `addPaymentDetailsToRegistration()` - Updates row with payment confirmation
+
+### Turso (`src/lib/utils/turso.ts`)
+- libSQL/SQLite database that runs in parallel with Google Sheets.
+- Dual-write pattern: every membership write goes to Sheets first
+  (authoritative), then to Turso wrapped in try/catch — Turso failures are
+  logged but never break the user-facing payment flow.
+- Schema lives in `migrations/`. Apply with `turso db shell <db> < migrations/0001_init.sql`.
+- Key functions:
+  - `saveMemberToTurso()` - Initial registration row
+  - `addPaymentDetailsToTurso()` - Payment confirmation update
+  - `updateEmailStatusInTurso()` - Email-sent flag update
+- Cutover plan: once Turso parity is verified, flip the order so Turso
+  becomes authoritative and Sheets becomes the mirror, then drop Sheets.
 
 ### Vipps Payment (`src/lib/utils/vipps.ts`)
 - Integration with Vipps ePayment API
@@ -303,6 +318,10 @@ Required environment variables (set in Netlify or local `.env`):
 
 **Eventbrite:**
 - `EVENTBRITE_API_KEY`
+
+**Turso (database):**
+- `TURSO_DATABASE_URL` (e.g. `libsql://<db>-<org>.turso.io`)
+- `TURSO_AUTH_TOKEN`
 
 **Security:**
 - `ENCRYPTION_KEY` (AES-GCM key for payment data)

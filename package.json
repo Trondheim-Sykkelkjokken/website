@@ -8,7 +8,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "db:import-sheets": "node --env-file=.env scripts/import-sheets-to-turso.mjs"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
@@ -34,6 +35,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@libsql/client": "^0.17.3",
     "@sveltejs/adapter-static": "^3.0.1",
     "googleapis": "^123.0.0",
     "mdsvex": "^0.11.0",
