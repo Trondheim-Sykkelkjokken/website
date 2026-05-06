@@ -1,4 +1,7 @@
-import { createClient, type Client } from '@libsql/client';
+// Use the /web entry so esbuild doesn't pull in @libsql's native sqlite
+// bindings, which aren't bundled into Netlify Functions and cause the
+// /membership POST handler to 500 at module load.
+import { createClient, type Client } from '@libsql/client/web';
 import { TURSO_DATABASE_URL, TURSO_AUTH_TOKEN } from '$env/static/private';
 import type { PaymentType } from './vipps';
 
