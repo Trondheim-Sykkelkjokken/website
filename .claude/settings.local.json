@@ -1,0 +1,14 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(npm run check:*)",
+			"Bash(npm run:*)",
+			"mcp__plugin_context7_context7__query-docs"
+		],
+		"deny": [],
+		"ask": []
+	},
+	"enabledPlugins": {
+		"context7@claude-plugins-official": true
+	}
+}
