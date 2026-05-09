@@ -42,7 +42,7 @@
 						window.netlifyIdentity.on('login', () => {
 							// The /admin SvelteKit route handles its own post-login flow; don't yank users into Decap.
 							if (window.location.pathname.startsWith('/admin')) return;
-							document.location.href = '/CMS/';
+							document.location.href = '/cms/';
 						});
 					}
 				});
