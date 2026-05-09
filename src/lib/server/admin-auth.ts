@@ -2,10 +2,12 @@ import { error } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import type { RequestEvent } from '@sveltejs/kit';
 
-// Validates a Netlify Identity bearer token by asking GoTrue (the authoritative
-// validator for tokens issued by this site's Identity instance). Throws 401 on
-// any failure. In `vite dev` the check is skipped — `dev` is statically inlined
-// to `false` by Vite at build time, so this bypass cannot run in production.
+// Validates a Netlify Identity bearer token by asking the site's Identity
+// service (`/.netlify/identity/user`) to look it up — that endpoint is the
+// authoritative validator for tokens issued by this site's Identity instance.
+// Throws 401 on any failure. In `vite dev` the check is skipped — `dev` is
+// statically inlined to `false` by Vite at build time, so this bypass cannot
+// run in production.
 export async function requireAdmin(event: RequestEvent): Promise<void> {
 	if (dev) return;
 

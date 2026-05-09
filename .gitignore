@@ -9,3 +9,4 @@ node_modules
 .netlify
 sykkelkjokken_credentials.json
 todo.md
+.claude/
