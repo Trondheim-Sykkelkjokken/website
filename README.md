@@ -123,7 +123,7 @@ Manual rows in the sheet (no UUID, payment type `MANUAL`) get a stable synthetic
 Posts appear at https://sykkelkjokken.no/blog and in the main navigation menu.
 
 1. **Go to the CMS**
-   - Visit: **https://sykkelkjokken.no/admin**
+   - Visit: **https://sykkelkjokken.no/cms**
    - If you don't have access yet: ask an admin to add you as a collaborator on Netlify, then check your email for an invitation
 
 2. **Create a New Post**

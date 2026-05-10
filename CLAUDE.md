@@ -243,10 +243,10 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 
 ### Netlify CMS
 
-- CMS config: `static/admin/config.yml`
+- CMS config: `static/cms/config.yml`
 - Collections include `settings` (header_message, memberships) and localized markdown pages
 - Media files go to `static/uploads/`
-- Access at `/admin`
+- Access at `/cms` (the SvelteKit-based admin lives at `/admin` — different page, same Netlify Identity user list)
 
 ## External Integrations
 
@@ -359,7 +359,7 @@ Configurable header banner content, keyed by locale. Read in `src/routes/+layout
 ### Update Header Banner
 
 1. Edit `src/config/header_message.json` (structure matches locales)
-2. If exposing via CMS, verify the `settings` collection in `static/admin/config.yml`
+2. If exposing via CMS, verify the `settings` collection in `static/cms/config.yml`
 
 ### Add a Translation Key
 
