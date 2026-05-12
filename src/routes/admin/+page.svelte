@@ -7,6 +7,7 @@
 	let error: string | null = null;
 	let loading = false;
 	let view: 'active' | 'all' = 'active';
+	let includeAttempted = false;
 	let copyFeedback: string | null = null;
 	let copyTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -17,7 +18,10 @@
 	}
 
 	$: activeMembers = (members ?? []).filter(isActive);
-	$: displayedMembers = view === 'active' ? activeMembers : (members ?? []);
+	$: displayedMembers =
+		view === 'active'
+			? activeMembers
+			: (members ?? []).filter((m) => includeAttempted || Boolean(m.expiry_date));
 
 	function showCopyFeedback(msg: string) {
 		copyFeedback = msg;
@@ -95,6 +99,12 @@
 			<label
 				><input type="radio" bind:group={view} value="all" /> All historical memberships</label
 			>
+			{#if view === 'all'}
+				<label class="sub-option">
+					<input type="checkbox" bind:checked={includeAttempted} />
+					Include attempted registrations
+				</label>
+			{/if}
 		</fieldset>
 		<span class="count">{displayedMembers.length} shown</span>
 		<button type="button" on:click={copyEmails} disabled={!displayedMembers.length}>
@@ -170,6 +180,12 @@
 
 	.view-toggle label {
 		cursor: pointer;
+	}
+
+	.view-toggle .sub-option {
+		font-size: 0.9rem;
+		opacity: 0.85;
+		margin-left: 1.25rem;
 	}
 
 	.copy-feedback {

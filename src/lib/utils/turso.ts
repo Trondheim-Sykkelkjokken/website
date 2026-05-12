@@ -102,11 +102,15 @@ export interface MemberCounts {
 }
 
 export async function getMemberCounts(): Promise<MemberCounts> {
+	// Only successful registrations count — `expiry_date IS NOT NULL` means the
+	// payment was captured and a membership period was assigned. Cancelled/
+	// failed payment attempts are excluded.
 	const res = await getClient().execute(
 		`SELECT
             COUNT(*) AS total,
-            SUM(CASE WHEN expiry_date IS NOT NULL AND datetime(expiry_date) > datetime('now') THEN 1 ELSE 0 END) AS active
-         FROM members`
+            SUM(CASE WHEN datetime(expiry_date) > datetime('now') THEN 1 ELSE 0 END) AS active
+         FROM members
+         WHERE expiry_date IS NOT NULL`
 	);
 	const row = res.rows[0] as unknown as { total: number; active: number | null };
 	return { total: Number(row.total), active: Number(row.active ?? 0) };

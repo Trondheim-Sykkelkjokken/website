@@ -116,6 +116,23 @@ The script needs both Google Sheets credentials and Turso credentials in your `.
 
 Manual rows in the sheet (no UUID, payment type `MANUAL`) get a stable synthetic id derived from email + dates, so they import cleanly and re-run idempotently.
 
+### Backfill from historical CSV (pre-Vipps era)
+
+A separate script imports the 2020–2024 paid memberships from the old Google Forms / invoice workflow CSV. By default it reads `./members.csv`; pass a different path as the first positional arg if needed.
+
+```sh
+# Preview without writing
+node --env-file=.env scripts/import-historical-members-csv.mjs --dry-run
+
+# Run the import (atomic — all rows or nothing)
+node --env-file=.env scripts/import-historical-members-csv.mjs
+
+# Against a different DB (e.g. prod), swap the env file:
+node --env-file=.env.prod scripts/import-historical-members-csv.mjs
+```
+
+Imports rows where `Betalt = TRUE` only, uses synthetic ids prefixed `legacy-` (distinct from `manual-`), and maps only the fields that fit the Turso schema. Re-runs are idempotent via UPSERT.
+
 ---
 
 ## How to write a blog post
