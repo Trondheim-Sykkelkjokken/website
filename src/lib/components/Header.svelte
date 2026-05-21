@@ -17,7 +17,14 @@
 </script>
 
 {#if open}
-	<div class="nav-overlay" on:click={() => setNavOpen(false)}></div>
+	<div
+		class="nav-overlay"
+		role="button"
+		tabindex="-1"
+		aria-label="Close menu"
+		on:click={() => setNavOpen(false)}
+		on:keydown={(e) => e.key === 'Escape' && setNavOpen(false)}
+	></div>
 {/if}
 
 <header>

@@ -12,8 +12,6 @@ const KEYS = {
     membership: ['/membership', '/membership/registrationComplete'],
     email: ['/membership/registrationComplete'],
     events: ['/events'],
-    resources: ['/resources'],
-    tools: ['/tools'],
     volunteer: ['/volunteer'],
     counter: undefined,
 };
@@ -40,5 +38,3 @@ export const config = {
 };
 
 export const { t, loading, locales, locale, translations, loadTranslations, addTranslations, setLocale, setRoute } = new i18n(config);
-
-loading.subscribe(($loading) => $loading && console.log('Loading translations...'));
