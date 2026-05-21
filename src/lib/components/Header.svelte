@@ -39,7 +39,7 @@
 
 	<!-- The second row of the header, with the navigation -->
 	<div id="nav-wrapper">
-		<nav class:hidden={!open}>
+		<nav class:hidden={!open} data-sveltekit-preload-data="eager">
 			<NavLink title={$t('layout.home')} href="/" />
 			<NavLink title={$t('layout.events')} href="/events" />
 			<NavLink title={$t('layout.membership')} href="/membership" />
