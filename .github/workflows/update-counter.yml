@@ -2,7 +2,7 @@ name: Update fixed bikes counter
 
 on:
   schedule:
-    - cron: '0 3 * * 4'  #  “At 03:00 on Thursday.”
+    - cron: '7 3 * * 4'  #  “At 03:07 on Thursday.” Offset from :00 to avoid GitHub's high-contention top-of-hour scheduling delays.
   workflow_dispatch:
 
 jobs:
