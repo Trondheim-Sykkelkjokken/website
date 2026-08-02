@@ -6,7 +6,7 @@
 	let members: MemberRow[] | null = null;
 	let error: string | null = null;
 	let loading = false;
-	let view: 'active' | 'all' = 'active';
+	let view: 'active' | 'recent' | 'all' = 'active';
 	let includeAttempted = false;
 	let copyFeedback: string | null = null;
 	let copyTimer: ReturnType<typeof setTimeout> | null = null;
@@ -17,11 +17,37 @@
 		return !Number.isNaN(d.getTime()) && d.getTime() > Date.now();
 	}
 
+	// Memberships always end on 30 June or 31 December, so the expiry date alone
+	// tells us which semester someone was a member in. No start date needed.
+	// A full-year membership bought last autumn also expires 30 June, so it
+	// falls in the spring window.
+	function previousSemester(now: Date): { from: Date; to: Date; label: string } {
+		const year = now.getFullYear();
+		return now.getMonth() <= 5
+			? {
+					from: new Date(year - 1, 6, 1),
+					to: new Date(year, 0, 1),
+					label: `autumn ${year - 1}`
+				}
+			: { from: new Date(year, 0, 1), to: new Date(year, 6, 1), label: `spring ${year}` };
+	}
+
+	const semester = previousSemester(new Date());
+
+	function inPreviousSemester(m: MemberRow): boolean {
+		if (!m.expiry_date) return false;
+		const d = new Date(m.expiry_date);
+		if (Number.isNaN(d.getTime())) return false;
+		return d >= semester.from && d < semester.to;
+	}
+
 	$: activeMembers = (members ?? []).filter(isActive);
 	$: displayedMembers =
 		view === 'active'
 			? activeMembers
-			: (members ?? []).filter((m) => includeAttempted || Boolean(m.expiry_date));
+			: view === 'recent'
+				? (members ?? []).filter((m) => isActive(m) || inPreviousSemester(m))
+				: (members ?? []).filter((m) => includeAttempted || Boolean(m.expiry_date));
 
 	function showCopyFeedback(msg: string) {
 		copyFeedback = msg;
@@ -95,6 +121,9 @@
 			<legend class="sr-only">Filter</legend>
 			<label
 				><input type="radio" bind:group={view} value="active" /> Currently active memberships</label
+			>
+			<label
+				><input type="radio" bind:group={view} value="recent" /> Recent members (active + {semester.label})</label
 			>
 			<label
 				><input type="radio" bind:group={view} value="all" /> All historical memberships</label
