@@ -1,5 +1,5 @@
 {
     "subject": "Velkomen til Trondheim sykkelkjøkken!",
-    "bodyText": "Hei {name} og velkomen til sykkelkjøkkenet! Medlemskapet ditt er gyldig til {expiry}. Du må gjerne bli med i <a href=\"{signal_url}\">Signal-gruppa</a> vår for å kome i kontakt med andre medlemar. Lurar du på noko, er det berre å svare på denne e-posten. Trill pent og vel møtt på mekkeonsdag! Vi held ope kvar onsdag 17-20 på Bøker og bylab (Professor Brochs gate 2).",
+    "bodyText": "Hei, {name}. Velkomen til sykkelkjøkkenet! Medlemskapet ditt er gyldig til {expiry}. Du må gjerne bli med i <a href=\"{signal_url}\">Signal-gruppa</a> vår for å kome i kontakt med andre medlemar. Lurar du på noko, er det berre å svare på denne e-posten. Trill pent og vel møtt på mekkeonsdag! Vi held ope kvar onsdag 17-20 på Bøker og bylab (Professor Brochs gate 2).",
     "websiteLinkText": "sykkelkjokken.no"
 }
