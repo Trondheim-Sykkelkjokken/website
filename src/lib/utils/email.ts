@@ -17,21 +17,22 @@ const MAX_RETRIES = 2;
 export async function sendMail(address: string, name: string, expiryDate: Date) {
     const subject = t.get('email.subject');
     const formatedExpiryDate = formatDate(expiryDate, locale.get());
-    const body = t.get('email.bodyText')
+    const bodyText = t.get('email.bodyText')
         .replace("{name}", name)
         .replace("{expiry}", formatedExpiryDate)
         .replace("{signal_url}", SIGNAL_GROUP_URL);
+    const websiteLinkText = t.get('email.websiteLinkText');
+    const body = wrapEmailHtml(subject, bodyText, websiteLinkText);
     const senderName = "Trondheim sykkelkjøkken";
-    const encodedSenderName = `=?UTF-8?B?${Buffer.from(senderName, 'utf8').toString('base64')}?=`;
     const rawMessage = Buffer.from(
         `To: ${address}\r\n` +
-        `From: ${encodedSenderName} <kontakt@sykkelkjokken.no>\r\n` +
+        `From: ${encodeMimeWord(senderName)} <kontakt@sykkelkjokken.no>\r\n` +
         `Reply-To: kontakt@sykkelkjokken.no\r\n` +
-        `Subject: =?UTF-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=\r\n` +
+        `Subject: ${encodeMimeWord(subject)}\r\n` +
         `Content-Type: text/html; charset=UTF-8\r\n` +
         `Content-Transfer-Encoding: base64\r\n\r\n` +
         Buffer.from(body, 'utf8').toString('base64')
-    ).toString("base64").replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, "");
+    ).toString("base64url");
 
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
         try {
@@ -49,6 +50,26 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
             }
         }
     }
+}
+
+function wrapEmailHtml(title: string, bodyText: string, websiteLinkText: string) {
+    return `<!DOCTYPE html>
+<html>
+<body style="margin:0; padding:0;">
+<table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px; margin:0 auto; font-family:Arial, Helvetica, sans-serif;">
+<tr><td style="padding:24px 16px; font-size:15px; line-height:1.6; color:#2b2b2b;">
+<img src="https://sykkelkjokken.no/hjerte-email.png" alt="" width="192" style="display:block; margin:0 auto 16px; width:192px; max-width:48%; height:auto;">
+<h1 style="margin:0 0 12px; font-size:20px;">${title}</h1>
+${bodyText}
+<p style="margin:16px 0 0;"><a href="https://sykkelkjokken.no">${websiteLinkText}</a></p>
+</td></tr>
+</table>
+</body>
+</html>`;
+}
+
+function encodeMimeWord(text: string) {
+    return `=?UTF-8?B?${Buffer.from(text, 'utf8').toString('base64')}?=`;
 }
 
 function formatDate(date: Date, locale: string) {
