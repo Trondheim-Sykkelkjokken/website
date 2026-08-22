@@ -1,5 +1,9 @@
 {
     "heading": "Events",
-    "paragraph1": "You can also find upcoming events on our <a href=\"https://www.facebook.com/trondheimsykkelkjokken/events\">Facebook page</a> or on <a href=\"https://www.eventbrite.co.uk/o/trondheim-sykkelkjkken-31570234453\">Eventbrite.</a>",
-    "no_events": "No upcoming events. Send us a mail with suggestions at <a href=\"mailto:<kontakt@sykkelkjokken.no\">kontakt@sykkelkjokken.no</a>"
+    "paragraph1": "Come by our weekly repair workshop, or join one of our special events below. You can also find us on our <a href=\"https://www.facebook.com/trondheimsykkelkjokken/events\">Facebook page</a>.",
+    "no_events": "No upcoming events. Send us a mail with suggestions at <a href=\"mailto:kontakt@sykkelkjokken.no\">kontakt@sykkelkjokken.no</a>",
+    "view_on_facebook": "View on Facebook",
+    "calendar_intro": "Add our events to your calendar:",
+    "calendar_subscribe": "Subscribe",
+    "calendar_download": "Download (.ics)"
 }

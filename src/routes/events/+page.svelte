@@ -1,68 +1,128 @@
 <script>
-	/** @type {import('./$types').PageData} */
-	// @ts-ignore
-	import { t } from '$lib/translations';
+	// @ts-nocheck
+	import { t, locale } from '$lib/translations';
+	import { page } from '$app/stores';
+	import { pickText } from '$lib/utils/events';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCalendar from 'svelte-icons-pack/ai/AiOutlineCalendar';
-	import LocationPin from 'svelte-icons-pack/hi/HiOutlineLocationMarker';
+	import LocationPin from 'svelte-icons-pack/ai/AiOutlineEnvironment';
+	import FacebookIcon from 'svelte-icons-pack/ai/AiOutlineFacebook';
 
 	export let data;
-	let events = data.events;
-	let upcomingEvents = events.filter((event) => new Date(event.start.local) > new Date());
+
+	const feedPath = '/events/calendar.ics';
+	// webcal:// makes calendar apps subscribe (and keep refreshing) rather than
+	// download a one-time snapshot.
+	$: subscribeHref = `webcal://${$page.url.host}${feedPath}`;
+
+	const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+	// English uses a 12-hour clock ("5 PM", "8:30 PM"); Norwegian uses 24-hour.
+	function time12(t) {
+		const [h, m] = t.split(':').map(Number);
+		return new Date(2000, 0, 1, h, m).toLocaleTimeString('en', {
+			hour: 'numeric',
+			minute: m ? '2-digit' : undefined,
+			hour12: true
+		});
+	}
+	function timeLabel(start, end, locale) {
+		if (locale === 'en') {
+			const s = time12(start);
+			if (!end) return s;
+			const e = time12(end);
+			// share the meridiem when both ends are AM or both PM: "5–8 PM"
+			return s.slice(-2) === e.slice(-2) ? `${s.slice(0, -3)}–${e}` : `${s}–${e}`;
+		}
+		// Norwegian: 24-hour, compact when both ends are on the hour ("17–20").
+		if (!end) return start.endsWith(':00') ? String(Number(start.slice(0, 2))) : start;
+		if (start.endsWith(':00') && end.endsWith(':00')) {
+			return `${Number(start.slice(0, 2))}–${Number(end.slice(0, 2))}`;
+		}
+		return `${start}–${end}`;
+	}
+
+	// Resolve localized text here (not in helper functions) so the expressions
+	// depend on $t and $locale directly and re-run when the language switches.
+	$: cards = data.events.map((event) => {
+		return {
+			...event,
+			title: pickText(event.title, $locale),
+			description: pickText(event.description, $locale),
+			dateLabel: capitalize(
+				new Date(`${event.date}T00:00:00`).toLocaleDateString($locale, {
+					weekday: 'short',
+					day: 'numeric',
+					month: 'short'
+				})
+			),
+			timeLabel: timeLabel(event.start_time, event.end_time, $locale),
+			mapsHref: event.location
+				? event.map_url ||
+					`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`
+				: ''
+		};
+	});
 </script>
 
 <h1>{@html $t('events.heading')}</h1>
-<p>
-	{@html $t('events.paragraph1')}
+<p>{@html $t('events.paragraph1')}</p>
+
+<p class="calendar-cta">
+	{$t('events.calendar_intro')}
+	<a class="info-link" href={subscribeHref}>
+		<Icon src={AiOutlineCalendar} />
+		{$t('events.calendar_subscribe')}
+	</a>
+	<a class="info-link" href={feedPath} download="sykkelkjokken.ics"
+		>{$t('events.calendar_download')}</a
+	>
 </p>
 
-{#if upcomingEvents.length > 0}
+{#if cards.length > 0}
 	<ul>
-		{#each upcomingEvents as event}
+		{#each cards as card (card.id)}
 			<li>
 				<div class="event-block">
-					<a class="card-link" href={event.url} target="_blank" rel="noopener noreferrer">
-						<img alt="" src={event.logo?.original?.url ?? 'default.jpg'} /></a
-					>
-					<div class="event-layout">
-						<a class="card-link" href={event.url} target="_blank" rel="noopener noreferrer">
-							<h2>{event.name.text}</h2>
-							<p>{event.description.text}</p>
-						</a>
+					<div class="event-body">
+						<h2>{card.title}</h2>
+						<p>{card.description}</p>
+					</div>
 
-						<div class="info-block">
-							<time>
-								<Icon src={AiOutlineCalendar} />
-								{new Date(event.start.local).toLocaleDateString([], {
-									day: '2-digit',
-									month: 'short'
-								})}
-								{new Date(event.start.local).toLocaleTimeString([], {
-									hour: '2-digit',
-									minute: '2-digit'
-								})}
-							</time>
-							<span title={event.venue?.address.localized_address_display}
-								><Icon src={LocationPin} /><a
-									class="maps-link"
-									href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue?.address.localized_address_display)}`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									{event.venue?.name ?? 'Event venue unknown'}</a
-								></span
+					<div class="info-block">
+						<time>
+							<Icon src={AiOutlineCalendar} />
+							{card.dateLabel} · {card.timeLabel}
+						</time>
+						{#if card.location}
+							<a
+								class="info-link"
+								href={card.mapsHref}
+								target="_blank"
+								rel="noopener noreferrer"
 							>
-						</div>
+								<Icon src={LocationPin} />
+								{card.location}
+							</a>
+						{/if}
+						{#if card.facebook_url}
+							<a
+								class="info-link"
+								href={card.facebook_url}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<Icon src={FacebookIcon} />
+								{$t('events.view_on_facebook')}
+							</a>
+						{/if}
 					</div>
 				</div>
-				<hr />
 			</li>
 		{/each}
 	</ul>
 {:else}
-	<p>
-		{@html $t('events.no_events')}
-	</p>
+	<p>{@html $t('events.no_events')}</p>
 {/if}
 
 <style>
@@ -72,6 +132,10 @@
 
 	li {
 		list-style-type: none;
+		margin-bottom: 1rem;
+	}
+	li:last-child {
+		margin-bottom: 0;
 	}
 
 	h2 {
@@ -81,23 +145,13 @@
 	.event-block {
 		background-color: #fcf6d2;
 		padding: 1rem;
-		transition: filter 0.3s ease;
-		transition: scale 0.3s ease;
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
 	}
 
-	.event-block:hover {
-		filter: drop-shadow(10px 10px 20px rgba(36, 36, 36, 0.5));
-		scale: 102%;
-	}
-
-	/* Dashed line to separate entries -- keep style in sync with blog page! */
-	hr {
-		border: none;
-		border-top: 1px dashed #fcf6d2;
-		margin: 1em 0;
-	}
-	li:last-child hr {
-		display: none;
+	.event-body {
+		flex: 1;
 	}
 
 	.info-block {
@@ -105,44 +159,37 @@
 		margin-left: 1rem;
 		font-weight: bold;
 		background-color: #a6d2d5;
-		padding: 0.3rem;
+		padding: 0.5rem;
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
-		min-width: 165px;
-		max-height: 3rem;
+		gap: 0.4rem;
+		min-width: 200px;
+		height: fit-content;
 	}
 
-	img {
-		filter: drop-shadow(4px 4px 4px #c1c1c1);
-	}
-
-	.maps-link {
+	.info-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
 		color: #393939;
+		text-decoration: underline;
 	}
 
-	.event-layout {
+	.calendar-cta {
 		display: flex;
-		flex-direction: row;
-	}
-
-	.card-link {
-		text-decoration: none;
-		color: inherit;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.3rem 1rem;
 	}
 
 	@media (max-width: 600px) {
-		.event-layout {
+		.event-block {
 			flex-direction: column-reverse;
 		}
 
 		.info-block {
 			margin-left: 0;
-		}
-
-		.event-block:hover {
-			filter: unset;
-			scale: unset;
 		}
 	}
 </style>
