@@ -13,7 +13,8 @@
 
 script_dir="${0%/*}"
 stats="${script_dir}/stats.json"
-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTAb0c8yvAgAzAfvy1obxFJwP_kxqA8ln1jAr5r1YNCzEQ59EQUxPqJnzjBDkVDlIjOQG8sMTRj0_CK/pub?gid=79885722&single=true&output=csv"
+url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0-zazMWTO0FDy81UyHkQL-6xQ3SXXK09PMiZKybB4T--yDTHLw6yHgfYrWGS00h9tEr6ge2_9QgD-/pub?gid=79885722&single=true&output=csv"
+
 
 # Grab first field from first line of CSV file
 bikes_fixed=$(curl -fsSL "$url" | head -n1 | cut -d',' -f1)
