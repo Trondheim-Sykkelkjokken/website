@@ -1,5 +1,7 @@
+set default-list := true
+
 # Start a dev server and open the website in your browser
-open:
+run:
     npm run dev -- --open ||:
 
 # Start a dev server and host the website locally, show QR for mobile
