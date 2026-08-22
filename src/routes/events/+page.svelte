@@ -92,7 +92,7 @@
 					<div class="info-block">
 						<time>
 							<Icon src={AiOutlineCalendar} />
-							{card.dateLabel} · {card.timeLabel}
+							{card.dateLabel} {card.timeLabel}
 						</time>
 						{#if card.location}
 							<a
