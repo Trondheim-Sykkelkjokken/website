@@ -19,6 +19,8 @@ url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0-zazMWTO0FDy81UyHkQL-6xQ
 # Grab first field from first line of CSV file
 bikes_fixed=$(curl -fsSL "$url" | head -n1 | cut -d',' -f1)
 
+echo "Bikes fixed: $bikes_fixed" >&2
+
 jq \
     --argjson bikes_fixed "$bikes_fixed" \
     --arg date "$(date +%F)" \
