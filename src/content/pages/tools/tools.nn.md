@@ -6,29 +6,28 @@ title: Tools page
 
 Alle  <a href="/membership">medlemar</a> av sykkelkjøkkenet kan nytte verktøya våre:
 
-- Justerbar pin-nøkkel SPA-6C
+- Justerbar tappnøkkel SPA-6
 - Justerbar momentnøkkel
-- Skiftenøkkel
-- Sekskantnøklar
-- Sykkelpumer
-- Luftesett Shimano, Avid, Magura
-- Krankverktøy BBT-32
-- Krankverktøy TL-FC33
-- Kassettavdragar Shimano/Sram
-- Frikransavdragar FR-1.3
-- Frikransavdragar FR-5.2
+- Skiftenøklar
+- Unbrakonøklar
+- Sykkelpumper
+- Bremseluftesett
+- Kranklagerverktøy BBT-32
+- Kranklagerverktøy TL-FC33
+- Kassettavdragar FR-5.2
 - Kassettnøkkel
 - Kjedemålar
-- Kjedekuttar
+- Kjedekuttar CT-3.3
 - Kjedelåstang
 - Kombinasjonstang
-- Konusnøklar 13, 14, 15, 17 mm
+- Konusnøklar
 - Kranklagernøkkel HCW-4
 - Krankavdragar CWP-7C
 - Avbitertang
 - Skyvelære
-- Filer
+- Metallfiler
 - Flattang
+- Frikransavdragar FR-1.3
 - Girøreavrettar
 - Styrelagernøkkel
 - Latmannsarm
@@ -42,6 +41,7 @@ Alle  <a href="/membership">medlemar</a> av sykkelkjøkkenet kan nytte verktøya
 - Saks
 - Skrujern av alle moglege slag
 - Pipenøklar
+- Fastnøklar
 - Eikemålar
 - Eikespenningsmålar
 - Eikenøklar

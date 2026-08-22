@@ -6,42 +6,41 @@ title: Tools page
 
 All <a href="/membership">members</a> of the bike kitchen can use our tools:
 
-- Adjustable pin spanner SPA-6C
+- Adjustable pin spanner SPA-6
 - Adjustable torque driver
-- Adjustable wrench
+- Adjustable spanners
 - Allen keys
 - Bike pumps
-- Bleeding kit Shimano, Avid, Magura
+- Brake bleed kits
 - Bottom bracket tool BBT-32
 - Bottom bracket tool TL-FC33
-- Cassett remover tool Shimano/Sram
-- Cassette lockring tool FR-1.3
 - Cassette lockring tool FR-5.2
-- Cassette wrench
+- Cassette spanner
 - Chain checker
-- Chain cutter
-- Chain link pliers
+- Chain tool CT-3.3
+- Master link pliers
 - Combination pliers
-- Cone wrenches 13, 14, 15, 17mm
-- Crank and bottom bracket wrench HCW-4
+- Cone spanners
+- Crank and bottom bracket spanner HCW-4
 - Crank puller CWP-7C
 - Cutting pliers
-- Digital Calliper
-- Files
-- Flat pliers
+- Callipers
+- Metal files
+- Flat nose pliers
+- Freewheel remover FR-1.3
 - Hanger genie
-- Headset wrench
-- Joint handle
+- Headset spanner
+- Jointed handle
 - Knife
-- Metal saw
-- Park Tool Repair stands
+- Hacksaw
+- Repair stands
 - Pedal wrench
 - Polygrip pliers
 - Puncture repair kits
 - Ratchet screwdriver
 - Scissors
 - Screw drivers in all kinds of sizes
-- Socket set
+- Sockets
 - Spanners
 - Spoke gauge
 - Spoke tension meter
