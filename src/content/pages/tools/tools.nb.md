@@ -6,7 +6,7 @@ title: Tools page
 
 Alle <a href="/membership">medlemmer</a> av sykkelkjøkkenet kan bruke våre verktøy:
 
-- Kranklagerverktøy SPA-6
+- Justerbar tappnøkkel SPA-6
 - Justerbar momentnøkkel
 - Skiftenøkler
 - Unbrakonøkler
