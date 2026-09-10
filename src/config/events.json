@@ -1,0 +1,47 @@
+{
+	"seasons": [{ "start": "2026-08-19", "end": "2026-12-16" }],
+	"recurring": [
+		{
+			"id": "workshop",
+			"frequency": "weekly",
+			"weekday": 3,
+			"start_time": "17:00",
+			"end_time": "20:00",
+			"location": "Bøker & bylab",
+			"map_url": "https://maps.app.goo.gl/J2TtvS5rAPA2AV8c6",
+			"facebook_url": "",
+			"skip": [],
+			"title": {
+				"en": "Workshop Wednesday",
+				"nb": "Mekkeonsdag",
+				"nn": "Mekkeonsdag"
+			},
+			"description": {
+				"en": "The Bike Kitchen is open! Come fix your bike, get help from our volunteers, or just hang out. All members welcome.",
+				"nb": "Sykkelkjøkkenet er åpent! Kom og fiks sykkelen din, få hjelp fra våre frivillige eller bare heng. Alle medlemmer velkomne.",
+				"nn": "Sykkelkjøkkenet er ope! Kom og fiks sykkelen din, få hjelp frå dei frivillige eller berre heng. Alle medlemmer velkomne."
+			}
+		},
+		{
+			"id": "pub",
+			"frequency": "monthly-first",
+			"weekday": 3,
+			"start_time": "20:30",
+			"facebook_url": "",
+			"location": "Mellom",
+			"map_url": "https://maps.app.goo.gl/UjyEv5mUeExqDfnSA",
+			"skip": [],
+			"title": {
+				"en": "We go to the pub",
+				"nb": "Etterheng",
+				"nn": "Etterheng"
+			},
+			"description": {
+				"en": "After fixing bikes we head to the local bar for a drink. Come to the Bike Kitchen before closing (20:00) or meet us there. Everyone welcome!",
+				"nb": "Når vi er ferdige med å skru sykler, stikker vi til den lokale baren for en drink. Kom til sykkelkjøkkenet før stengetid (20:00) eller møt oss der. Alle er velkomne!",
+				"nn": "Når vi er ferdige med å skru syklar, stikk vi til den lokale baren for eit glas. Kom til sykkelkjøkkenet før stengjetid (20:00) eller møt oss der. Alle er velkomne!"
+			}
+		}
+	],
+	"special": []
+}
