@@ -7,7 +7,7 @@ import type { RequestHandler } from './$types';
 // request so subscribers pick up config changes (season end dates, skips, new
 // specials). Calendar text is currently only provided in Norwegian.
 export const GET: RequestHandler = async () => {
-	const today = new Date().toISOString().slice(0, 10);
+	const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Oslo' });
 	const events = getUpcomingEvents(eventsConfig as EventsConfig, today);
 
 	const items = events.map((event) => ({
