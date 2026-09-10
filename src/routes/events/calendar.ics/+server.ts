@@ -5,7 +5,7 @@ import type { RequestHandler } from './$types';
 
 // Calendar feed of all upcoming events (recurring + specials). Served fresh per
 // request so subscribers pick up config changes (season end dates, skips, new
-// specials). Text is Norwegian for now.
+// specials). Calendar text is currently only provided in Norwegian.
 export const GET: RequestHandler = async () => {
 	const today = new Date().toISOString().slice(0, 10);
 	const events = getUpcomingEvents(eventsConfig as EventsConfig, today);
