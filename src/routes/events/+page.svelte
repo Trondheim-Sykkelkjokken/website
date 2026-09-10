@@ -26,13 +26,17 @@
 			hour12: true
 		});
 	}
+
+	function enTimeRange(start: string, end: string): string {
+		const s = time12(start);
+		const e = time12(end);
+		// share the meridiem when both ends are AM or both PM: "5–8 PM"
+		return s.slice(-2) === e.slice(-2) ? `${s.slice(0, -3)}–${e}` : `${s}–${e}`;
+	}
+
 	function timeLabel(start: string, end: string | undefined, locale: string): string {
 		if (locale === 'en') {
-			const s = time12(start);
-			if (!end) return s;
-			const e = time12(end);
-			// share the meridiem when both ends are AM or both PM: "5–8 PM"
-			return s.slice(-2) === e.slice(-2) ? `${s.slice(0, -3)}–${e}` : `${s}–${e}`;
+			return end ? enTimeRange(start, end) : time12(start);
 		}
 		// Norwegian: 24-hour, compact when both ends are on the hour ("17–20").
 		if (!end) return start.endsWith(':00') ? String(Number(start.slice(0, 2))) : start;
