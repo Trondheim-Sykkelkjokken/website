@@ -1,24 +1,24 @@
-<script>
-	// @ts-nocheck
+<script lang="ts">
 	import { t, locale } from '$lib/translations';
 	import { page } from '$app/stores';
 	import { pickText } from '$lib/utils/events';
+	import type { EventOccurrence } from '$lib/utils/events';
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import AiOutlineCalendar from 'svelte-icons-pack/ai/AiOutlineCalendar';
 	import LocationPin from 'svelte-icons-pack/ai/AiOutlineEnvironment';
 	import FacebookIcon from 'svelte-icons-pack/ai/AiOutlineFacebook';
 
-	export let data;
+	export let data: { events: EventOccurrence[] };
 
 	const feedPath = '/events/calendar.ics';
 	// webcal:// makes calendar apps subscribe (and keep refreshing) rather than
 	// download a one-time snapshot.
 	$: subscribeHref = `webcal://${$page.url.host}${feedPath}`;
 
-	const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+	const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 	// English uses a 12-hour clock ("5 PM", "8:30 PM"); Norwegian uses 24-hour.
-	function time12(t) {
+	function time12(t: string): string {
 		const [h, m] = t.split(':').map(Number);
 		return new Date(2000, 0, 1, h, m).toLocaleTimeString('en', {
 			hour: 'numeric',
@@ -26,7 +26,7 @@
 			hour12: true
 		});
 	}
-	function timeLabel(start, end, locale) {
+	function timeLabel(start: string, end: string | undefined, locale: string): string {
 		if (locale === 'en') {
 			const s = time12(start);
 			if (!end) return s;
