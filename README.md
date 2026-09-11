@@ -51,7 +51,9 @@ npm run build
 
 ## Database (Turso)
 
-Membership registrations are persisted to a [Turso](https://turso.tech) (libSQL/SQLite) database. During the migration phase, every write also goes to the legacy Google Sheet — Sheets remains the source of truth until Turso has been verified in parallel.
+Membership registrations are persisted to a [Turso](https://turso.tech) (libSQL/SQLite) database, which is the only store for them. The registration is written before the user is sent to Vipps, and the payment is written before the confirmation email is sent — both throw on failure, so a membership is never issued without its data stored.
+
+The legacy Google Sheet is no longer written or read. It is frozen historical data; the migration to Turso was verified at 308/308 rows with no drift before the write path was removed.
 
 There are two databases:
 
@@ -72,9 +74,9 @@ There are two databases:
    TURSO_DATABASE_URL=libsql://sykkelkjokken-members-dev-<your-org>.aws-eu-west-1.turso.io
    TURSO_AUTH_TOKEN=<token from step 2>
    ```
-4. The other secrets (`VIPPS_*`, `GOOGLE_SHEETS_*`, `GOOGLE_GMAIL_*`, `EVENTBRITE_API_KEY`, `ENCRYPTION_KEY`, `INITIALIZATION_VECTOR`, `LOG_*`) are not in the repo — **ask Sverre for them** if you need them locally. The full list lives in `CLAUDE.md`.
+4. The other secrets (`VIPPS_*`, `GOOGLE_GMAIL_*`, `EVENTBRITE_API_KEY`, `ENCRYPTION_KEY`, `INITIALIZATION_VECTOR`) are not in the repo — **ask Sverre for them** if you need them locally. The full list lives in `CLAUDE.md`.
 
-After `.env` is in place, `npm run dev` will dual-write to both Sheets and Turso on every membership registration.
+After `.env` is in place, `npm run dev` will write every membership registration to Turso.
 
 ### Apply schema changes
 
@@ -97,41 +99,9 @@ Useful queries:
 ```sql
 SELECT COUNT(*) FROM members;
 SELECT * FROM members ORDER BY registered_at DESC LIMIT 10;
-SELECT COUNT(*) FROM members WHERE id LIKE 'manual-%'; -- entries imported without a UUID
+SELECT COUNT(*) FROM members WHERE id LIKE 'manual-%'; -- imported without a UUID
+SELECT COUNT(*) FROM members WHERE id LIKE 'legacy-%'; -- 2020-2024, pre-Vipps era
 ```
-
-### Backfill from the legacy Google Sheet
-
-A one-shot script imports historical rows from `raw_data` in the Google Sheet into Turso. It is idempotent (UPSERT on `id`), so re-running won't create duplicates and won't blank existing fields.
-
-```sh
-# Preview without writing
-node --env-file=.env scripts/import-sheets-to-turso.mjs --dry-run
-
-# Run the import (atomic — all rows or nothing)
-npm run db:import-sheets
-```
-
-The script needs both Google Sheets credentials and Turso credentials in your `.env`. For Google auth you can use either `GOOGLE_APPLICATION_CREDENTIALS` (path to the service-account JSON file — recommended) or `GOOGLE_SHEETS_KEY` + `GOOGLE_SHEETS_EMAIL`. **Ask Sverre for the service-account JSON** if you don't have it.
-
-Manual rows in the sheet (no UUID, payment type `MANUAL`) get a stable synthetic id derived from email + dates, so they import cleanly and re-run idempotently.
-
-### Backfill from historical CSV (pre-Vipps era)
-
-A separate script imports the 2020–2024 paid memberships from the old Google Forms / invoice workflow CSV. By default it reads `./members.csv`; pass a different path as the first positional arg if needed.
-
-```sh
-# Preview without writing
-node --env-file=.env scripts/import-historical-members-csv.mjs --dry-run
-
-# Run the import (atomic — all rows or nothing)
-node --env-file=.env scripts/import-historical-members-csv.mjs
-
-# Against a different DB (e.g. prod), swap the env file:
-node --env-file=.env.prod scripts/import-historical-members-csv.mjs
-```
-
-Imports rows where `Betalt = TRUE` only, uses synthetic ids prefixed `legacy-` (distinct from `manual-`), and maps only the fields that fit the Turso schema. Re-runs are idempotent via UPSERT.
 
 ---
 

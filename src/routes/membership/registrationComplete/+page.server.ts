@@ -1,6 +1,5 @@
 /** @type {import('./$types').PageLoad} */
-import { addPaymentDetailsToRegistration, updateEmailStatus } from '$lib/utils/googleSheets';
-import { addPaymentDetailsToTurso, updateEmailStatusInTurso, tursoBestEffort } from '$lib/utils/turso';
+import { addPaymentDetailsToTurso, updateEmailStatusInTurso } from '$lib/utils/turso';
 import { decryptFormData } from '$lib/utils/crypto.js';
 import { redirect } from '@sveltejs/kit';
 import { getVippsAccessToken, getPaymentStatus, capturePayment, PaymentType } from '$lib/utils/vipps';
@@ -24,11 +23,7 @@ export async function load({ url }) {
 
         if (paymentStatus.state !== 'AUTHORIZED') {
             console.error(`Payment ${id} for ${name} cancelled or failed.`);
-            await Promise.all([
-                addPaymentDetailsToRegistration(id, "payment cancelled or failed", PaymentType.CancelledOrFailed),
-                tursoBestEffort(`registrationComplete/payment-failed/${id}`,
-                    () => addPaymentDetailsToTurso(id, "payment cancelled or failed", PaymentType.CancelledOrFailed))
-            ]);
+            await addPaymentDetailsToTurso(id, "payment cancelled or failed", PaymentType.CancelledOrFailed);
             return { error: true }
         }
 
@@ -38,11 +33,10 @@ export async function load({ url }) {
         if (paymentStatus.state === 'AUTHORIZED' && !alreadyCaptured) {
             console.info(`Capturing payment for ${name} with id ${id}`);
             await capturePayment(id, amount, vippsToken.access_token);
-            await Promise.all([
-                addPaymentDetailsToRegistration(id, pspReference, paymentType, expiryDateDate),
-                tursoBestEffort(`registrationComplete/payment/${id}`,
-                    () => addPaymentDetailsToTurso(id, pspReference, paymentType, expiryDateDate))
-            ]);
+            // Store the payment before telling the member they have a
+            // membership: a failed write throws, so the confirmation email is
+            // never sent for a membership we have no record of.
+            await addPaymentDetailsToTurso(id, pspReference, paymentType, expiryDateDate);
 
             let emailSent = false;
             try {
@@ -51,11 +45,13 @@ export async function load({ url }) {
             } catch (err: any) {
                 console.error(`[registrationComplete] Failed to send email to ${email}: ${err.message}`);
             }
-            await Promise.all([
-                updateEmailStatus(id, emailSent),
-                tursoBestEffort(`registrationComplete/email-status/${id}`,
-                    () => updateEmailStatusInTurso(id, emailSent))
-            ]);
+            // The membership is already stored and the member already told, so
+            // a failure to record the email flag must not fail the page.
+            try {
+                await updateEmailStatusInTurso(id, emailSent);
+            } catch (err: any) {
+                console.error(`[registrationComplete] Failed to record email status for ${id}: ${err.message}`);
+            }
         }
 
         return { name };

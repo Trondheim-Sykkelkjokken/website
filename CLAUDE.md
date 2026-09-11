@@ -94,10 +94,8 @@ src/
     utils/                  # Utility functions
       crypto.ts             # Form data encryption/decryption for payment flow
       email.ts              # Email sending utilities
-      googleSheets.ts       # Google Sheets integration
       vipps.ts              # Vipps payment integration
       memberships.ts        # Membership logic and expiry calculations
-      logging.ts            # Remote logging utilities
     assets/                 # Images for optimization via imagetools
   content/
     posts/                  # Blog posts (.md with frontmatter)
@@ -206,7 +204,7 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 2. Server action (`+page.server.ts`):
    - Generates UUID
    - Calculates membership expiry date (`src/lib/utils/memberships.ts`)
-   - Saves to Google Sheets (`src/lib/utils/googleSheets.ts`)
+   - Saves to Turso (`src/lib/utils/turso.ts`)
    - Encrypts form data (`src/lib/utils/crypto.ts`)
    - Initiates Vipps payment (`src/lib/utils/vipps.ts`)
 3. User redirects to Vipps for payment
@@ -215,7 +213,7 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
    - Decrypts payload
    - Verifies payment status
    - Captures payment
-   - Updates Google Sheet with payment details
+   - Updates the Turso row with payment details
    - Sends confirmation email
 
 **Important:** Form data is encrypted using AES-GCM and passed via URL query parameter to ensure data integrity during the payment redirect flow.
@@ -255,27 +253,24 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 - Organization ID: 486298958703
 - To change filtering, edit query params or types in `src/lib/types/events.type.ts`
 
-### Google Sheets (`src/lib/utils/googleSheets.ts`)
-- Currently the source of truth for membership registrations during the
-  Turso migration. Will be retired once Turso has run in parallel without
-  drift.
-- Uses service account authentication (JWT)
-- Key functions:
-  - `saveMemberToGoogleSheet()` - Initial registration data
-  - `addPaymentDetailsToRegistration()` - Updates row with payment confirmation
-
 ### Turso (`src/lib/utils/turso.ts`)
-- libSQL/SQLite database that runs in parallel with Google Sheets.
-- Dual-write pattern: every membership write goes to Sheets first
-  (authoritative), then to Turso wrapped in try/catch — Turso failures are
-  logged but never break the user-facing payment flow.
+- libSQL/SQLite database, the only store for membership registrations.
+- Write ordering is the safety property: the registration is stored before the
+  user is sent to Vipps, and the payment is stored before the confirmation
+  email is sent. Both writes throw on failure, so a membership is never issued
+  without its data stored. Only the `email_sent` flag is log-and-continue —
+  it is cosmetic and the member has already been told by then.
 - Schema lives in `migrations/`. Apply with `turso db shell <db> < migrations/0001_init.sql`.
 - Key functions:
   - `saveMemberToTurso()` - Initial registration row
   - `addPaymentDetailsToTurso()` - Payment confirmation update
   - `updateEmailStatusInTurso()` - Email-sent flag update
-- Cutover plan: once Turso parity is verified, flip the order so Turso
-  becomes authoritative and Sheets becomes the mirror, then drop Sheets.
+- Migration from Google Sheets is complete: parity was verified at 308/308
+  rows with no drift, then the Sheets write path and its migration tooling were
+  deleted. Nothing in the repo reads or writes a Google Sheet for membership
+  data, and the `GOOGLE_SHEETS_*` credentials are no longer used — recover
+  `scripts/import-sheets-to-turso.mjs` from git history if the frozen sheet
+  ever needs reconciling again.
 
 ### Vipps Payment (`src/lib/utils/vipps.ts`)
 - Integration with Vipps ePayment API
@@ -290,10 +285,6 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 - Sends membership confirmation emails
 - Uses OAuth2 authentication
 
-### Remote Logging (`src/lib/utils/logging.ts`)
-- `remoteLog()` function for server-side logging
-- Logs to external service for monitoring payments and integrations
-
 ## Environment Variables
 
 Required environment variables (set in Netlify or local `.env`):
@@ -304,11 +295,6 @@ Required environment variables (set in Netlify or local `.env`):
 - `VIPPS_OCP_APIM_SUBSCRIPTION_KEY` (exact name - keep consistent)
 - `VIPPS_MSN` (Merchant Serial Number)
 - `VIPPS_BASE_URL`
-
-**Google Sheets:**
-- `GOOGLE_SHEETS_KEY` (Service account private key)
-- `GOOGLE_SHEETS_EMAIL` (Service account email)
-- `GOOGLE_SHEETS_ID` (Spreadsheet ID)
 
 **Gmail:**
 - `GOOGLE_GMAIL_CLIENT_ID`
@@ -326,10 +312,6 @@ Required environment variables (set in Netlify or local `.env`):
 **Security:**
 - `ENCRYPTION_KEY` (AES-GCM key for payment data)
 - `INITIALIZATION_VECTOR` (AES-GCM IV)
-
-**Logging:**
-- `LOG_SECRET`
-- `LOG_HOST`
 
 **Misc:**
 - `SIGNAL_GROUP_URL` (included in membership confirmation emails)
@@ -435,8 +417,8 @@ npm run build     # Ensure build passes
 ## Known Technical Debt
 
 From `debt.md`:
-- No database - relies on Google Sheets
-- No comprehensive logging infrastructure
+- No logging infrastructure — server code uses `console.*`, which on Netlify
+  means the function logs only. `debt.md` tracks finding a real service.
 - Many magic strings - needs proper TypeScript types for memberships, payments
 - Missing Vipps type definitions
 - `crypto.ts` function should accept typed parameters instead of FormData
@@ -460,7 +442,7 @@ From `debt.md`:
 **External integrations:**
 - Events: `src/routes/events/+page.server.ts`
 - Membership: `src/routes/membership/+page.server.ts`
-- Utils: `src/lib/utils/` (googleSheets, vipps, email, crypto, logging)
+- Utils: `src/lib/utils/` (turso, vipps, email, crypto)
 
 **Content:**
 - Blog: `src/routes/blog/` and `src/content/posts/`
@@ -488,7 +470,7 @@ Goal: <one sentence>
 Change scope:
 - Files to touch: <list exact paths>
 - Affected locale keys: <keys or files>
-- External services: <Eventbrite|Vipps|Sheets|Gmail> (no secret changes)
+- External services: <Vipps|Turso|Gmail> (no secret changes)
 
 Constraints:
 - SvelteKit patterns as in repo

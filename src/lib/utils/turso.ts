@@ -34,22 +34,13 @@ export async function saveMemberToTurso(formData: FormData) {
 	});
 }
 
-export async function tursoBestEffort(label: string, fn: () => Promise<void>) {
-	try {
-		await fn();
-	} catch (e) {
-		const msg = e instanceof Error ? e.message : String(e);
-		console.error(`[${label}] Turso write failed: ${msg}`);
-	}
-}
-
 export async function addPaymentDetailsToTurso(
 	id: string,
 	pspReference: string,
 	paymentType: PaymentType,
 	expiryDate?: Date
 ) {
-	await getClient().execute({
+	const res = await getClient().execute({
 		sql: `UPDATE members
               SET psp_reference = ?,
                   payment_date = ?,
@@ -64,6 +55,13 @@ export async function addPaymentDetailsToTurso(
 			id
 		]
 	});
+
+	// saveMemberToTurso ran before the payment was initiated, so the row must
+	// exist. If it doesn't, the payment is stored nowhere — fail rather than let
+	// the caller send a confirmation email for it.
+	if (res.rowsAffected === 0) {
+		throw new Error(`[addPaymentDetailsToTurso] No member row with id ${id}`);
+	}
 }
 
 export async function updateEmailStatusInTurso(id: string, sent: boolean) {
