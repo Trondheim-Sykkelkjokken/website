@@ -8,7 +8,7 @@ This is the website for Trondheim Bike Kitchen (Trondheim sykkelkjøkken) at htt
 
 **Key Features:**
 - Public information about the bike kitchen
-- Event listings (via Eventbrite integration)
+- Event listings (generated from `src/config/events.json`, plus an .ics feed)
 - Membership registration and payment processing (via Vipps)
 - Multilingual content (English, Norwegian Bokmål, Norwegian Nynorsk)
 - Blog functionality
@@ -69,8 +69,9 @@ src/
     +layout.svelte          # Root layout component
     +page.svelte            # Home page
     blog/                   # Blog index + [slug] dynamic route
-    events/                 # Eventbrite integration
-      +page.server.ts       # Fetches events from Eventbrite API
+    events/                 # Event listings from src/config/events.json
+      +page.server.ts       # Expands the event config into upcoming occurrences
+      calendar.ics/         # Subscribable .ics feed of upcoming events
     membership/             # Membership registration + Vipps payment flow
       +page.server.ts       # Handles payment flow
       registrationComplete/ # Payment callback handler
@@ -89,11 +90,11 @@ src/
     translations/           # i18n config + loaders
       index.js              # Central i18n configuration
     types/                  # TypeScript type definitions
-      events.type.ts        # Eventbrite API response types
       post.type.ts          # Blog post types
     utils/                  # Utility functions
       crypto.ts             # Form data encryption/decryption for payment flow
       email.ts              # Email sending utilities
+      events.ts             # Expands recurring event rules; builds the .ics feed
       vipps.ts              # Vipps payment integration
       memberships.ts        # Membership logic and expiry calculations
     assets/                 # Images for optimization via imagetools
@@ -220,10 +221,27 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 
 ### Events Page
 
-1. Server load fetches from Eventbrite API (org ID `486298958703`)
-2. Fetches venues separately
-3. Merges venue data with events
-4. Renders list with types from `src/lib/types/events.type.ts`
+1. `src/config/events.json` holds `seasons` (date ranges events live within),
+   `recurring` (rules, not dates) and `special` (explicit one-offs).
+2. `getUpcomingEvents()` in `src/lib/utils/events.ts` expands each recurring
+   rule into concrete dates inside the seasons — `weekly` is every configured
+   weekday, `monthly-first` is the first such weekday of each month — drops
+   dates before today and anything in the rule's `skip` list, appends specials,
+   and sorts chronologically.
+3. `+page.server.ts` asks for the next 6 occurrences. `today` is the Norwegian
+   local date (`Europe/Oslo`), not UTC, so an event does not disappear in the
+   small hours of its own day.
+4. `+page.svelte` resolves localized text in a reactive block so cards re-render
+   when the language switcher fires, and formats times per locale (English
+   12-hour with a shared meridiem, `5–8 PM`; Norwegian 24-hour compacted to
+   `17–20` when both ends are on the hour).
+5. `/events/calendar.ics` serves the same expansion with no limit as a
+   VCALENDAR. Events use floating local time (no VTIMEZONE), and open-ended
+   events get a nominal `DURATION:PT2H` so calendar clients render them.
+
+The page offers `webcal://` to subscribe — that stays in sync as the config
+changes — and a plain download as a one-time snapshot. Feed text is Norwegian
+only.
 
 ### Blog System
 
@@ -247,11 +265,6 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 - Access at `/cms` (the SvelteKit-based admin lives at `/admin` — different page, same Netlify Identity user list)
 
 ## External Integrations
-
-### Eventbrite (`src/routes/events/+page.server.ts`)
-- Fetches live events and venues from Eventbrite API
-- Organization ID: 486298958703
-- To change filtering, edit query params or types in `src/lib/types/events.type.ts`
 
 ### Turso (`src/lib/utils/turso.ts`)
 - libSQL/SQLite database, the only store for membership registrations.
@@ -283,7 +296,9 @@ Minimal stores - only `navOpen` for mobile menu state in `src/stores.ts`. Server
 
 ### Gmail (`src/lib/utils/email.ts`)
 - Sends membership confirmation emails
-- Uses OAuth2 authentication
+- Uses OAuth2 authentication, called over plain `fetch` (token refresh + one
+  `messages.send` POST). Deliberately no `googleapis` SDK — it dragged in
+  `node-fetch@2` and its punycode deprecation warning for two HTTP calls.
 
 ## Environment Variables
 
@@ -300,10 +315,7 @@ Required environment variables (set in Netlify or local `.env`):
 - `GOOGLE_GMAIL_CLIENT_ID`
 - `GOOGLE_GMAIL_SECRET`
 - `GOOGLE_GMAIL_REFRESH_TOKEN`
-- `GOOGLE_GMAIL_REDIRECT_URI`
-
-**Eventbrite:**
-- `EVENTBRITE_API_KEY`
+- `GOOGLE_GMAIL_REDIRECT_URI` (not read at runtime; only needed out-of-band when minting a new refresh token)
 
 **Turso (database):**
 - `TURSO_DATABASE_URL` (e.g. `libsql://<db>-<org>.turso.io`)
@@ -354,9 +366,21 @@ Configurable header banner content, keyed by locale. Read in `src/routes/+layout
 1. Edit `src/config/memberships.json`
 2. Validate membership type logic in `src/lib/utils/memberships.ts`
 
-### Modify Eventbrite Filters
+### Change Events
 
-Edit URL in `src/routes/events/+page.server.ts`. Keep auth header. Update TS types if response shape changes.
+Edit `src/config/events.json` — no code change needed for the usual cases:
+
+- **Cancel one occurrence:** add its `YYYY-MM-DD` to that rule's `skip` list.
+- **New term:** update `seasons` with the new start/end dates.
+- **One-off event:** add an entry to `special` (needs `date` and `start_time`;
+  `end_time`, `location`, `map_url` and `facebook_url` are all optional).
+- **Move a recurring event:** change its `weekday` (0 = Sunday) or times.
+
+Titles and descriptions are localized inline in the JSON (`en`/`nb`/`nn`), not
+in the translation files. `pickText()` falls back locale → nb → en → nn, so a
+partially translated special still renders.
+
+Not exposed in the CMS — event changes go through git.
 
 ### Add a Blog Post
 
@@ -440,7 +464,7 @@ From `debt.md`:
 - Membership products: `src/config/memberships.json`
 
 **External integrations:**
-- Events: `src/routes/events/+page.server.ts`
+- Events: `src/config/events.json`, `src/lib/utils/events.ts`
 - Membership: `src/routes/membership/+page.server.ts`
 - Utils: `src/lib/utils/` (turso, vipps, email, crypto)
 

@@ -74,7 +74,7 @@ There are two databases:
    TURSO_DATABASE_URL=libsql://sykkelkjokken-members-dev-<your-org>.aws-eu-west-1.turso.io
    TURSO_AUTH_TOKEN=<token from step 2>
    ```
-4. The other secrets (`VIPPS_*`, `GOOGLE_GMAIL_*`, `EVENTBRITE_API_KEY`, `ENCRYPTION_KEY`, `INITIALIZATION_VECTOR`) are not in the repo — **ask Sverre for them** if you need them locally. The full list lives in `CLAUDE.md`.
+4. The other secrets (`VIPPS_*`, `GOOGLE_GMAIL_*`, `ENCRYPTION_KEY`, `INITIALIZATION_VECTOR`) are not in the repo — **ask Sverre for them** if you need them locally. The full list lives in `CLAUDE.md`.
 
 After `.env` is in place, `npm run dev` will write every membership registration to Turso.
 

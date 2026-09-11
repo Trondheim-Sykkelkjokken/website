@@ -1,15 +1,35 @@
-import { GOOGLE_GMAIL_CLIENT_ID, GOOGLE_GMAIL_SECRET, GOOGLE_GMAIL_REFRESH_TOKEN, GOOGLE_GMAIL_REDIRECT_URI, SIGNAL_GROUP_URL } from '$env/static/private';
-import { google } from "googleapis";
+import { GOOGLE_GMAIL_CLIENT_ID, GOOGLE_GMAIL_SECRET, GOOGLE_GMAIL_REFRESH_TOKEN, SIGNAL_GROUP_URL } from '$env/static/private';
 import { t, locale } from '$lib/translations';
 
-function createGmailClient() {
-    const oAuth2Client = new google.auth.OAuth2(
-        GOOGLE_GMAIL_CLIENT_ID,
-        GOOGLE_GMAIL_SECRET,
-        GOOGLE_GMAIL_REDIRECT_URI
-    );
-    oAuth2Client.setCredentials({ refresh_token: GOOGLE_GMAIL_REFRESH_TOKEN });
-    return google.gmail({ version: "v1", auth: oAuth2Client });
+async function getAccessToken(): Promise<string> {
+    const res = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            client_id: GOOGLE_GMAIL_CLIENT_ID,
+            client_secret: GOOGLE_GMAIL_SECRET,
+            refresh_token: GOOGLE_GMAIL_REFRESH_TOKEN,
+            grant_type: 'refresh_token'
+        })
+    });
+    if (!res.ok) {
+        throw new Error(`Token refresh failed: ${res.status} ${await res.text()}`);
+    }
+    return (await res.json()).access_token;
+}
+
+async function sendRawMessage(raw: string) {
+    const res = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${await getAccessToken()}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ raw })
+    });
+    if (!res.ok) {
+        throw new Error(`Gmail send failed: ${res.status} ${await res.text()}`);
+    }
 }
 
 const MAX_RETRIES = 2;
@@ -36,11 +56,7 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
 
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
         try {
-            const gmail = createGmailClient();
-            await gmail.users.messages.send({
-                userId: "me",
-                requestBody: { raw: rawMessage },
-            });
+            await sendRawMessage(rawMessage);
             console.info(`[sendMail] Message sent to ${address}`);
             return;
         } catch (err) {
@@ -48,6 +64,9 @@ export async function sendMail(address: string, name: string, expiryDate: Date) 
             if (attempt === MAX_RETRIES) {
                 throw err;
             }
+            // Back off between attempts: the failures worth retrying here are
+            // Gmail rate limits and 5xx, which an immediate resend just hits again.
+            await new Promise((resolve) => setTimeout(resolve, 500 * 2 ** attempt));
         }
     }
 }
