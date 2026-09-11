@@ -51,9 +51,7 @@ npm run build
 
 ## Database (Turso)
 
-Membership registrations are persisted to a [Turso](https://turso.tech) (libSQL/SQLite) database, which is the only store for them. The registration is written before the user is sent to Vipps, and the payment is written before the confirmation email is sent — both throw on failure, so a membership is never issued without its data stored.
-
-The legacy Google Sheet is no longer written or read. It is frozen historical data; the migration to Turso was verified at 308/308 rows with no drift before the write path was removed.
+Membership registrations are persisted to a [Turso](https://turso.tech) (libSQL/SQLite) database. The registration is written before the user is sent to Vipps, and the payment is written before the confirmation email is sent — both throw on failure, so a membership is never issued without its data stored.
 
 There are two databases:
 
