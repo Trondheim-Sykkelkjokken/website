@@ -4,8 +4,8 @@
 // a small fetch helper so admin pages don't have to poke at `window` directly.
 
 export type IdentityUser = {
-	token?: { access_token?: string };
 	email?: string;
+	jwt: () => Promise<string>;
 };
 
 export type NetlifyIdentity = {
@@ -22,14 +22,14 @@ export function getIdentity(): NetlifyIdentity | null {
 	return (window as unknown as { netlifyIdentity?: NetlifyIdentity }).netlifyIdentity ?? null;
 }
 
-export function getIdentityToken(): string | null {
-	return getIdentity()?.currentUser()?.token?.access_token ?? null;
+export async function getIdentityToken(): Promise<string | null> {
+	return (await getIdentity()?.currentUser()?.jwt()) ?? null;
 }
 
 // GET helper that injects the bearer token if the user is logged in.
 // Throws on non-2xx so callers can wrap in try/catch and render the error.
 export async function adminGet<T>(path: string): Promise<T> {
-	const token = getIdentityToken();
+	const token = await getIdentityToken();
 	const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
 	const res = await fetch(path, { headers });
 	if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
