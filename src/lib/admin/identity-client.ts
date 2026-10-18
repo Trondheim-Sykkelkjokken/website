@@ -23,7 +23,13 @@ export function getIdentity(): NetlifyIdentity | null {
 }
 
 export async function getIdentityToken(): Promise<string | null> {
-	return (await getIdentity()?.currentUser()?.jwt()) ?? null;
+	const identity = getIdentity();
+	try {
+		return (await identity?.currentUser()?.jwt()) ?? null;
+	} catch {
+		identity?.logout();
+		return null;
+	}
 }
 
 // GET helper that injects the bearer token if the user is logged in.
