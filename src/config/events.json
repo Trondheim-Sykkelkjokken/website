@@ -43,5 +43,24 @@
 			}
 		}
 	],
-	"special": []
+	"special": [
+		{
+			"date": "2026-11-04",
+			"start_time": "17:00",
+			"end_time": "20:00",
+			"location": "Bøker & bylab",
+			"map_url": "https://maps.app.goo.gl/J2TtvS5rAPA2AV8c6",
+			"facebook_url": "",
+			"title": {
+				"en": "",
+				"nb": "Bytt til piggdekk med oss",
+				"nn": ""
+			},
+			"description": {
+				"en": "TODO description",
+				"nb": "TODO beskrivelse",
+				"nn": "TODO skildring"
+			}
+		}
+	]
 }
