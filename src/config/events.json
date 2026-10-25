@@ -10,7 +10,7 @@
 			"location": "Bøker & bylab",
 			"map_url": "https://maps.app.goo.gl/J2TtvS5rAPA2AV8c6",
 			"facebook_url": "",
-			"skip": [],
+			"skip": ["2026-11-04"],
 			"title": {
 				"en": "Workshop Wednesday",
 				"nb": "Mekkeonsdag",
@@ -43,5 +43,38 @@
 			}
 		}
 	],
-	"special": []
+	"special": [
+		{
+			"date": "2026-11-04",
+			"start_time": "17:00",
+			"end_time": "18:00",
+			"location": "Bøker & bylab",
+			"map_url": "https://maps.app.goo.gl/J2TtvS5rAPA2AV8c6",
+			"facebook_url": "",
+			"title": {
+				"en": "Short Workshop Wednesday",
+				"nb": "Kort mekkeonsdag"
+			},
+			"description": {
+				"en": "The Bike Kitchen is open! All members welcome. Today we transition to the winter type event fram 18, see below.",
+				"nb": "Sykkelkjøkkenet er åpent! Alle medlemmer velkomne. Fra 18 har vi åpent piggdekk-arrangement, se under."
+			}
+		},
+		{
+			"date": "2026-11-04",
+			"start_time": "18:00",
+			"end_time": "20:00",
+			"location": "Bøker & bylab",
+			"map_url": "https://maps.app.goo.gl/J2TtvS5rAPA2AV8c6",
+			"facebook_url": "https://www.facebook.com/events/1801518257848576",
+			"title": {
+				"en": "Change to winter tires with us",
+				"nb": "Bytt til piggdekk med oss"
+			},
+			"description": {
+				"en": "Soon the frost is here and it's time to change to winter tires on your bike. So we're arranging our annual tire-change event. We have tools and volunteers who will help out during the event. Bring your bike and tires and we'll teach you how to put them on. The event is for free and open to everyone! Trondheim Sykkelservice will also come to help. They'll bring a selection of winter tires that you can buy. If you already know what you need, it's best to preorder through their webshop as \"click & collect\" and write \"Tire-change, Trondheim bike kitchen\" and they'll bring it to the event. PS! You can apply for a refund for purchasing and installing new winter tires for your bike from Trondheim kommune. We can give you a receipt for the installation, which can be used as documentation along with the receipt from buying the tires. NB! The application must be approved BEFORE buying the tires.",
+				"nb": "Snart er det frost ute, og det er på tide å bytte til vinterdekk på sykkelen. Derfor skal vi snart ha vårt årlige dekkbyttearrangement. Vi stiller med verktøy og frivillige som kan assistere. Ta med deg sykkel og dekk så lærer vi deg å bytte dekk. Arrangementet er gratis og åpent for alle! Trondheim Sykkelservice kommer også for å hjelpe. De tar med seg et utvalg av vinterdekk man kan kjøpe. Om man vet hva man skal ha, er det best å gå inn i deres nettbutikk i forkant og bestille som \"click & collect\". Merk bestillingen med \"Dekkbytte, Trondheim sykkelkjøkken\", så tar de det med til arrangementet. PS! Du kan søke om tilskudd til vinterdekk fra Trondheim kommune. Vi kan gi en kvittering på montering av dekk, som kan brukes som dokumentasjon, sammen med kjøpskvittering for dekkene. Vær obs på at du må få søknaden innvilget FØR du kjøper dekkene."
+			}
+		}
+	]
 }
