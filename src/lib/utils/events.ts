@@ -153,7 +153,7 @@ export function getUpcomingEvents(
 	for (const s of config.special) {
 		if (s.date < today) continue;
 		occurrences.push({
-			id: `special-${s.date}`,
+			id: `special-${s.date}-${s.start_time}`,
 			date: s.date,
 			start_time: s.start_time,
 			end_time: s.end_time || undefined,
